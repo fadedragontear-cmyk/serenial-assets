@@ -1,4 +1,4 @@
-/* Celdra Corner (Serenial) - lightweight animated chat companion */
+/* Celdra Corner (Serenial) - sprite-sheet canvas chat companion */
 
 :root {
   --celdra-size: 128px;
@@ -8,8 +8,6 @@
   --celdra-transition: 220ms ease;
   --celdra-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
   --celdra-glow: radial-gradient(circle at 50% 50%, rgba(98, 196, 255, 0.28), rgba(98, 196, 255, 0));
-  --celdra-drift-x: 7px;
-  --celdra-bob-y: 7px;
 }
 
 #celdra-corner {
@@ -19,7 +17,7 @@
   width: var(--celdra-size);
   height: var(--celdra-size);
   z-index: var(--celdra-z);
-  pointer-events: none; /* preserve underlying controls */
+  pointer-events: none;
   transform-origin: center bottom;
 }
 
@@ -37,17 +35,16 @@
   transition: opacity var(--celdra-transition), transform var(--celdra-transition);
 }
 
-#celdra-corner .celdra-pet {
+#celdra-corner .celdra-canvas {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  image-rendering: auto;
+  display: block;
+  image-rendering: pixelated;
   filter: drop-shadow(var(--celdra-shadow));
   transform-origin: center bottom;
-  animation: celdra-idle 4.8s ease-in-out infinite;
-  transition: opacity var(--celdra-transition), transform var(--celdra-transition), filter var(--celdra-transition);
-  will-change: transform, opacity;
+  transition: opacity var(--celdra-transition), filter var(--celdra-transition);
 }
 
 #celdra-corner .celdra-bubble {
@@ -82,78 +79,26 @@
   transform: rotate(-45deg);
 }
 
-#celdra-corner[data-state="excited"] .celdra-pet {
-  animation: celdra-excited 1.8s ease-in-out infinite;
-}
-
-#celdra-corner[data-state="sleepy"] .celdra-pet {
-  animation: celdra-sleepy 6.2s ease-in-out infinite;
+#celdra-corner[data-state="sleep"] .celdra-canvas {
   opacity: 0.62;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.22));
 }
 
-#celdra-corner[data-state="sleepy"] .celdra-glow {
+#celdra-corner[data-state="sleep"] .celdra-glow {
   opacity: 0.34;
   transform: scale(0.9);
 }
 
-#celdra-corner[data-state="speaking"] .celdra-bubble {
+#celdra-corner[data-speaking="true"] .celdra-bubble {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-#celdra-corner[data-state="speaking"] .celdra-pet {
-  animation: celdra-speaking 1.2s ease-in-out infinite;
-}
-
-@keyframes celdra-idle {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(-1deg) scale(1);
-  }
-  25% {
-    transform: translate3d(calc(var(--celdra-drift-x) * 0.55), calc(var(--celdra-bob-y) * -0.65), 0) rotate(0.4deg) scale(1.01);
-  }
-  50% {
-    transform: translate3d(var(--celdra-drift-x), calc(var(--celdra-bob-y) * -1), 0) rotate(1.05deg) scale(1.016);
-  }
-  75% {
-    transform: translate3d(calc(var(--celdra-drift-x) * 0.45), calc(var(--celdra-bob-y) * -0.3), 0) rotate(0.2deg) scale(1.008);
-  }
-}
-
-@keyframes celdra-excited {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(-1deg) scale(1.03);
-  }
-  30% {
-    transform: translate3d(calc(var(--celdra-drift-x) * 0.8), calc(var(--celdra-bob-y) * -1.55), 0) rotate(1.5deg) scale(1.07);
-  }
-  60% {
-    transform: translate3d(calc(var(--celdra-drift-x) * 1.15), calc(var(--celdra-bob-y) * -0.65), 0) rotate(-0.45deg) scale(1.055);
-  }
-  80% {
-    transform: translate3d(calc(var(--celdra-drift-x) * 0.5), calc(var(--celdra-bob-y) * -0.25), 0) rotate(0.55deg) scale(1.045);
-  }
-}
-
-@keyframes celdra-sleepy {
-  0%, 100% { transform: translateY(0) rotate(-0.8deg) scale(0.98); }
-  50% { transform: translateY(-3px) rotate(0.8deg) scale(0.98); }
-}
-
-@keyframes celdra-speaking {
-  0%, 100% { transform: translateY(0) scale(1); }
-  45% { transform: translateY(-5px) scale(1.02); }
-}
-
-/* Responsive sizing to keep UI unobtrusive on narrow screens */
 @media (max-width: 980px) {
   :root {
     --celdra-size: 108px;
     --celdra-right: 2%;
     --celdra-bottom: 10%;
-    --celdra-drift-x: 6px;
-    --celdra-bob-y: 6px;
   }
 
   #celdra-corner .celdra-bubble {
@@ -167,8 +112,6 @@
     --celdra-size: 84px;
     --celdra-right: 1.5%;
     --celdra-bottom: 6%;
-    --celdra-drift-x: 4px;
-    --celdra-bob-y: 4px;
   }
 
   #celdra-corner .celdra-bubble {
@@ -176,12 +119,5 @@
     padding: 6px 10px;
     right: calc(100% - 8px);
     bottom: 58%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #celdra-corner .celdra-pet {
-    animation-duration: 0.001ms;
-    animation-iteration-count: 1;
   }
 }
