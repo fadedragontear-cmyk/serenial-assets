@@ -27,7 +27,6 @@
     maxSpeechGapMs: 46000
   };
 
-  // Drawing / centering controls
   const DRAW_SCALE = 0.78;
   const DRAW_OFFSET_X = -2;
   const DRAW_OFFSET_Y = 18;
@@ -40,8 +39,6 @@
     default: { x: 0, y: 0 }
   };
 
-  // Very conservative prototype frame map.
-  // Adjust only after confirming the file loads and appears.
   const ANIMS = {
     idle: [
       { x: 0, y: 0, w: 256, h: 256, d: 250 },
@@ -68,7 +65,6 @@
     ]
   };
 
-  // Checkerboard masking
   const MASK_BRIGHTNESS_MIN = 205;
   const MASK_NEUTRAL_TOLERANCE = 30;
 
@@ -273,6 +269,7 @@
 
   function loadSpriteSheet() {
     const image = new Image();
+    image.crossOrigin = "anonymous";
     image.decoding = "async";
     image.onload = function () {
       sprite.image = image;
@@ -309,27 +306,32 @@
     octx.imageSmoothingEnabled = false;
     octx.drawImage(sprite.image, frame.x, frame.y, frame.w, frame.h, 0, 0, frame.w, frame.h);
 
-    const imageData = octx.getImageData(0, 0, frame.w, frame.h);
-    const pixels = imageData.data;
+    try {
+      const imageData = octx.getImageData(0, 0, frame.w, frame.h);
+      const pixels = imageData.data;
 
-    for (let i = 0; i < pixels.length; i += 4) {
-      const r = pixels[i];
-      const g = pixels[i + 1];
-      const b = pixels[i + 2];
-      const a = pixels[i + 3];
-      if (a <= 8) continue;
+      for (let i = 0; i < pixels.length; i += 4) {
+        const r = pixels[i];
+        const g = pixels[i + 1];
+        const b = pixels[i + 2];
+        const a = pixels[i + 3];
+        if (a <= 8) continue;
 
-      const min = Math.min(r, g, b);
-      const max = Math.max(r, g, b);
-      const brightness = (r + g + b) / 3;
-      const spread = max - min;
+        const min = Math.min(r, g, b);
+        const max = Math.max(r, g, b);
+        const brightness = (r + g + b) / 3;
+        const spread = max - min;
 
-      if (brightness >= MASK_BRIGHTNESS_MIN && spread <= MASK_NEUTRAL_TOLERANCE) {
-        pixels[i + 3] = 0;
+        if (brightness >= MASK_BRIGHTNESS_MIN && spread <= MASK_NEUTRAL_TOLERANCE) {
+          pixels[i + 3] = 0;
+        }
       }
+
+      octx.putImageData(imageData, 0, 0);
+    } catch (err) {
+      console.warn("Celdra sprite masking skipped due to tainted canvas.", err);
     }
 
-    octx.putImageData(imageData, 0, 0);
     sprite.frameCache[key] = offscreen;
     return offscreen;
   }
