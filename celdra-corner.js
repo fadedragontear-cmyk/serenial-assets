@@ -22,7 +22,9 @@
     excitedDurationMs: 7000,
     speakingDurationMs: 4500,
     minSpeechGapMs: 24000,
-    maxSpeechGapMs: 46000
+    maxSpeechGapMs: 46000,
+    motdSelector: "#motd",
+    mountRetryLimit: 25
   };
 
   var state = "idle";
@@ -188,6 +190,37 @@
     return { root: root, bubble: bubble };
   }
 
+  function findHostContainer() {
+    return document.querySelector(CONFIG.motdSelector) || null;
+  }
+
+  function mountWidget(root, attempt) {
+    var mountAttempt = attempt || 0;
+    var host = findHostContainer();
+
+    if (!host) {
+      if (mountAttempt >= CONFIG.mountRetryLimit) {
+        root.dataset.host = "viewport";
+        document.body.appendChild(root); // fallback for custom themes without #motd
+        return;
+      }
+
+      // If #motd has not been mounted yet, retry shortly.
+      setTimeout(function () {
+        mountWidget(root, mountAttempt + 1);
+      }, 800);
+      return;
+    }
+
+    var hostPosition = window.getComputedStyle(host).position;
+    if (hostPosition === "static") {
+      host.style.position = "relative";
+    }
+
+    root.dataset.host = "motd";
+    host.appendChild(root);
+  }
+
   function init() {
     if (document.getElementById(CONFIG.id)) return;
 
@@ -195,7 +228,7 @@
     nodes.root = widget.root;
     nodes.bubble = widget.bubble;
 
-    document.body.appendChild(nodes.root);
+    mountWidget(nodes.root);
 
     setState("idle");
     watchChatBuffer();
