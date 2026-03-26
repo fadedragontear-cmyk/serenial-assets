@@ -26,6 +26,25 @@
     mountRetryLimit: 25
   };
 
+  // Canvas draw tuning. Keep near the top so placement can be adjusted quickly.
+  var DRAW_SCALE = 0.92;
+  var DRAW_OFFSET_X = 0;
+  var DRAW_OFFSET_Y = 8;
+  var STATE_OFFSETS = {
+    idle: { x: 0, y: 0 },
+    blink: { x: 0, y: 0 },
+    sleep: { x: 0, y: 5 },
+    sleepy: { x: 0, y: 4 },
+    excited: { x: 0, y: -2 },
+    default: { x: 0, y: 0 }
+  };
+
+  // Sprite-sheet background masking tuning.
+  // These values target the light neutral checkerboard while preserving colored art.
+  var MASK_BRIGHTNESS_MIN = 212;
+  var MASK_NEUTRAL_TOLERANCE = 22;
+  var MASK_ALPHA = 0;
+
   // NOTE: Update these source rectangles when improved sprite sheets are added.
   // Assumes a 256x256 frame grid on a 1536x1024 sheet.
   var ANIMS = {
@@ -45,6 +64,18 @@
       { x: 256, y: 512, w: 256, h: 256, d: 450 },
       { x: 512, y: 512, w: 256, h: 256, d: 520 },
       { x: 768, y: 512, w: 256, h: 256, d: 520 }
+    ],
+    sleepy: [
+      { x: 0, y: 768, w: 256, h: 256, d: 360 },
+      { x: 256, y: 768, w: 256, h: 256, d: 360 },
+      { x: 512, y: 768, w: 256, h: 256, d: 420 },
+      { x: 768, y: 768, w: 256, h: 256, d: 420 }
+    ],
+    excited: [
+      { x: 1024, y: 0, w: 256, h: 256, d: 170 },
+      { x: 1280, y: 0, w: 256, h: 256, d: 170 },
+      { x: 1024, y: 256, w: 256, h: 256, d: 190 },
+      { x: 1280, y: 256, w: 256, h: 256, d: 190 }
     ]
   };
 
@@ -60,7 +91,8 @@
     image: null,
     loaded: false,
     frameIndex: 0,
-    frameStartedAt: 0
+    frameStartedAt: 0,
+    frameCache: {}
   };
 
   var nodes = {
@@ -213,10 +245,59 @@
 
     var ctx = nodes.context;
     var canvas = nodes.canvas;
+    var processedFrame = getProcessedFrame(frame);
+    var stateOffset = STATE_OFFSETS[animState] || STATE_OFFSETS.default;
+    var fitScale = Math.min(canvas.width / frame.w, canvas.height / frame.h);
+    var finalScale = fitScale * DRAW_SCALE;
+    var drawWidth = Math.round(frame.w * finalScale);
+    var drawHeight = Math.round(frame.h * finalScale);
+    var drawX = Math.round((canvas.width - drawWidth) / 2 + DRAW_OFFSET_X + stateOffset.x);
+    var drawY = Math.round((canvas.height - drawHeight) / 2 + DRAW_OFFSET_Y + stateOffset.y);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(
+      processedFrame,
+      0,
+      0,
+      frame.w,
+      frame.h,
+      drawX,
+      drawY,
+      drawWidth,
+      drawHeight
+    );
+  }
+
+  function getFrameKey(frame) {
+    return [frame.x, frame.y, frame.w, frame.h].join(":");
+  }
+
+  function buildOffscreenCanvas(width, height) {
+    if (typeof OffscreenCanvas !== "undefined") {
+      return new OffscreenCanvas(width, height);
+    }
+    var offscreen = document.createElement("canvas");
+    offscreen.width = width;
+    offscreen.height = height;
+    return offscreen;
+  }
+
+  function getProcessedFrame(frame) {
+    var frameKey = getFrameKey(frame);
+    if (sprite.frameCache[frameKey]) {
+      return sprite.frameCache[frameKey];
+    }
+
+    var offscreen = buildOffscreenCanvas(frame.w, frame.h);
+    var offscreenCtx = offscreen.getContext("2d", { alpha: true });
+    if (!offscreenCtx) {
+      return sprite.image;
+    }
+
+    offscreenCtx.clearRect(0, 0, frame.w, frame.h);
+    offscreenCtx.imageSmoothingEnabled = false;
+    offscreenCtx.drawImage(
       sprite.image,
       frame.x,
       frame.y,
@@ -224,9 +305,35 @@
       frame.h,
       0,
       0,
-      canvas.width,
-      canvas.height
+      frame.w,
+      frame.h
     );
+
+    var imageData = offscreenCtx.getImageData(0, 0, frame.w, frame.h);
+    var pixels = imageData.data;
+
+    for (var i = 0; i < pixels.length; i += 4) {
+      var r = pixels[i];
+      var g = pixels[i + 1];
+      var b = pixels[i + 2];
+      var a = pixels[i + 3];
+
+      if (a <= 8) continue;
+
+      var min = Math.min(r, g, b);
+      var max = Math.max(r, g, b);
+      var brightness = (r + g + b) / 3;
+      var channelSpread = max - min;
+
+      // Mask out bright neutral checkerboard tones.
+      if (brightness >= MASK_BRIGHTNESS_MIN && channelSpread <= MASK_NEUTRAL_TOLERANCE) {
+        pixels[i + 3] = Math.min(a, MASK_ALPHA);
+      }
+    }
+
+    offscreenCtx.putImageData(imageData, 0, 0);
+    sprite.frameCache[frameKey] = offscreen;
+    return offscreen;
   }
 
   function stepSprite(ts) {
@@ -314,6 +421,7 @@
     image.src = CONFIG.spriteSheetUrl;
     image.onload = function () {
       sprite.loaded = true;
+      sprite.frameCache = {};
       drawFrame(ANIMS.idle[0]);
     };
     sprite.image = image;
