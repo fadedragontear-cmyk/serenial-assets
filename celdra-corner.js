@@ -5,7 +5,7 @@
   if (window.__celdraCornerLoaded) return;
   window.__celdraCornerLoaded = true;
 
-  const FRAME_DURATION_MS = 180;
+  const FRAME_DURATION_MS = 400;
 
   const IDLE_FRAMES = [
     { src: "idle1.png", duration: FRAME_DURATION_MS },
