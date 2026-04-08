@@ -1,6 +1,7 @@
 (function () {
   "use strict";
 
+  // Prevent duplicate bootstraps when script is injected multiple times.
   if (window.__celdraCornerLoaded) return;
   window.__celdraCornerLoaded = true;
 
@@ -8,9 +9,24 @@
     id: "celdra-corner",
     motdSelector: "#motd",
     mountRetryLimit: 30,
+    mountRetryDelayMs: 800,
 
-    spriteSheetUrl: "https://fadedragontear-cmyk.github.io/serenial-assets/celdra-16bit-sheet.png",
-    fallbackImageUrl: "https://fadedragontear-cmyk.github.io/serenial-assets/celdra.png",
+    // Top-level tuning knobs for CyTube room owners.
+    sizePx: 152,
+    rightOffset: "3.5%",
+    bottomOffset: "5.5%",
+    scale: 1,
+
+    // Use transparent PNG frames directly (no canvas pixel processing).
+    assetBaseUrl: "https://fadedragontear-cmyk.github.io/serenial-assets/",
+    frames: {
+      idle1: "idle1.png",
+      idle2: "idle2.png",
+      idle3: "idle3.png",
+      blink: "blink.png",
+      sleep1: "sleep1.png",
+      sleep2: "sleep2.png"
+    },
 
     speechLines: [
       "Celdra is watching...",
@@ -19,157 +35,69 @@
       "Serenial feels alive tonight."
     ],
 
+    // State timing.
     quietAfterMs: 90000,
+    heartbeatIntervalMs: 2000,
+
     minBlinkDelayMs: 2800,
     maxBlinkDelayMs: 6200,
-    speakingDurationMs: 4200,
+    blinkDurationMs: 230,
+
     minSpeechGapMs: 24000,
-    maxSpeechGapMs: 46000
+    maxSpeechGapMs: 46000,
+    speechDurationMs: 4200,
+
+    excitedDurationMs: 2800,
+    speakingExcitedCooldownMs: 7000
   };
 
-  const DRAW_SCALE = 0.78;
-  const DRAW_OFFSET_X = -2;
-  const DRAW_OFFSET_Y = 18;
-
-  const STATE_OFFSETS = {
-    idle: { x: 0, y: 0 },
-    blink: { x: 0, y: 0 },
-    sleep: { x: -2, y: 8 },
-    excited: { x: 0, y: -2 },
-    default: { x: 0, y: 0 }
+  // State machine frame maps.
+  const STATE_FRAMES = {
+    idle: ["idle1", "idle2", "idle3", "idle2"],
+    sleep: ["sleep1", "sleep2"],
+    blink: ["blink"],
+    excited: ["idle1", "idle2", "idle3", "idle2"],
+    speaking: ["idle1", "idle2", "idle3", "idle2"]
   };
 
-  const ANIMS = {
-    idle: [
-      { x: 0, y: 0, w: 256, h: 256, d: 250 },
-      { x: 256, y: 0, w: 256, h: 256, d: 250 },
-      { x: 512, y: 0, w: 256, h: 256, d: 300 },
-      { x: 768, y: 0, w: 256, h: 256, d: 300 }
-    ],
-    blink: [
-      { x: 0, y: 256, w: 256, h: 256, d: 100 },
-      { x: 256, y: 256, w: 256, h: 256, d: 80 },
-      { x: 0, y: 256, w: 256, h: 256, d: 100 }
-    ],
-    sleep: [
-      { x: 0, y: 512, w: 256, h: 256, d: 500 },
-      { x: 256, y: 512, w: 256, h: 256, d: 500 },
-      { x: 512, y: 512, w: 256, h: 256, d: 600 },
-      { x: 768, y: 512, w: 256, h: 256, d: 600 }
-    ],
-    excited: [
-      { x: 0, y: 0, w: 256, h: 256, d: 170 },
-      { x: 256, y: 0, w: 256, h: 256, d: 170 },
-      { x: 512, y: 0, w: 256, h: 256, d: 170 },
-      { x: 768, y: 0, w: 256, h: 256, d: 170 }
-    ]
-  };
-
-  const MASK_BRIGHTNESS_MIN = 205;
-  const MASK_NEUTRAL_TOLERANCE = 30;
-
-  let animState = "idle";
-  let lastMessageAt = Date.now();
-  let stateTimeout = null;
-  let speechTimeout = null;
-  let heartbeatTimer = null;
-  let blinkTimer = null;
-  let rafId = null;
-
-  const sprite = {
-    image: null,
-    loaded: false,
-    failed: false,
-    frameIndex: 0,
-    frameStartedAt: 0,
-    frameCache: {}
+  const FRAME_DELAYS = {
+    idle: 320,
+    sleep: 900,
+    blink: 80,
+    excited: 165,
+    speaking: 260
   };
 
   const nodes = {
     root: null,
-    bubble: null,
-    canvas: null,
-    context: null,
-    fallback: null
+    frame: null,
+    bubble: null
+  };
+
+  const runtime = {
+    mounted: false,
+    state: "idle",
+    frameIndex: 0,
+    frameTimer: null,
+    stateTimer: null,
+    heartbeatTimer: null,
+    blinkTimer: null,
+    speechLoopTimer: null,
+    bubbleHideTimer: null,
+    imageByKey: Object.create(null),
+    loadedKeys: new Set(),
+    missingKeys: new Set(),
+    lastActivityAt: Date.now(),
+    lastExcitedAt: 0,
+    chatObserver: null
   };
 
   function randomRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function clearTimers() {
-    if (stateTimeout) clearTimeout(stateTimeout);
-    if (speechTimeout) clearTimeout(speechTimeout);
-    if (heartbeatTimer) clearInterval(heartbeatTimer);
-    if (blinkTimer) clearTimeout(blinkTimer);
-    if (rafId) cancelAnimationFrame(rafId);
-    stateTimeout = null;
-    speechTimeout = null;
-    heartbeatTimer = null;
-    blinkTimer = null;
-    rafId = null;
-  }
-
-  function applyState(nextState) {
-    animState = nextState;
-    if (nodes.root) nodes.root.dataset.state = nextState;
-    sprite.frameIndex = 0;
-    sprite.frameStartedAt = 0;
-  }
-
-  function setState(nextState, durationMs) {
-    applyState(nextState);
-    if (stateTimeout) clearTimeout(stateTimeout);
-    if (durationMs) {
-      stateTimeout = setTimeout(() => applyState("idle"), durationMs);
-    }
-  }
-
-  function setSpeaking(visible, text) {
-    if (!nodes.root || !nodes.bubble) return;
-    if (typeof text === "string") nodes.bubble.textContent = text;
-    nodes.root.dataset.speaking = visible ? "true" : "false";
-  }
-
-  function speak(text, duration) {
-    const line = text || CONFIG.speechLines[Math.floor(Math.random() * CONFIG.speechLines.length)];
-    setSpeaking(true, line);
-    if (speechTimeout) clearTimeout(speechTimeout);
-    speechTimeout = setTimeout(() => setSpeaking(false), duration || CONFIG.speakingDurationMs);
-  }
-
-  function scheduleBlink() {
-    if (blinkTimer) clearTimeout(blinkTimer);
-    blinkTimer = setTimeout(() => {
-      if (animState === "idle") setState("blink", 280);
-      scheduleBlink();
-    }, randomRange(CONFIG.minBlinkDelayMs, CONFIG.maxBlinkDelayMs));
-  }
-
-  function scheduleSpeech() {
-    if (speechTimeout) clearTimeout(speechTimeout);
-    speechTimeout = setTimeout(function loop() {
-      if (animState !== "sleep" && Math.random() < 0.65) {
-        speak();
-      }
-      speechTimeout = setTimeout(loop, randomRange(CONFIG.minSpeechGapMs, CONFIG.maxSpeechGapMs));
-    }, randomRange(CONFIG.minSpeechGapMs, CONFIG.maxSpeechGapMs));
-  }
-
-  function onChatActivity() {
-    lastMessageAt = Date.now();
-    if (animState === "sleep") setState("idle");
-  }
-
-  function heartbeat() {
-    const idleFor = Date.now() - lastMessageAt;
-    if (idleFor > CONFIG.quietAfterMs && animState !== "sleep") {
-      setState("sleep");
-      return;
-    }
-    if (animState === "sleep" && idleFor <= CONFIG.quietAfterMs) {
-      setState("idle");
-    }
+  function resolveUrl(name) {
+    return CONFIG.assetBaseUrl + name;
   }
 
   function findChatBuffer() {
@@ -182,55 +110,206 @@
     );
   }
 
-  function watchChatBuffer() {
-    const buffer = findChatBuffer();
-    if (!buffer) {
-      setTimeout(watchChatBuffer, 1500);
+  function clearTimer(name) {
+    if (runtime[name]) {
+      clearTimeout(runtime[name]);
+      clearInterval(runtime[name]);
+      runtime[name] = null;
+    }
+  }
+
+  function clearAllTimers() {
+    clearTimer("frameTimer");
+    clearTimer("stateTimer");
+    clearTimer("heartbeatTimer");
+    clearTimer("blinkTimer");
+    clearTimer("speechLoopTimer");
+    clearTimer("bubbleHideTimer");
+  }
+
+  function setSpeaking(visible, text) {
+    if (!nodes.root || !nodes.bubble) return;
+    if (typeof text === "string") nodes.bubble.textContent = text;
+    nodes.root.dataset.speaking = visible ? "true" : "false";
+  }
+
+  function speak(text, durationMs) {
+    const line = text || CONFIG.speechLines[Math.floor(Math.random() * CONFIG.speechLines.length)];
+    setSpeaking(true, line);
+
+    clearTimer("bubbleHideTimer");
+    runtime.bubbleHideTimer = setTimeout(() => {
+      setSpeaking(false);
+    }, durationMs || CONFIG.speechDurationMs);
+  }
+
+  function getVisualState() {
+    // speaking state only controls frame cadence while bubble is visible.
+    if (nodes.root && nodes.root.dataset.speaking === "true" && runtime.state === "idle") {
+      return "speaking";
+    }
+    return runtime.state;
+  }
+
+  function getFirstAvailableKey(keys) {
+    for (const key of keys) {
+      if (runtime.loadedKeys.has(key)) return key;
+    }
+    return null;
+  }
+
+  function getStableFallbackKey() {
+    const priority = ["idle1", "idle2", "idle3", "blink", "sleep1", "sleep2"];
+    return getFirstAvailableKey(priority);
+  }
+
+  function renderFrame() {
+    if (!nodes.frame) return;
+
+    const visualState = getVisualState();
+    const sequence = STATE_FRAMES[visualState] || STATE_FRAMES.idle;
+    if (!sequence || !sequence.length) return;
+
+    const idx = runtime.frameIndex % sequence.length;
+    let key = sequence[idx];
+
+    // If requested frame is missing, choose safest loaded frame.
+    if (!runtime.loadedKeys.has(key)) {
+      const sequenceFallback = getFirstAvailableKey(sequence);
+      const stableFallback = getStableFallbackKey();
+      key = sequenceFallback || stableFallback;
+    }
+
+    if (!key || !runtime.imageByKey[key]) {
+      console.warn("[Celdra] No frame images were loaded; widget stays mounted without sprite.");
+      nodes.frame.style.opacity = "0";
       return;
     }
 
-    const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        if (mutation.type === "childList" && mutation.addedNodes.length) {
-          onChatActivity();
-          break;
-        }
-      }
-    });
-
-    observer.observe(buffer, { childList: true, subtree: true });
+    nodes.frame.style.opacity = "1";
+    nodes.frame.src = runtime.imageByKey[key].src;
   }
 
-  function createWidget() {
-    const root = document.createElement("aside");
-    root.id = CONFIG.id;
-    root.setAttribute("aria-hidden", "true");
-    root.dataset.state = "idle";
-    root.dataset.speaking = "false";
+  function scheduleFrameLoop() {
+    clearTimer("frameTimer");
 
-    const glow = document.createElement("div");
-    glow.className = "celdra-glow";
+    const tick = () => {
+      renderFrame();
 
-    const canvas = document.createElement("canvas");
-    canvas.className = "celdra-canvas celdra-anim";
-    canvas.width = 256;
-    canvas.height = 256;
+      const visualState = getVisualState();
+      const sequence = STATE_FRAMES[visualState] || STATE_FRAMES.idle;
+      const delay = FRAME_DELAYS[visualState] || FRAME_DELAYS.idle;
 
-    const fallback = document.createElement("img");
-    fallback.className = "celdra-fallback celdra-anim";
-    fallback.src = CONFIG.fallbackImageUrl;
-    fallback.alt = "";
-    fallback.style.display = "none";
+      runtime.frameIndex = (runtime.frameIndex + 1) % Math.max(sequence.length, 1);
+      runtime.frameTimer = setTimeout(tick, delay);
+    };
 
-    const bubble = document.createElement("div");
-    bubble.className = "celdra-bubble";
+    tick();
+  }
 
-    root.appendChild(glow);
-    root.appendChild(canvas);
-    root.appendChild(fallback);
-    root.appendChild(bubble);
+  function applyState(nextState) {
+    runtime.state = nextState;
+    runtime.frameIndex = 0;
+    if (nodes.root) nodes.root.dataset.state = nextState;
+  }
 
-    return { root, canvas, bubble, fallback };
+  function setState(nextState, durationMs, returnToState) {
+    applyState(nextState);
+
+    clearTimer("stateTimer");
+    if (durationMs) {
+      runtime.stateTimer = setTimeout(() => {
+        applyState(returnToState || "idle");
+      }, durationMs);
+    }
+  }
+
+  function maybeExciteFromChat() {
+    const now = Date.now();
+    if (now - runtime.lastExcitedAt < CONFIG.speakingExcitedCooldownMs) return;
+    runtime.lastExcitedAt = now;
+    setState("excited", CONFIG.excitedDurationMs, "idle");
+  }
+
+  function onChatActivity() {
+    runtime.lastActivityAt = Date.now();
+
+    if (runtime.state === "sleep") {
+      setState("idle");
+      speak("The hatchling wakes.", 2500);
+    } else {
+      maybeExciteFromChat();
+    }
+  }
+
+  function heartbeat() {
+    const idleFor = Date.now() - runtime.lastActivityAt;
+    if (idleFor > CONFIG.quietAfterMs && runtime.state !== "sleep") {
+      setState("sleep");
+      return;
+    }
+
+    if (runtime.state === "sleep" && idleFor <= CONFIG.quietAfterMs) {
+      setState("idle");
+    }
+  }
+
+  function scheduleBlink() {
+    clearTimer("blinkTimer");
+
+    runtime.blinkTimer = setTimeout(function triggerBlink() {
+      if (runtime.state === "idle") {
+        setState("blink", CONFIG.blinkDurationMs, "idle");
+      }
+
+      runtime.blinkTimer = setTimeout(
+        triggerBlink,
+        randomRange(CONFIG.minBlinkDelayMs, CONFIG.maxBlinkDelayMs)
+      );
+    }, randomRange(CONFIG.minBlinkDelayMs, CONFIG.maxBlinkDelayMs));
+  }
+
+  function scheduleSpeechLoop() {
+    clearTimer("speechLoopTimer");
+
+    const loop = () => {
+      if (runtime.state !== "sleep" && Math.random() < 0.65) {
+        speak();
+      }
+
+      runtime.speechLoopTimer = setTimeout(
+        loop,
+        randomRange(CONFIG.minSpeechGapMs, CONFIG.maxSpeechGapMs)
+      );
+    };
+
+    runtime.speechLoopTimer = setTimeout(
+      loop,
+      randomRange(CONFIG.minSpeechGapMs, CONFIG.maxSpeechGapMs)
+    );
+  }
+
+  function watchChatBuffer() {
+    const attach = () => {
+      const buffer = findChatBuffer();
+      if (!buffer) {
+        setTimeout(attach, 1500);
+        return;
+      }
+
+      runtime.chatObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          if (mutation.type === "childList" && mutation.addedNodes && mutation.addedNodes.length) {
+            onChatActivity();
+            break;
+          }
+        }
+      });
+
+      runtime.chatObserver.observe(buffer, { childList: true, subtree: true });
+    };
+
+    attach();
   }
 
   function findHostContainer() {
@@ -245,9 +324,11 @@
       if (tries >= CONFIG.mountRetryLimit) {
         root.dataset.host = "viewport";
         document.body.appendChild(root);
+        runtime.mounted = true;
         return;
       }
-      setTimeout(() => mountWidget(root, tries + 1), 800);
+
+      setTimeout(() => mountWidget(root, tries + 1), CONFIG.mountRetryDelayMs);
       return;
     }
 
@@ -257,158 +338,115 @@
 
     root.dataset.host = "motd";
     host.appendChild(root);
+    runtime.mounted = true;
   }
 
-  function useFallback() {
-    sprite.failed = true;
-    sprite.loaded = false;
-    if (nodes.canvas) nodes.canvas.style.display = "none";
-    if (nodes.fallback) nodes.fallback.style.display = "block";
-    speak("Celdra is using fallback art.", 3200);
+  function buildWidgetDom() {
+    const root = document.createElement("div");
+    root.id = CONFIG.id;
+    root.setAttribute("aria-hidden", "true");
+    root.dataset.state = "idle";
+    root.dataset.speaking = "false";
+
+    const glow = document.createElement("div");
+    glow.className = "celdra-glow";
+
+    const frame = document.createElement("img");
+    frame.className = "celdra-frame celdra-anim";
+    frame.alt = "";
+    frame.decoding = "async";
+
+    const bubble = document.createElement("div");
+    bubble.className = "celdra-bubble";
+
+    root.appendChild(glow);
+    root.appendChild(frame);
+    root.appendChild(bubble);
+
+    return { root, frame, bubble };
   }
 
-  function loadSpriteSheet() {
-    const image = new Image();
-    image.crossOrigin = "anonymous";
-    image.decoding = "async";
-    image.onload = function () {
-      sprite.image = image;
-      sprite.loaded = true;
-      sprite.failed = false;
-      sprite.frameCache = {};
-      if (nodes.canvas) nodes.canvas.style.display = "block";
-      if (nodes.fallback) nodes.fallback.style.display = "none";
-    };
-    image.onerror = function () {
-      useFallback();
-    };
-    image.src = CONFIG.spriteSheetUrl;
+  function applyRootTuningVars(root) {
+    root.style.setProperty("--celdra-size", CONFIG.sizePx + "px");
+    root.style.setProperty("--celdra-right", CONFIG.rightOffset);
+    root.style.setProperty("--celdra-bottom", CONFIG.bottomOffset);
+    root.style.setProperty("--celdra-scale", String(CONFIG.scale));
   }
 
-  function frameKey(frame) {
-    return [frame.x, frame.y, frame.w, frame.h].join(":");
+  function preloadImage(key, filename) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.onload = () => {
+        runtime.imageByKey[key] = img;
+        runtime.loadedKeys.add(key);
+        resolve();
+      };
+      img.onerror = () => {
+        runtime.missingKeys.add(key);
+        console.warn("[Celdra] Failed to load frame:", filename);
+        resolve();
+      };
+      img.src = resolveUrl(filename);
+    });
   }
 
-  function buildOffscreenCanvas(width, height) {
-    const c = document.createElement("canvas");
-    c.width = width;
-    c.height = height;
-    return c;
-  }
-
-  function getProcessedFrame(frame) {
-    const key = frameKey(frame);
-    if (sprite.frameCache[key]) return sprite.frameCache[key];
-
-    const offscreen = buildOffscreenCanvas(frame.w, frame.h);
-    const octx = offscreen.getContext("2d", { alpha: true });
-    octx.clearRect(0, 0, frame.w, frame.h);
-    octx.imageSmoothingEnabled = false;
-    octx.drawImage(sprite.image, frame.x, frame.y, frame.w, frame.h, 0, 0, frame.w, frame.h);
-
-    try {
-      const imageData = octx.getImageData(0, 0, frame.w, frame.h);
-      const pixels = imageData.data;
-
-      for (let i = 0; i < pixels.length; i += 4) {
-        const r = pixels[i];
-        const g = pixels[i + 1];
-        const b = pixels[i + 2];
-        const a = pixels[i + 3];
-        if (a <= 8) continue;
-
-        const min = Math.min(r, g, b);
-        const max = Math.max(r, g, b);
-        const brightness = (r + g + b) / 3;
-        const spread = max - min;
-
-        if (brightness >= MASK_BRIGHTNESS_MIN && spread <= MASK_NEUTRAL_TOLERANCE) {
-          pixels[i + 3] = 0;
-        }
-      }
-
-      octx.putImageData(imageData, 0, 0);
-    } catch (err) {
-      console.warn("Celdra sprite masking skipped due to tainted canvas.", err);
+  function preloadFrames() {
+    const work = [];
+    for (const key of Object.keys(CONFIG.frames)) {
+      work.push(preloadImage(key, CONFIG.frames[key]));
     }
-
-    sprite.frameCache[key] = offscreen;
-    return offscreen;
+    return Promise.all(work);
   }
 
-  function drawFrame(frame) {
-    if (!nodes.context || !nodes.canvas || !sprite.loaded || !frame) return;
-
-    const ctx = nodes.context;
-    const canvas = nodes.canvas;
-    const processed = getProcessedFrame(frame);
-    const stateOffset = STATE_OFFSETS[animState] || STATE_OFFSETS.default;
-
-    const fitScale = Math.min(canvas.width / frame.w, canvas.height / frame.h);
-    const finalScale = fitScale * DRAW_SCALE;
-    const drawWidth = Math.round(frame.w * finalScale);
-    const drawHeight = Math.round(frame.h * finalScale);
-    const drawX = Math.round((canvas.width - drawWidth) / 2 + DRAW_OFFSET_X + stateOffset.x);
-    const drawY = Math.round((canvas.height - drawHeight) / 2 + DRAW_OFFSET_Y + stateOffset.y);
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(processed, 0, 0, frame.w, frame.h, drawX, drawY, drawWidth, drawHeight);
-  }
-
-  function stepSprite(ts) {
-    if (!sprite.loaded || sprite.failed) {
-      rafId = requestAnimationFrame(stepSprite);
-      return;
-    }
-
-    const timeline = ANIMS[animState] || ANIMS.idle;
-    let frame = timeline[sprite.frameIndex] || timeline[0];
-
-    if (!sprite.frameStartedAt) sprite.frameStartedAt = ts;
-
-    if (ts - sprite.frameStartedAt >= frame.d) {
-      sprite.frameIndex = (sprite.frameIndex + 1) % timeline.length;
-      frame = timeline[sprite.frameIndex] || timeline[0];
-      sprite.frameStartedAt = ts;
-    }
-
-    drawFrame(frame);
-    rafId = requestAnimationFrame(stepSprite);
+  function bootBehavior() {
+    applyState("idle");
+    scheduleFrameLoop();
+    scheduleBlink();
+    scheduleSpeechLoop();
+    watchChatBuffer();
+    runtime.heartbeatTimer = setInterval(heartbeat, CONFIG.heartbeatIntervalMs);
   }
 
   function init() {
     if (document.getElementById(CONFIG.id)) return;
 
-    const widget = createWidget();
+    const widget = buildWidgetDom();
     nodes.root = widget.root;
+    nodes.frame = widget.frame;
     nodes.bubble = widget.bubble;
-    nodes.canvas = widget.canvas;
-    nodes.fallback = widget.fallback;
-    nodes.context = widget.canvas.getContext("2d", { alpha: true });
 
+    applyRootTuningVars(nodes.root);
     mountWidget(nodes.root);
-    loadSpriteSheet();
 
-    applyState("idle");
-    watchChatBuffer();
-    scheduleBlink();
-    scheduleSpeech();
-    heartbeatTimer = setInterval(heartbeat, 2000);
-    rafId = requestAnimationFrame(stepSprite);
+    preloadFrames().then(() => {
+      if (!runtime.loadedKeys.size) {
+        console.warn("[Celdra] All frame loads failed. Widget remains mounted but sprite is hidden.");
+      }
+      bootBehavior();
+    });
   }
+
+  function destroy() {
+    clearAllTimers();
+
+    if (runtime.chatObserver) {
+      runtime.chatObserver.disconnect();
+      runtime.chatObserver = null;
+    }
+
+    if (nodes.root && nodes.root.parentNode) {
+      nodes.root.parentNode.removeChild(nodes.root);
+    }
+
+    window.__celdraCornerLoaded = false;
+  }
+
+  window.__destroyCeldraCorner = destroy;
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init, { once: true });
   } else {
     init();
   }
-
-  window.__destroyCeldraCorner = function () {
-    clearTimers();
-    if (nodes.root && nodes.root.parentNode) {
-      nodes.root.parentNode.removeChild(nodes.root);
-    }
-    window.__celdraCornerLoaded = false;
-  };
 })();
