@@ -5,6 +5,19 @@
   if (window.__celdraCornerLoaded) return;
   window.__celdraCornerLoaded = true;
 
+  const FRAME_DURATION_MS = 180;
+
+  const IDLE_FRAMES = [
+    { src: "idle1.png", duration: FRAME_DURATION_MS },
+    { src: "idle2.png", duration: FRAME_DURATION_MS },
+    { src: "idle3.png", duration: FRAME_DURATION_MS },
+    { src: "idle4.png", duration: FRAME_DURATION_MS },
+    { src: "idle5.png", duration: FRAME_DURATION_MS },
+    { src: "idle6.png", duration: FRAME_DURATION_MS },
+    { src: "idle7.png", duration: FRAME_DURATION_MS },
+    { src: "idle8.png", duration: FRAME_DURATION_MS }
+  ];
+
   const CONFIG = {
     id: "celdra-corner",
     motdSelector: "#motd",
@@ -18,54 +31,7 @@
     scale: 1,
 
     // Use transparent PNG frames directly (no canvas pixel processing).
-    assetBaseUrl: "https://fadedragontear-cmyk.github.io/serenial-assets/",
-    frames: {
-      idle1: "idle1.png",
-      idle2: "idle2.png",
-      idle3: "idle3.png",
-      blink: "blink.png",
-      sleep1: "sleep1.png",
-      sleep2: "sleep2.png"
-    },
-
-    speechLines: [
-      "Celdra is watching...",
-      "The hatchling stirs.",
-      "Chat energy rising.",
-      "Serenial feels alive tonight."
-    ],
-
-    // State timing.
-    quietAfterMs: 90000,
-    heartbeatIntervalMs: 2000,
-
-    minBlinkDelayMs: 2800,
-    maxBlinkDelayMs: 6200,
-    blinkDurationMs: 230,
-
-    minSpeechGapMs: 24000,
-    maxSpeechGapMs: 46000,
-    speechDurationMs: 4200,
-
-    excitedDurationMs: 2800,
-    speakingExcitedCooldownMs: 7000
-  };
-
-  // State machine frame maps.
-  const STATE_FRAMES = {
-    idle: ["idle1", "idle2", "idle3", "idle2"],
-    sleep: ["sleep1", "sleep2"],
-    blink: ["blink"],
-    excited: ["idle1", "idle2", "idle3", "idle2"],
-    speaking: ["idle1", "idle2", "idle3", "idle2"]
-  };
-
-  const FRAME_DELAYS = {
-    idle: 320,
-    sleep: 900,
-    blink: 80,
-    excited: 165,
-    speaking: 260
+    assetBaseUrl: "https://fadedragontear-cmyk.github.io/serenial-assets/"
   };
 
   const nodes = {
@@ -76,25 +42,11 @@
 
   const runtime = {
     mounted: false,
-    state: "idle",
     frameIndex: 0,
     frameTimer: null,
-    stateTimer: null,
-    heartbeatTimer: null,
-    blinkTimer: null,
-    speechLoopTimer: null,
-    bubbleHideTimer: null,
-    imageByKey: Object.create(null),
-    loadedKeys: new Set(),
-    missingKeys: new Set(),
-    lastActivityAt: Date.now(),
-    lastExcitedAt: 0,
+    frameUrls: [],
     chatObserver: null
   };
-
-  function randomRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
 
   function resolveUrl(name) {
     return CONFIG.assetBaseUrl + name;
@@ -113,180 +65,28 @@
   function clearTimer(name) {
     if (runtime[name]) {
       clearTimeout(runtime[name]);
-      clearInterval(runtime[name]);
       runtime[name] = null;
     }
   }
 
-  function clearAllTimers() {
-    clearTimer("frameTimer");
-    clearTimer("stateTimer");
-    clearTimer("heartbeatTimer");
-    clearTimer("blinkTimer");
-    clearTimer("speechLoopTimer");
-    clearTimer("bubbleHideTimer");
-  }
-
-  function setSpeaking(visible, text) {
-    if (!nodes.root || !nodes.bubble) return;
-    if (typeof text === "string") nodes.bubble.textContent = text;
-    nodes.root.dataset.speaking = visible ? "true" : "false";
-  }
-
-  function speak(text, durationMs) {
-    const line = text || CONFIG.speechLines[Math.floor(Math.random() * CONFIG.speechLines.length)];
-    setSpeaking(true, line);
-
-    clearTimer("bubbleHideTimer");
-    runtime.bubbleHideTimer = setTimeout(() => {
-      setSpeaking(false);
-    }, durationMs || CONFIG.speechDurationMs);
-  }
-
-  function getVisualState() {
-    // speaking state only controls frame cadence while bubble is visible.
-    if (nodes.root && nodes.root.dataset.speaking === "true" && runtime.state === "idle") {
-      return "speaking";
-    }
-    return runtime.state;
-  }
-
-  function getFirstAvailableKey(keys) {
-    for (const key of keys) {
-      if (runtime.loadedKeys.has(key)) return key;
-    }
-    return null;
-  }
-
-  function getStableFallbackKey() {
-    const priority = ["idle1", "idle2", "idle3", "blink", "sleep1", "sleep2"];
-    return getFirstAvailableKey(priority);
-  }
-
-  function renderFrame() {
-    if (!nodes.frame) return;
-
-    const visualState = getVisualState();
-    const sequence = STATE_FRAMES[visualState] || STATE_FRAMES.idle;
-    if (!sequence || !sequence.length) return;
-
-    const idx = runtime.frameIndex % sequence.length;
-    let key = sequence[idx];
-
-    // If requested frame is missing, choose safest loaded frame.
-    if (!runtime.loadedKeys.has(key)) {
-      const sequenceFallback = getFirstAvailableKey(sequence);
-      const stableFallback = getStableFallbackKey();
-      key = sequenceFallback || stableFallback;
-    }
-
-    if (!key || !runtime.imageByKey[key]) {
-      console.warn("[Celdra] No frame images were loaded; widget stays mounted without sprite.");
-      nodes.frame.style.opacity = "0";
-      return;
-    }
-
-    nodes.frame.style.opacity = "1";
-    nodes.frame.src = runtime.imageByKey[key].src;
-  }
-
-  function scheduleFrameLoop() {
+  function animateIdle() {
     clearTimer("frameTimer");
 
     const tick = () => {
-      renderFrame();
+      if (!nodes.frame || !runtime.frameUrls.length) {
+        runtime.frameTimer = setTimeout(tick, FRAME_DURATION_MS);
+        return;
+      }
 
-      const visualState = getVisualState();
-      const sequence = STATE_FRAMES[visualState] || STATE_FRAMES.idle;
-      const delay = FRAME_DELAYS[visualState] || FRAME_DELAYS.idle;
+      const frameData = IDLE_FRAMES[runtime.frameIndex % IDLE_FRAMES.length];
+      const frameUrl = runtime.frameUrls[runtime.frameIndex % runtime.frameUrls.length];
+      nodes.frame.src = frameUrl;
+      runtime.frameIndex = (runtime.frameIndex + 1) % IDLE_FRAMES.length;
 
-      runtime.frameIndex = (runtime.frameIndex + 1) % Math.max(sequence.length, 1);
-      runtime.frameTimer = setTimeout(tick, delay);
+      runtime.frameTimer = setTimeout(tick, frameData.duration);
     };
 
     tick();
-  }
-
-  function applyState(nextState) {
-    runtime.state = nextState;
-    runtime.frameIndex = 0;
-    if (nodes.root) nodes.root.dataset.state = nextState;
-  }
-
-  function setState(nextState, durationMs, returnToState) {
-    applyState(nextState);
-
-    clearTimer("stateTimer");
-    if (durationMs) {
-      runtime.stateTimer = setTimeout(() => {
-        applyState(returnToState || "idle");
-      }, durationMs);
-    }
-  }
-
-  function maybeExciteFromChat() {
-    const now = Date.now();
-    if (now - runtime.lastExcitedAt < CONFIG.speakingExcitedCooldownMs) return;
-    runtime.lastExcitedAt = now;
-    setState("excited", CONFIG.excitedDurationMs, "idle");
-  }
-
-  function onChatActivity() {
-    runtime.lastActivityAt = Date.now();
-
-    if (runtime.state === "sleep") {
-      setState("idle");
-      speak("The hatchling wakes.", 2500);
-    } else {
-      maybeExciteFromChat();
-    }
-  }
-
-  function heartbeat() {
-    const idleFor = Date.now() - runtime.lastActivityAt;
-    if (idleFor > CONFIG.quietAfterMs && runtime.state !== "sleep") {
-      setState("sleep");
-      return;
-    }
-
-    if (runtime.state === "sleep" && idleFor <= CONFIG.quietAfterMs) {
-      setState("idle");
-    }
-  }
-
-  function scheduleBlink() {
-    clearTimer("blinkTimer");
-
-    runtime.blinkTimer = setTimeout(function triggerBlink() {
-      if (runtime.state === "idle") {
-        setState("blink", CONFIG.blinkDurationMs, "idle");
-      }
-
-      runtime.blinkTimer = setTimeout(
-        triggerBlink,
-        randomRange(CONFIG.minBlinkDelayMs, CONFIG.maxBlinkDelayMs)
-      );
-    }, randomRange(CONFIG.minBlinkDelayMs, CONFIG.maxBlinkDelayMs));
-  }
-
-  function scheduleSpeechLoop() {
-    clearTimer("speechLoopTimer");
-
-    const loop = () => {
-      if (runtime.state !== "sleep" && Math.random() < 0.65) {
-        speak();
-      }
-
-      runtime.speechLoopTimer = setTimeout(
-        loop,
-        randomRange(CONFIG.minSpeechGapMs, CONFIG.maxSpeechGapMs)
-      );
-    };
-
-    runtime.speechLoopTimer = setTimeout(
-      loop,
-      randomRange(CONFIG.minSpeechGapMs, CONFIG.maxSpeechGapMs)
-    );
   }
 
   function watchChatBuffer() {
@@ -297,13 +97,9 @@
         return;
       }
 
-      runtime.chatObserver = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-          if (mutation.type === "childList" && mutation.addedNodes && mutation.addedNodes.length) {
-            onChatActivity();
-            break;
-          }
-        }
+      runtime.chatObserver = new MutationObserver(() => {
+        // Chat observer intentionally retained for future state wiring.
+        // Current behavior: ignore chat activity and keep idle loop running.
       });
 
       runtime.chatObserver.observe(buffer, { childList: true, subtree: true });
@@ -373,39 +169,29 @@
     root.style.setProperty("--celdra-scale", String(CONFIG.scale));
   }
 
-  function preloadImage(key, filename) {
+  function preloadFrame(filename) {
     return new Promise((resolve) => {
       const img = new Image();
       img.decoding = "async";
-      img.onload = () => {
-        runtime.imageByKey[key] = img;
-        runtime.loadedKeys.add(key);
-        resolve();
-      };
+      img.onload = () => resolve(resolveUrl(filename));
       img.onerror = () => {
-        runtime.missingKeys.add(key);
         console.warn("[Celdra] Failed to load frame:", filename);
-        resolve();
+        resolve(null);
       };
       img.src = resolveUrl(filename);
     });
   }
 
   function preloadFrames() {
-    const work = [];
-    for (const key of Object.keys(CONFIG.frames)) {
-      work.push(preloadImage(key, CONFIG.frames[key]));
-    }
-    return Promise.all(work);
+    return Promise.all(IDLE_FRAMES.map((frame) => preloadFrame(frame.src))).then((urls) =>
+      urls.filter(Boolean)
+    );
   }
 
   function bootBehavior() {
-    applyState("idle");
-    scheduleFrameLoop();
-    scheduleBlink();
-    scheduleSpeechLoop();
+    nodes.root.dataset.state = "idle";
+    animateIdle();
     watchChatBuffer();
-    runtime.heartbeatTimer = setInterval(heartbeat, CONFIG.heartbeatIntervalMs);
   }
 
   function init() {
@@ -419,16 +205,19 @@
     applyRootTuningVars(nodes.root);
     mountWidget(nodes.root);
 
-    preloadFrames().then(() => {
-      if (!runtime.loadedKeys.size) {
+    preloadFrames().then((urls) => {
+      runtime.frameUrls = urls;
+
+      if (!runtime.frameUrls.length) {
         console.warn("[Celdra] All frame loads failed. Widget remains mounted but sprite is hidden.");
       }
+
       bootBehavior();
     });
   }
 
   function destroy() {
-    clearAllTimers();
+    clearTimer("frameTimer");
 
     if (runtime.chatObserver) {
       runtime.chatObserver.disconnect();

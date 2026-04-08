@@ -53,7 +53,7 @@
   object-fit: contain;
   object-position: center bottom;
   image-rendering: auto;
-  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.30));
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
   transform-origin: center bottom;
   transition: opacity var(--celdra-transition);
 }
@@ -96,62 +96,30 @@
   transform: translateY(0) scale(1);
 }
 
-/* State-specific ambience. */
-#celdra-corner[data-state="sleep"] .celdra-frame {
-  opacity: 0.74;
-}
-
-#celdra-corner[data-state="sleep"] .celdra-glow {
-  opacity: 0.34;
-  transform: scale(0.92);
-}
-
 #celdra-corner .celdra-anim {
   animation:
     celdraBob 4.8s ease-in-out infinite,
     celdraDrift 9.5s ease-in-out infinite;
 }
 
-#celdra-corner[data-state="excited"] .celdra-anim {
-  animation:
-    celdraBobExcited 2s ease-in-out infinite,
-    celdraDriftFast 4.2s ease-in-out infinite;
-}
-
-#celdra-corner[data-state="sleep"] .celdra-anim {
-  animation:
-    celdraBobSleepy 7.2s ease-in-out infinite,
-    celdraDriftSleepy 13s ease-in-out infinite;
-}
-
 @keyframes celdraBob {
-  0%, 100% { transform: translateY(0) rotate(-1deg) scale(1); }
-  50% { transform: translateY(-8px) rotate(1deg) scale(1.02); }
-}
-
-@keyframes celdraBobExcited {
-  0%, 100% { transform: translateY(0) rotate(-2deg) scale(1.01); }
-  50% { transform: translateY(-14px) rotate(2deg) scale(1.05); }
-}
-
-@keyframes celdraBobSleepy {
-  0%, 100% { transform: translateY(0) rotate(-0.4deg) scale(0.99); }
-  50% { transform: translateY(-4px) rotate(0.4deg) scale(1); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg) scale(1.02);
+  }
 }
 
 @keyframes celdraDrift {
-  0%, 100% { margin-right: 0; }
-  50% { margin-right: 16px; }
-}
-
-@keyframes celdraDriftFast {
-  0%, 100% { margin-right: 0; }
-  50% { margin-right: 24px; }
-}
-
-@keyframes celdraDriftSleepy {
-  0%, 100% { margin-right: 0; }
-  50% { margin-right: 8px; }
+  0%,
+  100% {
+    margin-right: 0;
+  }
+  50% {
+    margin-right: 16px;
+  }
 }
 
 @media (max-width: 980px) {
