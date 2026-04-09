@@ -5,7 +5,7 @@
   if (window.__celdraCornerLoaded) return;
   window.__celdraCornerLoaded = true;
 
-  const TOTAL_LOOP_MS = 5000;
+  const TOTAL_LOOP_MS = 5600;
   const TOTAL_FRAMES = 70;
   const MIN_VIABLE_FRAMES = 24;
 

@@ -53,6 +53,7 @@
   object-position: center bottom;
   image-rendering: auto;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
+  transform: scaleX(-1);
   opacity: 0;
   visibility: hidden;
   will-change: auto;
