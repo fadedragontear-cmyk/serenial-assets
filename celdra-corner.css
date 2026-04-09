@@ -54,13 +54,13 @@
   image-rendering: auto;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
   opacity: 0;
-  visibility: hidden;
-  will-change: opacity, visibility;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 #celdra-corner .celdra-frame.is-visible {
   opacity: 1;
-  visibility: visible;
 }
 
 /* Keep wrapper motion subtle so it does not compete with frame animation. */
