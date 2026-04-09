@@ -8,6 +8,7 @@
   const TOTAL_LOOP_MS = 5600;
   const TOTAL_FRAMES = 70;
   const MIN_VIABLE_FRAMES = 24;
+  const FRAME_TIME_MULTIPLIER = 2;
 
   const CONFIG = {
     id: "celdra-corner",
@@ -93,7 +94,7 @@
 
   function getFrameDurationMs(frameCount) {
     const safeCount = Math.max(1, frameCount || 0);
-    return Math.max(16, Math.round(TOTAL_LOOP_MS / safeCount));
+    return Math.max(16, Math.round((TOTAL_LOOP_MS / safeCount) * FRAME_TIME_MULTIPLIER));
   }
 
   function setVisibleBuffer(buffer) {
