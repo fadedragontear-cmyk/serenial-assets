@@ -1,16 +1,12 @@
 :root {
   /* Primary tuning controls for placement and sizing in #motd. */
   --celdra-size: 152px;
-  --celdra-scale: 1;
   --celdra-right: 3.5%;
   --celdra-bottom: 5.5%;
-  --celdra-z: 7;
 
-  /* Visual polish variables. */
-  --celdra-transition: 220ms ease;
+  --celdra-scale: 1;
+  --celdra-z: 7;
   --celdra-glow-color: rgba(98, 196, 255, 0.28);
-  --celdra-bubble-bg: rgba(22, 32, 55, 0.92);
-  --celdra-bubble-border: rgba(174, 218, 255, 0.36);
 }
 
 #celdra-corner {
@@ -21,8 +17,6 @@
   height: var(--celdra-size);
   z-index: var(--celdra-z);
   pointer-events: none;
-
-  /* Keep Celdra centered in her own box and avoid clipping while she bobs. */
   transform: scale(var(--celdra-scale));
   transform-origin: center bottom;
   overflow: visible;
@@ -40,13 +34,16 @@
   inset: 16% 12% 4%;
   background: radial-gradient(circle at 50% 50%, var(--celdra-glow-color), rgba(98, 196, 255, 0));
   filter: blur(10px);
-  opacity: 0.78;
-  transition: opacity var(--celdra-transition), transform var(--celdra-transition);
+  opacity: 0.74;
+}
+
+#celdra-corner .celdra-frame-wrap {
+  position: absolute;
+  inset: 0;
+  display: block;
 }
 
 #celdra-corner .celdra-frame {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -54,71 +51,20 @@
   object-position: center bottom;
   image-rendering: auto;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
-  transform-origin: center bottom;
-  transition: opacity var(--celdra-transition);
 }
 
-#celdra-corner .celdra-bubble {
-  position: absolute;
-  right: calc(100% - 8px);
-  bottom: 58%;
-  max-width: 230px;
-  padding: 8px 12px;
-  border-radius: 14px;
-  border-bottom-right-radius: 6px;
-  color: #eef7ff;
-  background: var(--celdra-bubble-bg);
-  border: 1px solid var(--celdra-bubble-border);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.28);
-  font: 500 12px/1.35 "Segoe UI", Tahoma, sans-serif;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
-
-  opacity: 0;
-  transform: translateY(8px) scale(0.96);
-  transition: opacity var(--celdra-transition), transform var(--celdra-transition);
-}
-
-#celdra-corner .celdra-bubble::after {
-  content: "";
-  position: absolute;
-  right: -8px;
-  bottom: 10px;
-  width: 12px;
-  height: 12px;
-  background: var(--celdra-bubble-bg);
-  border-right: 1px solid var(--celdra-bubble-border);
-  border-bottom: 1px solid var(--celdra-bubble-border);
-  transform: rotate(-45deg);
-}
-
-#celdra-corner[data-speaking="true"] .celdra-bubble {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
+/* Keep wrapper motion minimal so it does not compete with frame animation. */
 #celdra-corner .celdra-anim {
-  animation:
-    celdraBob 4.8s ease-in-out infinite,
-    celdraDrift 9.5s ease-in-out infinite;
+  animation: celdraFloat 7s ease-in-out infinite;
 }
 
-@keyframes celdraBob {
+@keyframes celdraFloat {
   0%,
   100% {
-    transform: translateY(0) rotate(-1deg) scale(1);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px) rotate(1deg) scale(1.02);
-  }
-}
-
-@keyframes celdraDrift {
-  0%,
-  100% {
-    margin-right: 0;
-  }
-  50% {
-    margin-right: 16px;
+    transform: translateY(-2px);
   }
 }
 
@@ -128,11 +74,6 @@
     --celdra-right: 2%;
     --celdra-bottom: 4%;
   }
-
-  #celdra-corner .celdra-bubble {
-    max-width: 176px;
-    font-size: 11px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -140,12 +81,5 @@
     --celdra-size: 94px;
     --celdra-right: 1.5%;
     --celdra-bottom: 3%;
-  }
-
-  #celdra-corner .celdra-bubble {
-    max-width: 145px;
-    padding: 6px 10px;
-    right: calc(100% - 4px);
-    bottom: 60%;
   }
 }
