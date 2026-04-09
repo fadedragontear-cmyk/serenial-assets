@@ -7,7 +7,7 @@
 
   const TOTAL_LOOP_MS = 5000;
   const TOTAL_FRAMES = 70;
-  const FRAME_DURATION_MS = Math.round(TOTAL_LOOP_MS / TOTAL_FRAMES);
+  const MIN_VIABLE_FRAMES = 24;
 
   const CONFIG = {
     id: "celdra-corner",
@@ -27,13 +27,17 @@
 
   const nodes = {
     root: null,
-    frame: null
+    frameA: null,
+    frameB: null
   };
 
   const runtime = {
     frameUrls: [],
     frameIndex: 0,
-    frameTimer: null
+    frameTimer: null,
+    mountTimer: null,
+    isAnimating: false,
+    activeBuffer: "a"
   };
 
   function resolveUrl(name) {
@@ -47,22 +51,37 @@
     });
   }
 
+  function decodeImage(img) {
+    if (typeof img.decode === "function") {
+      return img.decode().catch(() => undefined);
+    }
+
+    return Promise.resolve();
+  }
+
   function preloadFrame(filename) {
     return new Promise((resolve) => {
       const img = new Image();
       img.decoding = "async";
-      img.onload = () => resolve(resolveUrl(filename));
+
+      img.onload = async () => {
+        await decodeImage(img);
+        resolve(resolveUrl(filename));
+      };
+
       img.onerror = () => {
         console.warn("[Celdra] Failed to load frame:", filename);
         resolve(null);
       };
+
       img.src = resolveUrl(filename);
     });
   }
 
-  function preloadFrames() {
+  async function preloadFrames() {
     const filenames = buildFrameFilenames();
-    return Promise.all(filenames.map(preloadFrame)).then((urls) => urls.filter(Boolean));
+    const urls = await Promise.all(filenames.map(preloadFrame));
+    return urls.filter(Boolean);
   }
 
   function clearTimer(name) {
@@ -72,21 +91,73 @@
     }
   }
 
+  function getFrameDurationMs(frameCount) {
+    const safeCount = Math.max(1, frameCount || 0);
+    return Math.max(16, Math.round(TOTAL_LOOP_MS / safeCount));
+  }
+
+  function setVisibleBuffer(buffer) {
+    if (!nodes.frameA || !nodes.frameB) return;
+
+    if (buffer === "a") {
+      nodes.frameA.classList.add("is-visible");
+      nodes.frameB.classList.remove("is-visible");
+    } else {
+      nodes.frameB.classList.add("is-visible");
+      nodes.frameA.classList.remove("is-visible");
+    }
+
+    runtime.activeBuffer = buffer;
+  }
+
+  function getBuffers() {
+    if (runtime.activeBuffer === "a") {
+      return {
+        hidden: nodes.frameB,
+        nextVisible: "b"
+      };
+    }
+
+    return {
+      hidden: nodes.frameA,
+      nextVisible: "a"
+    };
+  }
+
+  function showFrameInstant(url) {
+    const { hidden, nextVisible } = getBuffers();
+
+    if (!hidden) return;
+
+    hidden.src = url;
+    setVisibleBuffer(nextVisible);
+  }
+
   function playSequence() {
+    if (runtime.isAnimating) return;
+    runtime.isAnimating = true;
     clearTimer("frameTimer");
 
+    const frameCount = runtime.frameUrls.length;
+    const frameDelay = getFrameDurationMs(frameCount);
+
     const tick = () => {
-      if (!nodes.frame || runtime.frameUrls.length === 0) {
-        runtime.frameTimer = setTimeout(tick, FRAME_DURATION_MS);
+      if (!runtime.isAnimating || runtime.frameUrls.length === 0) {
+        runtime.frameTimer = null;
         return;
       }
 
-      nodes.frame.src = runtime.frameUrls[runtime.frameIndex];
+      showFrameInstant(runtime.frameUrls[runtime.frameIndex]);
       runtime.frameIndex = (runtime.frameIndex + 1) % runtime.frameUrls.length;
-      runtime.frameTimer = setTimeout(tick, FRAME_DURATION_MS);
+      runtime.frameTimer = setTimeout(tick, frameDelay);
     };
 
     tick();
+  }
+
+  function stopSequence() {
+    runtime.isAnimating = false;
+    clearTimer("frameTimer");
   }
 
   function findHostContainer() {
@@ -104,7 +175,8 @@
         return;
       }
 
-      setTimeout(() => mountWidget(root, tries + 1), CONFIG.mountRetryDelayMs);
+      clearTimer("mountTimer");
+      runtime.mountTimer = setTimeout(() => mountWidget(root, tries + 1), CONFIG.mountRetryDelayMs);
       return;
     }
 
@@ -127,16 +199,22 @@
     const frameWrap = document.createElement("div");
     frameWrap.className = "celdra-frame-wrap celdra-anim";
 
-    const frame = document.createElement("img");
-    frame.className = "celdra-frame";
-    frame.alt = "";
-    frame.decoding = "async";
+    const frameA = document.createElement("img");
+    frameA.className = "celdra-frame celdra-frame-a is-visible";
+    frameA.alt = "";
+    frameA.decoding = "async";
 
-    frameWrap.appendChild(frame);
+    const frameB = document.createElement("img");
+    frameB.className = "celdra-frame celdra-frame-b";
+    frameB.alt = "";
+    frameB.decoding = "async";
+
+    frameWrap.appendChild(frameA);
+    frameWrap.appendChild(frameB);
     root.appendChild(glow);
     root.appendChild(frameWrap);
 
-    return { root, frame };
+    return { root, frameA, frameB };
   }
 
   function applyRootTuningVars(root) {
@@ -146,34 +224,55 @@
     root.style.setProperty("--celdra-scale", String(CONFIG.scale));
   }
 
-  function init() {
-    if (document.getElementById(CONFIG.id)) return;
+  async function init() {
+    if (document.getElementById(CONFIG.id) || runtime.isAnimating) return;
 
     const widget = buildWidgetDom();
     nodes.root = widget.root;
-    nodes.frame = widget.frame;
+    nodes.frameA = widget.frameA;
+    nodes.frameB = widget.frameB;
 
     applyRootTuningVars(nodes.root);
     mountWidget(nodes.root);
 
-    preloadFrames().then((urls) => {
-      runtime.frameUrls = urls;
+    const urls = await preloadFrames();
+    runtime.frameUrls = urls;
 
-      if (runtime.frameUrls.length === 0) {
-        console.warn("[Celdra] No sequence frames loaded. Widget remains mounted.");
-        return;
-      }
+    if (runtime.frameUrls.length < MIN_VIABLE_FRAMES) {
+      console.warn(
+        `[Celdra] Loaded ${runtime.frameUrls.length} frames, below minimum viable set (${MIN_VIABLE_FRAMES}). Animation not started.`
+      );
+      return;
+    }
 
-      playSequence();
-    });
+    runtime.frameIndex = 0;
+    runtime.activeBuffer = "a";
+
+    // Prime both buffers so the first swap cannot show an empty image.
+    nodes.frameA.src = runtime.frameUrls[0];
+    nodes.frameB.src = runtime.frameUrls[0];
+    setVisibleBuffer("a");
+
+    // Begin playback from the second frame.
+    runtime.frameIndex = 1 % runtime.frameUrls.length;
+    playSequence();
   }
 
   function destroy() {
-    clearTimer("frameTimer");
+    stopSequence();
+    clearTimer("mountTimer");
 
     if (nodes.root && nodes.root.parentNode) {
       nodes.root.parentNode.removeChild(nodes.root);
     }
+
+    nodes.root = null;
+    nodes.frameA = null;
+    nodes.frameB = null;
+
+    runtime.frameUrls = [];
+    runtime.frameIndex = 0;
+    runtime.activeBuffer = "a";
 
     window.__celdraCornerLoaded = false;
   }
