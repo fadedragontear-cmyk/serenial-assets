@@ -44,6 +44,8 @@
 }
 
 #celdra-corner .celdra-frame {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -51,11 +53,19 @@
   object-position: center bottom;
   image-rendering: auto;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
+  opacity: 0;
+  visibility: hidden;
+  will-change: auto;
 }
 
-/* Keep wrapper motion minimal so it does not compete with frame animation. */
+#celdra-corner .celdra-frame.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Keep wrapper motion subtle so it does not compete with frame animation. */
 #celdra-corner .celdra-anim {
-  animation: celdraFloat 7s ease-in-out infinite;
+  animation: celdraFloat 8s ease-in-out infinite;
 }
 
 @keyframes celdraFloat {
@@ -64,7 +74,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
   }
 }
 
