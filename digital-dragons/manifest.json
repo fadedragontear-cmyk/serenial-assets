@@ -1,0 +1,431 @@
+{
+  "schema_version": 1,
+  "asset_version": "2026.07.20.1",
+  "items": {
+    "dragon_egg": {
+      "icon": "items/dragon_egg.png",
+      "emoji": "dd_egg"
+    },
+    "race_tonic": {
+      "icon": "items/race_tonic.png",
+      "emoji": "dd_tonic"
+    },
+    "memory_stone": {
+      "icon": "items/memory_stone.png",
+      "emoji": "dd_memory"
+    },
+    "vitality_shard": {
+      "icon": "items/vitality_shard.png",
+      "emoji": "dd_vitality"
+    },
+    "mana_crystal": {
+      "icon": "items/mana_crystal.png",
+      "emoji": "dd_mana"
+    },
+    "strength_rune": {
+      "icon": "items/strength_rune.png",
+      "emoji": "dd_strength"
+    },
+    "wind_feather": {
+      "icon": "items/wind_feather.png",
+      "emoji": "dd_speed"
+    },
+    "guardian_scale": {
+      "icon": "items/guardian_scale.png",
+      "emoji": "dd_defense"
+    },
+    "arcane_ember": {
+      "icon": "items/arcane_ember.png",
+      "emoji": "dd_magic"
+    },
+    "aegis_gem": {
+      "icon": "items/aegis_gem.png",
+      "emoji": "dd_magicdef"
+    },
+    "fortune_scale": {
+      "icon": "items/fortune_scale.png",
+      "emoji": "dd_luck"
+    }
+  },
+  "ui": {
+    "race_background": "ui/racing/race_track_background.png",
+    "race_lane_panel": "ui/racing/race_lane_panel.png",
+    "start_gate": "ui/racing/race_start_gate.png",
+    "finish_banner": "ui/racing/race_finish_banner.png",
+    "podium_background": "ui/racing/podium_background.png",
+    "hatch_sheet": "ui/hatching/egg_hatch_sheet.png"
+  },
+  "dragons": {
+    "aetherion": {
+      "portrait": "dragons/aetherion/portrait.png",
+      "profile": "dragons/aetherion/profile.png",
+      "race": "dragons/aetherion/race.png",
+      "sprites": "dragons/aetherion/sprites/sprite.json",
+      "element": "aether"
+    },
+    "ashfury": {
+      "portrait": "dragons/ashfury/portrait.png",
+      "profile": "dragons/ashfury/profile.png",
+      "race": "dragons/ashfury/race.png",
+      "sprites": "dragons/ashfury/sprites/sprite.json",
+      "element": "fire"
+    },
+    "blazeclaw": {
+      "portrait": "dragons/blazeclaw/portrait.png",
+      "profile": "dragons/blazeclaw/profile.png",
+      "race": "dragons/blazeclaw/race.png",
+      "sprites": "dragons/blazeclaw/sprites/sprite.json",
+      "element": "fire"
+    },
+    "blazeheart": {
+      "portrait": "dragons/blazeheart/portrait.png",
+      "profile": "dragons/blazeheart/profile.png",
+      "race": "dragons/blazeheart/race.png",
+      "sprites": "dragons/blazeheart/sprites/sprite.json",
+      "element": "fire"
+    },
+    "blazewing": {
+      "portrait": "dragons/blazewing/portrait.png",
+      "profile": "dragons/blazewing/profile.png",
+      "race": "dragons/blazewing/race.png",
+      "sprites": "dragons/blazewing/sprites/sprite.json",
+      "element": "fire"
+    },
+    "blazefury": {
+      "portrait": "dragons/blazefury/portrait.png",
+      "profile": "dragons/blazefury/profile.png",
+      "race": "dragons/blazefury/race.png",
+      "sprites": "dragons/blazefury/sprites/sprite.json",
+      "element": "fire"
+    },
+    "celestria": {
+      "portrait": "dragons/celestria/portrait.png",
+      "profile": "dragons/celestria/profile.png",
+      "race": "dragons/celestria/race.png",
+      "sprites": "dragons/celestria/sprites/sprite.json",
+      "element": "light"
+    },
+    "celdra": {
+      "portrait": "dragons/celdra/portrait.png",
+      "profile": "dragons/celdra/profile.png",
+      "race": "dragons/celdra/race.png",
+      "sprites": "dragons/celdra/sprites/sprite.json",
+      "element": "aether"
+    },
+    "draekor": {
+      "portrait": "dragons/draekor/portrait.png",
+      "profile": "dragons/draekor/profile.png",
+      "race": "dragons/draekor/race.png",
+      "sprites": "dragons/draekor/sprites/sprite.json",
+      "element": "earth"
+    },
+    "drakonis": {
+      "portrait": "dragons/drakonis/portrait.png",
+      "profile": "dragons/drakonis/profile.png",
+      "race": "dragons/drakonis/race.png",
+      "sprites": "dragons/drakonis/sprites/sprite.json",
+      "element": "shadow"
+    },
+    "emberlyn": {
+      "portrait": "dragons/emberlyn/portrait.png",
+      "profile": "dragons/emberlyn/profile.png",
+      "race": "dragons/emberlyn/race.png",
+      "sprites": "dragons/emberlyn/sprites/sprite.json",
+      "element": "fire"
+    },
+    "emberstorm": {
+      "portrait": "dragons/emberstorm/portrait.png",
+      "profile": "dragons/emberstorm/profile.png",
+      "race": "dragons/emberstorm/race.png",
+      "sprites": "dragons/emberstorm/sprites/sprite.json",
+      "element": "fire"
+    },
+    "emberclaw": {
+      "portrait": "dragons/emberclaw/portrait.png",
+      "profile": "dragons/emberclaw/profile.png",
+      "race": "dragons/emberclaw/race.png",
+      "sprites": "dragons/emberclaw/sprites/sprite.json",
+      "element": "fire"
+    },
+    "frostfire": {
+      "portrait": "dragons/frostfire/portrait.png",
+      "profile": "dragons/frostfire/profile.png",
+      "race": "dragons/frostfire/race.png",
+      "sprites": "dragons/frostfire/sprites/sprite.json",
+      "element": "ice_fire"
+    },
+    "frostscale": {
+      "portrait": "dragons/frostscale/portrait.png",
+      "profile": "dragons/frostscale/profile.png",
+      "race": "dragons/frostscale/race.png",
+      "sprites": "dragons/frostscale/sprites/sprite.json",
+      "element": "ice"
+    },
+    "frostwing": {
+      "portrait": "dragons/frostwing/portrait.png",
+      "profile": "dragons/frostwing/profile.png",
+      "race": "dragons/frostwing/race.png",
+      "sprites": "dragons/frostwing/sprites/sprite.json",
+      "element": "ice"
+    },
+    "galeheart": {
+      "portrait": "dragons/galeheart/portrait.png",
+      "profile": "dragons/galeheart/profile.png",
+      "race": "dragons/galeheart/race.png",
+      "sprites": "dragons/galeheart/sprites/sprite.json",
+      "element": "wind"
+    },
+    "glacius": {
+      "portrait": "dragons/glacius/portrait.png",
+      "profile": "dragons/glacius/profile.png",
+      "race": "dragons/glacius/race.png",
+      "sprites": "dragons/glacius/sprites/sprite.json",
+      "element": "ice"
+    },
+    "glimmerbeak": {
+      "portrait": "dragons/glimmerbeak/portrait.png",
+      "profile": "dragons/glimmerbeak/profile.png",
+      "race": "dragons/glimmerbeak/race.png",
+      "sprites": "dragons/glimmerbeak/sprites/sprite.json",
+      "element": "light"
+    },
+    "glimmercrest": {
+      "portrait": "dragons/glimmercrest/portrait.png",
+      "profile": "dragons/glimmercrest/profile.png",
+      "race": "dragons/glimmercrest/race.png",
+      "sprites": "dragons/glimmercrest/sprites/sprite.json",
+      "element": "light"
+    },
+    "gloomfire": {
+      "portrait": "dragons/gloomfire/portrait.png",
+      "profile": "dragons/gloomfire/profile.png",
+      "race": "dragons/gloomfire/race.png",
+      "sprites": "dragons/gloomfire/sprites/sprite.json",
+      "element": "shadow_fire"
+    },
+    "ignis": {
+      "portrait": "dragons/ignis/portrait.png",
+      "profile": "dragons/ignis/profile.png",
+      "race": "dragons/ignis/race.png",
+      "sprites": "dragons/ignis/sprites/sprite.json",
+      "element": "fire"
+    },
+    "ignisar": {
+      "portrait": "dragons/ignisar/portrait.png",
+      "profile": "dragons/ignisar/profile.png",
+      "race": "dragons/ignisar/race.png",
+      "sprites": "dragons/ignisar/sprites/sprite.json",
+      "element": "fire"
+    },
+    "ironfang": {
+      "portrait": "dragons/ironfang/portrait.png",
+      "profile": "dragons/ironfang/profile.png",
+      "race": "dragons/ironfang/race.png",
+      "sprites": "dragons/ironfang/sprites/sprite.json",
+      "element": "earth"
+    },
+    "luminara": {
+      "portrait": "dragons/luminara/portrait.png",
+      "profile": "dragons/luminara/profile.png",
+      "race": "dragons/luminara/race.png",
+      "sprites": "dragons/luminara/sprites/sprite.json",
+      "element": "light"
+    },
+    "mistshadow": {
+      "portrait": "dragons/mistshadow/portrait.png",
+      "profile": "dragons/mistshadow/profile.png",
+      "race": "dragons/mistshadow/race.png",
+      "sprites": "dragons/mistshadow/sprites/sprite.json",
+      "element": "shadow_wind"
+    },
+    "nightfire": {
+      "portrait": "dragons/nightfire/portrait.png",
+      "profile": "dragons/nightfire/profile.png",
+      "race": "dragons/nightfire/race.png",
+      "sprites": "dragons/nightfire/sprites/sprite.json",
+      "element": "shadow_fire"
+    },
+    "nightflare": {
+      "portrait": "dragons/nightflare/portrait.png",
+      "profile": "dragons/nightflare/profile.png",
+      "race": "dragons/nightflare/race.png",
+      "sprites": "dragons/nightflare/sprites/sprite.json",
+      "element": "shadow"
+    },
+    "nightshade": {
+      "portrait": "dragons/nightshade/portrait.png",
+      "profile": "dragons/nightshade/profile.png",
+      "race": "dragons/nightshade/race.png",
+      "sprites": "dragons/nightshade/sprites/sprite.json",
+      "element": "shadow"
+    },
+    "nightwhisper": {
+      "portrait": "dragons/nightwhisper/portrait.png",
+      "profile": "dragons/nightwhisper/profile.png",
+      "race": "dragons/nightwhisper/race.png",
+      "sprites": "dragons/nightwhisper/sprites/sprite.json",
+      "element": "shadow"
+    },
+    "pyrescale": {
+      "portrait": "dragons/pyrescale/portrait.png",
+      "profile": "dragons/pyrescale/profile.png",
+      "race": "dragons/pyrescale/race.png",
+      "sprites": "dragons/pyrescale/sprites/sprite.json",
+      "element": "fire"
+    },
+    "pyrrhus": {
+      "portrait": "dragons/pyrrhus/portrait.png",
+      "profile": "dragons/pyrrhus/profile.png",
+      "race": "dragons/pyrrhus/race.png",
+      "sprites": "dragons/pyrrhus/sprites/sprite.json",
+      "element": "fire"
+    },
+    "quickscale": {
+      "portrait": "dragons/quickscale/portrait.png",
+      "profile": "dragons/quickscale/profile.png",
+      "race": "dragons/quickscale/race.png",
+      "sprites": "dragons/quickscale/sprites/sprite.json",
+      "element": "wind"
+    },
+    "shadowfury": {
+      "portrait": "dragons/shadowfury/portrait.png",
+      "profile": "dragons/shadowfury/profile.png",
+      "race": "dragons/shadowfury/race.png",
+      "sprites": "dragons/shadowfury/sprites/sprite.json",
+      "element": "shadow"
+    },
+    "shadowflame": {
+      "portrait": "dragons/shadowflame/portrait.png",
+      "profile": "dragons/shadowflame/profile.png",
+      "race": "dragons/shadowflame/race.png",
+      "sprites": "dragons/shadowflame/sprites/sprite.json",
+      "element": "shadow_fire"
+    },
+    "shadowflare": {
+      "portrait": "dragons/shadowflare/portrait.png",
+      "profile": "dragons/shadowflare/profile.png",
+      "race": "dragons/shadowflare/race.png",
+      "sprites": "dragons/shadowflare/sprites/sprite.json",
+      "element": "shadow_storm"
+    },
+    "skyshadow": {
+      "portrait": "dragons/skyshadow/portrait.png",
+      "profile": "dragons/skyshadow/profile.png",
+      "race": "dragons/skyshadow/race.png",
+      "sprites": "dragons/skyshadow/sprites/sprite.json",
+      "element": "shadow_wind_light"
+    },
+    "stoneheart": {
+      "portrait": "dragons/stoneheart/portrait.png",
+      "profile": "dragons/stoneheart/profile.png",
+      "race": "dragons/stoneheart/race.png",
+      "sprites": "dragons/stoneheart/sprites/sprite.json",
+      "element": "earth"
+    },
+    "stormtail": {
+      "portrait": "dragons/stormtail/portrait.png",
+      "profile": "dragons/stormtail/profile.png",
+      "race": "dragons/stormtail/race.png",
+      "sprites": "dragons/stormtail/sprites/sprite.json",
+      "element": "storm"
+    },
+    "stormrider": {
+      "portrait": "dragons/stormrider/portrait.png",
+      "profile": "dragons/stormrider/profile.png",
+      "race": "dragons/stormrider/race.png",
+      "sprites": "dragons/stormrider/sprites/sprite.json",
+      "element": "storm"
+    },
+    "stormshadow": {
+      "portrait": "dragons/stormshadow/portrait.png",
+      "profile": "dragons/stormshadow/profile.png",
+      "race": "dragons/stormshadow/race.png",
+      "sprites": "dragons/stormshadow/sprites/sprite.json",
+      "element": "storm_shadow"
+    },
+    "stormwhisper": {
+      "portrait": "dragons/stormwhisper/portrait.png",
+      "profile": "dragons/stormwhisper/profile.png",
+      "race": "dragons/stormwhisper/race.png",
+      "sprites": "dragons/stormwhisper/sprites/sprite.json",
+      "element": "storm_wind"
+    },
+    "sunburst": {
+      "portrait": "dragons/sunburst/portrait.png",
+      "profile": "dragons/sunburst/profile.png",
+      "race": "dragons/sunburst/race.png",
+      "sprites": "dragons/sunburst/sprites/sprite.json",
+      "element": "light"
+    },
+    "terraroc": {
+      "portrait": "dragons/terraroc/portrait.png",
+      "profile": "dragons/terraroc/profile.png",
+      "race": "dragons/terraroc/race.png",
+      "sprites": "dragons/terraroc/sprites/sprite.json",
+      "element": "earth"
+    },
+    "thundara": {
+      "portrait": "dragons/thundara/portrait.png",
+      "profile": "dragons/thundara/profile.png",
+      "race": "dragons/thundara/race.png",
+      "sprites": "dragons/thundara/sprites/sprite.json",
+      "element": "storm"
+    },
+    "thundra": {
+      "portrait": "dragons/thundra/portrait.png",
+      "profile": "dragons/thundra/profile.png",
+      "race": "dragons/thundra/race.png",
+      "sprites": "dragons/thundra/sprites/sprite.json",
+      "element": "storm"
+    },
+    "thunderclaw": {
+      "portrait": "dragons/thunderclaw/portrait.png",
+      "profile": "dragons/thunderclaw/profile.png",
+      "race": "dragons/thunderclaw/race.png",
+      "sprites": "dragons/thunderclaw/sprites/sprite.json",
+      "element": "storm"
+    },
+    "thunderflare": {
+      "portrait": "dragons/thunderflare/portrait.png",
+      "profile": "dragons/thunderflare/profile.png",
+      "race": "dragons/thunderflare/race.png",
+      "sprites": "dragons/thunderflare/sprites/sprite.json",
+      "element": "storm_fire"
+    },
+    "thunderwing": {
+      "portrait": "dragons/thunderwing/portrait.png",
+      "profile": "dragons/thunderwing/profile.png",
+      "race": "dragons/thunderwing/race.png",
+      "sprites": "dragons/thunderwing/sprites/sprite.json",
+      "element": "storm_wind"
+    },
+    "verdantfang": {
+      "portrait": "dragons/verdantfang/portrait.png",
+      "profile": "dragons/verdantfang/profile.png",
+      "race": "dragons/verdantfang/race.png",
+      "sprites": "dragons/verdantfang/sprites/sprite.json",
+      "element": "earth"
+    },
+    "vortigern": {
+      "portrait": "dragons/vortigern/portrait.png",
+      "profile": "dragons/vortigern/profile.png",
+      "race": "dragons/vortigern/race.png",
+      "sprites": "dragons/vortigern/sprites/sprite.json",
+      "element": "storm"
+    },
+    "windrider": {
+      "portrait": "dragons/windrider/portrait.png",
+      "profile": "dragons/windrider/profile.png",
+      "race": "dragons/windrider/race.png",
+      "sprites": "dragons/windrider/sprites/sprite.json",
+      "element": "wind"
+    },
+    "zephyros": {
+      "portrait": "dragons/zephyros/portrait.png",
+      "profile": "dragons/zephyros/profile.png",
+      "race": "dragons/zephyros/race.png",
+      "sprites": "dragons/zephyros/sprites/sprite.json",
+      "element": "wind"
+    }
+  }
+}
