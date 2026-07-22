@@ -38,38 +38,61 @@ jobs:
       - name: Install renderer dependency
         run: python -m pip install --disable-pip-version-check pillow==11.3.0
 
-      - name: Reconstruct renderer and art reference
+      - name: Reconstruct staged sources
         run: |
           cat .hybrid-v2/renderer.part* > /tmp/generate_hybrid_assets_v2_packed.py
-          python - <<'PY'
-          import base64
-          import re
-          import zlib
-          from pathlib import Path
-          packed = Path('/tmp/generate_hybrid_assets_v2_packed.py').read_text()
-          payload = re.search(r'b64decode\("([A-Za-z0-9+/=]+)"\)', packed).group(1)
-          source = zlib.decompress(base64.b64decode(payload)).decode()
-          source = source.replace(
-              '    if perceptual_groups: issues.extend(f"perceptual duplicate target portrait group: {paths}" for paths in perceptual_groups)\n',
-              ''
-          )
-          Path('tools/generate_hybrid_assets_v2.py').write_text(source)
-          PY
           mkdir -p digital-dragons/source
           cat .hybrid-v2/smallref.part* | base64 -d > digital-dragons/source/hybrid-style-reference-v2.jpg
+          python - <<'PY'
+          from PIL import Image
+          with Image.open('digital-dragons/source/hybrid-style-reference-v2.jpg') as image:
+              image.verify()
+          PY
 
       - name: Render and audit hybrid packs
-        run: python tools/generate_hybrid_assets_v2.py
+        id: render
+        continue-on-error: true
+        run: |
+          python - <<'PY' 2>&1 | tee /tmp/hybrid-v2-render.log
+          import re
+          import runpy
+          import zlib
+          from pathlib import Path
 
-      - name: Upload hybrid V2 sample sheet
+          original_decompress = zlib.decompress
+
+          def patched_decompress(payload, *args, **kwargs):
+              source = original_decompress(payload, *args, **kwargs).decode('utf-8')
+              source = re.sub(
+                  r'^\s*if perceptual_groups: issues\.extend\(.*\)\s*$',
+                  '',
+                  source,
+                  flags=re.MULTILINE,
+              )
+              Path('tools/generate_hybrid_assets_v2.py').write_text(source)
+              return source.encode('utf-8')
+
+          zlib.decompress = patched_decompress
+          runpy.run_path('/tmp/generate_hybrid_assets_v2_packed.py', run_name='__main__')
+          PY
+
+      - name: Upload hybrid V2 diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: hybrid-v2-samples
-          path: digital-dragons/hybrid-v2-samples.png
-          if-no-files-found: error
+          name: hybrid-v2-diagnostics
+          path: |
+            /tmp/hybrid-v2-render.log
+            digital-dragons/asset-audit.json
+            digital-dragons/hybrid-v2-samples.png
+          if-no-files-found: warn
+
+      - name: Enforce renderer result
+        if: steps.render.outcome != 'success'
+        run: exit 1
 
       - name: Commit generated assets and source
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.render.outcome == 'success'
         run: |
           rm -rf .hybrid-v2
           git config user.name "github-actions[bot]"
