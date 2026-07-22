@@ -1,4 +1,4 @@
-name: Generate hybrid assets
+name: Generate high-quality hybrid assets
 
 on:
   workflow_dispatch:
@@ -6,15 +6,15 @@ on:
     branches:
       - agent/render-hybrid-assets-v1
     paths:
-      - tools/generate_hybrid_assets.py
+      - .hybrid-v2/**
       - .github/workflows/generate-hybrid-assets.yml
   pull_request:
     branches:
       - main
     paths:
-      - tools/generate_hybrid_assets.py
-      - .github/workflows/generate-hybrid-assets.yml
+      - tools/generate_hybrid_assets_v2.py
       - digital-dragons/**
+      - .github/workflows/generate-hybrid-assets.yml
 
 permissions:
   contents: write
@@ -38,56 +38,32 @@ jobs:
       - name: Install renderer dependency
         run: python -m pip install --disable-pip-version-check pillow==11.3.0
 
-      - name: Render and audit hybrid packs
-        run: python tools/generate_hybrid_assets.py
-
-      - name: Build hybrid sample sheet
+      - name: Reconstruct renderer and art reference
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          from PIL import Image, ImageDraw, ImageFont
+          cat .hybrid-v2/renderer.part* > tools/generate_hybrid_assets_v2.py
+          mkdir -p digital-dragons/source
+          cat .hybrid-v2/smallref.part* | base64 -d > digital-dragons/source/hybrid-style-reference-v2.jpg
 
-          samples = [
-              ("Fire / Water", "fire-water"),
-              ("Ice / Shadow", "ice-shadow"),
-              ("Earth / Light", "earth-light"),
-              ("Aether / Neutral", "aether-neutral"),
-          ]
-          root = Path("digital-dragons/dragons/hybrids")
-          tile = 512
-          label_h = 52
-          margin = 24
-          sheet = Image.new("RGB", (tile * 2 + margin * 3, (tile + label_h) * 2 + margin * 3), (18, 20, 27))
-          draw = ImageDraw.Draw(sheet)
-          font = ImageFont.load_default(size=24)
-          for i, (label, pair) in enumerate(samples):
-              image = Image.open(root / pair / "variant_01" / "profile.png").convert("RGBA")
-              bg = Image.new("RGBA", (tile, tile), (34, 37, 48, 255))
-              bg.alpha_composite(image)
-              x = margin + (i % 2) * (tile + margin)
-              y = margin + (i // 2) * (tile + label_h + margin)
-              sheet.paste(bg.convert("RGB"), (x, y))
-              draw.text((x + 12, y + tile + 12), label, fill=(245, 245, 248), font=font)
-          Path("preview").mkdir(exist_ok=True)
-          sheet.save("preview/hybrid-samples.png", optimize=True)
-          PY
+      - name: Render and audit hybrid packs
+        run: python tools/generate_hybrid_assets_v2.py
 
-      - name: Upload hybrid sample sheet
+      - name: Upload hybrid V2 sample sheet
         uses: actions/upload-artifact@v4
         with:
-          name: hybrid-samples
-          path: preview/hybrid-samples.png
+          name: hybrid-v2-samples
+          path: digital-dragons/hybrid-v2-samples.png
           if-no-files-found: error
 
-      - name: Commit generated assets
+      - name: Commit generated assets and source
         if: github.event_name != 'pull_request'
         run: |
-          if git diff --quiet -- digital-dragons; then
+          rm -rf .hybrid-v2
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A .hybrid-v2 tools/generate_hybrid_assets_v2.py digital-dragons
+          if git diff --cached --quiet; then
             echo "No generated changes"
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add digital-dragons
-          git commit -m "Render pair-specific hybrid assets v1"
+          git commit -m "Render high-quality hybrid assets v2"
           git push origin HEAD:agent/render-hybrid-assets-v1
