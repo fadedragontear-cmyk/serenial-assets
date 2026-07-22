@@ -1,431 +1,1526 @@
 {
-  "schema_version": 1,
-  "asset_version": "2026.07.20.1",
-  "items": {
-    "dragon_egg": {
-      "icon": "items/dragon_egg.png",
-      "emoji": "dd_egg"
-    },
-    "race_tonic": {
-      "icon": "items/race_tonic.png",
-      "emoji": "dd_tonic"
-    },
-    "memory_stone": {
-      "icon": "items/memory_stone.png",
-      "emoji": "dd_memory"
-    },
-    "vitality_shard": {
-      "icon": "items/vitality_shard.png",
-      "emoji": "dd_vitality"
-    },
-    "mana_crystal": {
-      "icon": "items/mana_crystal.png",
-      "emoji": "dd_mana"
-    },
-    "strength_rune": {
-      "icon": "items/strength_rune.png",
-      "emoji": "dd_strength"
-    },
-    "wind_feather": {
-      "icon": "items/wind_feather.png",
-      "emoji": "dd_speed"
-    },
-    "guardian_scale": {
-      "icon": "items/guardian_scale.png",
-      "emoji": "dd_defense"
-    },
-    "arcane_ember": {
-      "icon": "items/arcane_ember.png",
-      "emoji": "dd_magic"
-    },
-    "aegis_gem": {
-      "icon": "items/aegis_gem.png",
-      "emoji": "dd_magicdef"
-    },
-    "fortune_scale": {
-      "icon": "items/fortune_scale.png",
-      "emoji": "dd_luck"
-    }
-  },
-  "ui": {
-    "race_background": "ui/racing/race_track_background.png",
-    "race_lane_panel": "ui/racing/race_lane_panel.png",
-    "start_gate": "ui/racing/race_start_gate.png",
-    "finish_banner": "ui/racing/race_finish_banner.png",
-    "podium_background": "ui/racing/podium_background.png",
-    "hatch_sheet": "ui/hatching/egg_hatch_sheet.png"
-  },
+  "asset_version": "2026.07.22.1",
   "dragons": {
-    "aetherion": {
-      "portrait": "dragons/aetherion/portrait.png",
-      "profile": "dragons/aetherion/profile.png",
-      "race": "dragons/aetherion/race.png",
-      "sprites": "dragons/aetherion/sprites/sprite.json",
-      "element": "aether"
+    "element_aether_01": {
+      "portrait": "dragons/elemental/aether/variant_01/portrait.png",
+      "profile": "dragons/elemental/aether/variant_01/profile.png",
+      "race": "dragons/elemental/aether/variant_01/race.png",
+      "sprites": "dragons/elemental/aether/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Aether Dragon · Variant 01"
     },
-    "ashfury": {
-      "portrait": "dragons/ashfury/portrait.png",
-      "profile": "dragons/ashfury/profile.png",
-      "race": "dragons/ashfury/race.png",
-      "sprites": "dragons/ashfury/sprites/sprite.json",
-      "element": "fire"
+    "element_fire_01": {
+      "portrait": "dragons/elemental/fire/variant_01/portrait.png",
+      "profile": "dragons/elemental/fire/variant_01/profile.png",
+      "race": "dragons/elemental/fire/variant_01/race.png",
+      "sprites": "dragons/elemental/fire/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 1,
+      "display_label": "Fire Dragon · Variant 01"
     },
-    "blazeclaw": {
-      "portrait": "dragons/blazeclaw/portrait.png",
-      "profile": "dragons/blazeclaw/profile.png",
-      "race": "dragons/blazeclaw/race.png",
-      "sprites": "dragons/blazeclaw/sprites/sprite.json",
-      "element": "fire"
+    "element_fire_02": {
+      "portrait": "dragons/elemental/fire/variant_02/portrait.png",
+      "profile": "dragons/elemental/fire/variant_02/profile.png",
+      "race": "dragons/elemental/fire/variant_02/race.png",
+      "sprites": "dragons/elemental/fire/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 2,
+      "display_label": "Fire Dragon · Variant 02"
     },
-    "blazeheart": {
-      "portrait": "dragons/blazeheart/portrait.png",
-      "profile": "dragons/blazeheart/profile.png",
-      "race": "dragons/blazeheart/race.png",
-      "sprites": "dragons/blazeheart/sprites/sprite.json",
-      "element": "fire"
+    "element_fire_03": {
+      "portrait": "dragons/elemental/fire/variant_03/portrait.png",
+      "profile": "dragons/elemental/fire/variant_03/profile.png",
+      "race": "dragons/elemental/fire/variant_03/race.png",
+      "sprites": "dragons/elemental/fire/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 3,
+      "display_label": "Fire Dragon · Variant 03"
     },
-    "blazewing": {
-      "portrait": "dragons/blazewing/portrait.png",
-      "profile": "dragons/blazewing/profile.png",
-      "race": "dragons/blazewing/race.png",
-      "sprites": "dragons/blazewing/sprites/sprite.json",
-      "element": "fire"
+    "element_fire_04": {
+      "portrait": "dragons/elemental/fire/variant_04/portrait.png",
+      "profile": "dragons/elemental/fire/variant_04/profile.png",
+      "race": "dragons/elemental/fire/variant_04/race.png",
+      "sprites": "dragons/elemental/fire/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 4,
+      "display_label": "Fire Dragon · Variant 04"
     },
-    "blazefury": {
-      "portrait": "dragons/blazefury/portrait.png",
-      "profile": "dragons/blazefury/profile.png",
-      "race": "dragons/blazefury/race.png",
-      "sprites": "dragons/blazefury/sprites/sprite.json",
-      "element": "fire"
-    },
-    "celestria": {
-      "portrait": "dragons/celestria/portrait.png",
-      "profile": "dragons/celestria/profile.png",
-      "race": "dragons/celestria/race.png",
-      "sprites": "dragons/celestria/sprites/sprite.json",
-      "element": "light"
+    "element_fire_05": {
+      "portrait": "dragons/elemental/fire/variant_05/portrait.png",
+      "profile": "dragons/elemental/fire/variant_05/profile.png",
+      "race": "dragons/elemental/fire/variant_05/race.png",
+      "sprites": "dragons/elemental/fire/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 5,
+      "display_label": "Fire Dragon · Variant 05"
     },
     "celdra": {
-      "portrait": "dragons/celdra/portrait.png",
-      "profile": "dragons/celdra/profile.png",
-      "race": "dragons/celdra/race.png",
-      "sprites": "dragons/celdra/sprites/sprite.json",
-      "element": "aether"
+      "portrait": "dragons/unique/celdra/portrait.png",
+      "profile": "dragons/unique/celdra/profile.png",
+      "race": "dragons/unique/celdra/race.png",
+      "sprites": "dragons/unique/celdra/sprites/sprite.json",
+      "kind": "unique",
+      "elements": [
+        "aether"
+      ],
+      "variant": 0,
+      "display_label": "Celdra"
+    },
+    "element_light_01": {
+      "portrait": "dragons/elemental/light/variant_01/portrait.png",
+      "profile": "dragons/elemental/light/variant_01/profile.png",
+      "race": "dragons/elemental/light/variant_01/race.png",
+      "sprites": "dragons/elemental/light/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Light Dragon · Variant 01"
+    },
+    "element_earth_01": {
+      "portrait": "dragons/elemental/earth/variant_01/portrait.png",
+      "profile": "dragons/elemental/earth/variant_01/profile.png",
+      "race": "dragons/elemental/earth/variant_01/race.png",
+      "sprites": "dragons/elemental/earth/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 1,
+      "display_label": "Earth Dragon · Variant 01"
+    },
+    "element_shadow_01": {
+      "portrait": "dragons/elemental/shadow/variant_01/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_01/profile.png",
+      "race": "dragons/elemental/shadow/variant_01/race.png",
+      "sprites": "dragons/elemental/shadow/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Shadow Dragon · Variant 01"
+    },
+    "element_fire_06": {
+      "portrait": "dragons/elemental/fire/variant_06/portrait.png",
+      "profile": "dragons/elemental/fire/variant_06/profile.png",
+      "race": "dragons/elemental/fire/variant_06/race.png",
+      "sprites": "dragons/elemental/fire/variant_06/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 6,
+      "display_label": "Fire Dragon · Variant 06"
+    },
+    "element_fire_07": {
+      "portrait": "dragons/elemental/fire/variant_07/portrait.png",
+      "profile": "dragons/elemental/fire/variant_07/profile.png",
+      "race": "dragons/elemental/fire/variant_07/race.png",
+      "sprites": "dragons/elemental/fire/variant_07/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 7,
+      "display_label": "Fire Dragon · Variant 07"
+    },
+    "element_fire_08": {
+      "portrait": "dragons/elemental/fire/variant_08/portrait.png",
+      "profile": "dragons/elemental/fire/variant_08/profile.png",
+      "race": "dragons/elemental/fire/variant_08/race.png",
+      "sprites": "dragons/elemental/fire/variant_08/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 8,
+      "display_label": "Fire Dragon · Variant 08"
+    },
+    "hybrid_fire_ice_01": {
+      "portrait": "dragons/hybrids/fire-ice/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-ice/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-ice/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-ice/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "ice"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Ice Dragon · Variant 01"
+    },
+    "element_ice_01": {
+      "portrait": "dragons/elemental/ice/variant_01/portrait.png",
+      "profile": "dragons/elemental/ice/variant_01/profile.png",
+      "race": "dragons/elemental/ice/variant_01/race.png",
+      "sprites": "dragons/elemental/ice/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "ice"
+      ],
+      "variant": 1,
+      "display_label": "Ice Dragon · Variant 01"
+    },
+    "element_ice_02": {
+      "portrait": "dragons/elemental/ice/variant_02/portrait.png",
+      "profile": "dragons/elemental/ice/variant_02/profile.png",
+      "race": "dragons/elemental/ice/variant_02/race.png",
+      "sprites": "dragons/elemental/ice/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "ice"
+      ],
+      "variant": 2,
+      "display_label": "Ice Dragon · Variant 02"
+    },
+    "element_wind_01": {
+      "portrait": "dragons/elemental/wind/variant_01/portrait.png",
+      "profile": "dragons/elemental/wind/variant_01/profile.png",
+      "race": "dragons/elemental/wind/variant_01/race.png",
+      "sprites": "dragons/elemental/wind/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 1,
+      "display_label": "Wind Dragon · Variant 01"
+    },
+    "element_ice_03": {
+      "portrait": "dragons/elemental/ice/variant_03/portrait.png",
+      "profile": "dragons/elemental/ice/variant_03/profile.png",
+      "race": "dragons/elemental/ice/variant_03/race.png",
+      "sprites": "dragons/elemental/ice/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "ice"
+      ],
+      "variant": 3,
+      "display_label": "Ice Dragon · Variant 03"
+    },
+    "element_light_02": {
+      "portrait": "dragons/elemental/light/variant_02/portrait.png",
+      "profile": "dragons/elemental/light/variant_02/profile.png",
+      "race": "dragons/elemental/light/variant_02/race.png",
+      "sprites": "dragons/elemental/light/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 2,
+      "display_label": "Light Dragon · Variant 02"
+    },
+    "element_light_03": {
+      "portrait": "dragons/elemental/light/variant_03/portrait.png",
+      "profile": "dragons/elemental/light/variant_03/profile.png",
+      "race": "dragons/elemental/light/variant_03/race.png",
+      "sprites": "dragons/elemental/light/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 3,
+      "display_label": "Light Dragon · Variant 03"
+    },
+    "hybrid_fire_shadow_01": {
+      "portrait": "dragons/hybrids/fire-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Shadow Dragon · Variant 01"
+    },
+    "element_fire_09": {
+      "portrait": "dragons/elemental/fire/variant_09/portrait.png",
+      "profile": "dragons/elemental/fire/variant_09/profile.png",
+      "race": "dragons/elemental/fire/variant_09/race.png",
+      "sprites": "dragons/elemental/fire/variant_09/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 9,
+      "display_label": "Fire Dragon · Variant 09"
+    },
+    "element_fire_10": {
+      "portrait": "dragons/elemental/fire/variant_10/portrait.png",
+      "profile": "dragons/elemental/fire/variant_10/profile.png",
+      "race": "dragons/elemental/fire/variant_10/race.png",
+      "sprites": "dragons/elemental/fire/variant_10/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 10,
+      "display_label": "Fire Dragon · Variant 10"
+    },
+    "element_earth_02": {
+      "portrait": "dragons/elemental/earth/variant_02/portrait.png",
+      "profile": "dragons/elemental/earth/variant_02/profile.png",
+      "race": "dragons/elemental/earth/variant_02/race.png",
+      "sprites": "dragons/elemental/earth/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 2,
+      "display_label": "Earth Dragon · Variant 02"
+    },
+    "element_light_04": {
+      "portrait": "dragons/elemental/light/variant_04/portrait.png",
+      "profile": "dragons/elemental/light/variant_04/profile.png",
+      "race": "dragons/elemental/light/variant_04/race.png",
+      "sprites": "dragons/elemental/light/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 4,
+      "display_label": "Light Dragon · Variant 04"
+    },
+    "hybrid_wind_shadow_01": {
+      "portrait": "dragons/hybrids/wind-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Shadow Dragon · Variant 01"
+    },
+    "hybrid_fire_shadow_02": {
+      "portrait": "dragons/hybrids/fire-shadow/variant_02/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_02/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_02/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_02/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 2,
+      "display_label": "Fire/Shadow Dragon · Variant 02"
+    },
+    "element_shadow_02": {
+      "portrait": "dragons/elemental/shadow/variant_02/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_02/profile.png",
+      "race": "dragons/elemental/shadow/variant_02/race.png",
+      "sprites": "dragons/elemental/shadow/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 2,
+      "display_label": "Shadow Dragon · Variant 02"
+    },
+    "element_shadow_03": {
+      "portrait": "dragons/elemental/shadow/variant_03/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_03/profile.png",
+      "race": "dragons/elemental/shadow/variant_03/race.png",
+      "sprites": "dragons/elemental/shadow/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 3,
+      "display_label": "Shadow Dragon · Variant 03"
+    },
+    "element_shadow_04": {
+      "portrait": "dragons/elemental/shadow/variant_04/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_04/profile.png",
+      "race": "dragons/elemental/shadow/variant_04/race.png",
+      "sprites": "dragons/elemental/shadow/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 4,
+      "display_label": "Shadow Dragon · Variant 04"
+    },
+    "element_fire_11": {
+      "portrait": "dragons/elemental/fire/variant_11/portrait.png",
+      "profile": "dragons/elemental/fire/variant_11/profile.png",
+      "race": "dragons/elemental/fire/variant_11/race.png",
+      "sprites": "dragons/elemental/fire/variant_11/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 11,
+      "display_label": "Fire Dragon · Variant 11"
+    },
+    "element_fire_12": {
+      "portrait": "dragons/elemental/fire/variant_12/portrait.png",
+      "profile": "dragons/elemental/fire/variant_12/profile.png",
+      "race": "dragons/elemental/fire/variant_12/race.png",
+      "sprites": "dragons/elemental/fire/variant_12/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 12,
+      "display_label": "Fire Dragon · Variant 12"
+    },
+    "element_wind_02": {
+      "portrait": "dragons/elemental/wind/variant_02/portrait.png",
+      "profile": "dragons/elemental/wind/variant_02/profile.png",
+      "race": "dragons/elemental/wind/variant_02/race.png",
+      "sprites": "dragons/elemental/wind/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 2,
+      "display_label": "Wind Dragon · Variant 02"
+    },
+    "hybrid_fire_shadow_03": {
+      "portrait": "dragons/hybrids/fire-shadow/variant_03/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_03/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_03/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_03/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 3,
+      "display_label": "Fire/Shadow Dragon · Variant 03"
+    },
+    "hybrid_fire_shadow_04": {
+      "portrait": "dragons/hybrids/fire-shadow/variant_04/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_04/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_04/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_04/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 4,
+      "display_label": "Fire/Shadow Dragon · Variant 04"
+    },
+    "element_shadow_05": {
+      "portrait": "dragons/elemental/shadow/variant_05/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_05/profile.png",
+      "race": "dragons/elemental/shadow/variant_05/race.png",
+      "sprites": "dragons/elemental/shadow/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 5,
+      "display_label": "Shadow Dragon · Variant 05"
+    },
+    "hybrid_wind_shadow_02": {
+      "portrait": "dragons/hybrids/wind-shadow/variant_02/portrait.png",
+      "profile": "dragons/hybrids/wind-shadow/variant_02/profile.png",
+      "race": "dragons/hybrids/wind-shadow/variant_02/race.png",
+      "sprites": "dragons/hybrids/wind-shadow/variant_02/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "shadow"
+      ],
+      "variant": 2,
+      "display_label": "Wind/Shadow Dragon · Variant 02"
+    },
+    "element_earth_03": {
+      "portrait": "dragons/elemental/earth/variant_03/portrait.png",
+      "profile": "dragons/elemental/earth/variant_03/profile.png",
+      "race": "dragons/elemental/earth/variant_03/race.png",
+      "sprites": "dragons/elemental/earth/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 3,
+      "display_label": "Earth Dragon · Variant 03"
+    },
+    "element_storm_01": {
+      "portrait": "dragons/elemental/storm/variant_01/portrait.png",
+      "profile": "dragons/elemental/storm/variant_01/profile.png",
+      "race": "dragons/elemental/storm/variant_01/race.png",
+      "sprites": "dragons/elemental/storm/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Storm Dragon · Variant 01"
+    },
+    "hybrid_storm_shadow_01": {
+      "portrait": "dragons/hybrids/storm-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/storm-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/storm-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/storm-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "storm",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Storm/Shadow Dragon · Variant 01"
+    },
+    "element_storm_02": {
+      "portrait": "dragons/elemental/storm/variant_02/portrait.png",
+      "profile": "dragons/elemental/storm/variant_02/profile.png",
+      "race": "dragons/elemental/storm/variant_02/race.png",
+      "sprites": "dragons/elemental/storm/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 2,
+      "display_label": "Storm Dragon · Variant 02"
+    },
+    "hybrid_wind_storm_01": {
+      "portrait": "dragons/hybrids/wind-storm/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-storm/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-storm/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-storm/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Storm Dragon · Variant 01"
+    },
+    "element_light_05": {
+      "portrait": "dragons/elemental/light/variant_05/portrait.png",
+      "profile": "dragons/elemental/light/variant_05/profile.png",
+      "race": "dragons/elemental/light/variant_05/race.png",
+      "sprites": "dragons/elemental/light/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 5,
+      "display_label": "Light Dragon · Variant 05"
+    },
+    "element_earth_04": {
+      "portrait": "dragons/elemental/earth/variant_04/portrait.png",
+      "profile": "dragons/elemental/earth/variant_04/profile.png",
+      "race": "dragons/elemental/earth/variant_04/race.png",
+      "sprites": "dragons/elemental/earth/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 4,
+      "display_label": "Earth Dragon · Variant 04"
+    },
+    "element_storm_03": {
+      "portrait": "dragons/elemental/storm/variant_03/portrait.png",
+      "profile": "dragons/elemental/storm/variant_03/profile.png",
+      "race": "dragons/elemental/storm/variant_03/race.png",
+      "sprites": "dragons/elemental/storm/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 3,
+      "display_label": "Storm Dragon · Variant 03"
+    },
+    "element_storm_04": {
+      "portrait": "dragons/elemental/storm/variant_04/portrait.png",
+      "profile": "dragons/elemental/storm/variant_04/profile.png",
+      "race": "dragons/elemental/storm/variant_04/race.png",
+      "sprites": "dragons/elemental/storm/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 4,
+      "display_label": "Storm Dragon · Variant 04"
+    },
+    "hybrid_fire_storm_01": {
+      "portrait": "dragons/hybrids/fire-storm/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-storm/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-storm/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-storm/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Storm Dragon · Variant 01"
+    },
+    "hybrid_wind_storm_02": {
+      "portrait": "dragons/hybrids/wind-storm/variant_02/portrait.png",
+      "profile": "dragons/hybrids/wind-storm/variant_02/profile.png",
+      "race": "dragons/hybrids/wind-storm/variant_02/race.png",
+      "sprites": "dragons/hybrids/wind-storm/variant_02/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "storm"
+      ],
+      "variant": 2,
+      "display_label": "Wind/Storm Dragon · Variant 02"
+    },
+    "element_storm_05": {
+      "portrait": "dragons/elemental/storm/variant_05/portrait.png",
+      "profile": "dragons/elemental/storm/variant_05/profile.png",
+      "race": "dragons/elemental/storm/variant_05/race.png",
+      "sprites": "dragons/elemental/storm/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 5,
+      "display_label": "Storm Dragon · Variant 05"
+    },
+    "element_earth_05": {
+      "portrait": "dragons/elemental/earth/variant_05/portrait.png",
+      "profile": "dragons/elemental/earth/variant_05/profile.png",
+      "race": "dragons/elemental/earth/variant_05/race.png",
+      "sprites": "dragons/elemental/earth/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 5,
+      "display_label": "Earth Dragon · Variant 05"
+    },
+    "element_storm_06": {
+      "portrait": "dragons/elemental/storm/variant_06/portrait.png",
+      "profile": "dragons/elemental/storm/variant_06/profile.png",
+      "race": "dragons/elemental/storm/variant_06/race.png",
+      "sprites": "dragons/elemental/storm/variant_06/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 6,
+      "display_label": "Storm Dragon · Variant 06"
+    },
+    "element_wind_03": {
+      "portrait": "dragons/elemental/wind/variant_03/portrait.png",
+      "profile": "dragons/elemental/wind/variant_03/profile.png",
+      "race": "dragons/elemental/wind/variant_03/race.png",
+      "sprites": "dragons/elemental/wind/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 3,
+      "display_label": "Wind Dragon · Variant 03"
+    },
+    "element_wind_04": {
+      "portrait": "dragons/elemental/wind/variant_04/portrait.png",
+      "profile": "dragons/elemental/wind/variant_04/profile.png",
+      "race": "dragons/elemental/wind/variant_04/race.png",
+      "sprites": "dragons/elemental/wind/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 4,
+      "display_label": "Wind Dragon · Variant 04"
+    },
+    "element_water_01": {
+      "portrait": "dragons/elemental/water/variant_01/portrait.png",
+      "profile": "dragons/elemental/water/variant_01/profile.png",
+      "race": "dragons/elemental/water/variant_01/race.png",
+      "sprites": "dragons/elemental/water/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "water"
+      ],
+      "variant": 1,
+      "display_label": "Water Dragon · Variant 01"
+    },
+    "element_neutral_01": {
+      "portrait": "dragons/elemental/neutral/variant_01/portrait.png",
+      "profile": "dragons/elemental/neutral/variant_01/profile.png",
+      "race": "dragons/elemental/neutral/variant_01/race.png",
+      "sprites": "dragons/elemental/neutral/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Neutral Dragon · Variant 01"
+    },
+    "aetherion": {
+      "portrait": "dragons/elemental/aether/variant_01/portrait.png",
+      "profile": "dragons/elemental/aether/variant_01/profile.png",
+      "race": "dragons/elemental/aether/variant_01/race.png",
+      "sprites": "dragons/elemental/aether/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Aether Dragon · Variant 01",
+      "alias_of": "element_aether_01",
+      "deprecated": true
+    },
+    "ashfury": {
+      "portrait": "dragons/elemental/fire/variant_01/portrait.png",
+      "profile": "dragons/elemental/fire/variant_01/profile.png",
+      "race": "dragons/elemental/fire/variant_01/race.png",
+      "sprites": "dragons/elemental/fire/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 1,
+      "display_label": "Fire Dragon · Variant 01",
+      "alias_of": "element_fire_01",
+      "deprecated": true
+    },
+    "blazeclaw": {
+      "portrait": "dragons/elemental/fire/variant_02/portrait.png",
+      "profile": "dragons/elemental/fire/variant_02/profile.png",
+      "race": "dragons/elemental/fire/variant_02/race.png",
+      "sprites": "dragons/elemental/fire/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 2,
+      "display_label": "Fire Dragon · Variant 02",
+      "alias_of": "element_fire_02",
+      "deprecated": true
+    },
+    "blazefury": {
+      "portrait": "dragons/elemental/fire/variant_03/portrait.png",
+      "profile": "dragons/elemental/fire/variant_03/profile.png",
+      "race": "dragons/elemental/fire/variant_03/race.png",
+      "sprites": "dragons/elemental/fire/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 3,
+      "display_label": "Fire Dragon · Variant 03",
+      "alias_of": "element_fire_03",
+      "deprecated": true
+    },
+    "blazeheart": {
+      "portrait": "dragons/elemental/fire/variant_04/portrait.png",
+      "profile": "dragons/elemental/fire/variant_04/profile.png",
+      "race": "dragons/elemental/fire/variant_04/race.png",
+      "sprites": "dragons/elemental/fire/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 4,
+      "display_label": "Fire Dragon · Variant 04",
+      "alias_of": "element_fire_04",
+      "deprecated": true
+    },
+    "blazewing": {
+      "portrait": "dragons/elemental/fire/variant_05/portrait.png",
+      "profile": "dragons/elemental/fire/variant_05/profile.png",
+      "race": "dragons/elemental/fire/variant_05/race.png",
+      "sprites": "dragons/elemental/fire/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 5,
+      "display_label": "Fire Dragon · Variant 05",
+      "alias_of": "element_fire_05",
+      "deprecated": true
+    },
+    "celestria": {
+      "portrait": "dragons/elemental/light/variant_01/portrait.png",
+      "profile": "dragons/elemental/light/variant_01/profile.png",
+      "race": "dragons/elemental/light/variant_01/race.png",
+      "sprites": "dragons/elemental/light/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Light Dragon · Variant 01",
+      "alias_of": "element_light_01",
+      "deprecated": true
     },
     "draekor": {
-      "portrait": "dragons/draekor/portrait.png",
-      "profile": "dragons/draekor/profile.png",
-      "race": "dragons/draekor/race.png",
-      "sprites": "dragons/draekor/sprites/sprite.json",
-      "element": "earth"
+      "portrait": "dragons/elemental/earth/variant_01/portrait.png",
+      "profile": "dragons/elemental/earth/variant_01/profile.png",
+      "race": "dragons/elemental/earth/variant_01/race.png",
+      "sprites": "dragons/elemental/earth/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 1,
+      "display_label": "Earth Dragon · Variant 01",
+      "alias_of": "element_earth_01",
+      "deprecated": true
     },
     "drakonis": {
-      "portrait": "dragons/drakonis/portrait.png",
-      "profile": "dragons/drakonis/profile.png",
-      "race": "dragons/drakonis/race.png",
-      "sprites": "dragons/drakonis/sprites/sprite.json",
-      "element": "shadow"
-    },
-    "emberlyn": {
-      "portrait": "dragons/emberlyn/portrait.png",
-      "profile": "dragons/emberlyn/profile.png",
-      "race": "dragons/emberlyn/race.png",
-      "sprites": "dragons/emberlyn/sprites/sprite.json",
-      "element": "fire"
-    },
-    "emberstorm": {
-      "portrait": "dragons/emberstorm/portrait.png",
-      "profile": "dragons/emberstorm/profile.png",
-      "race": "dragons/emberstorm/race.png",
-      "sprites": "dragons/emberstorm/sprites/sprite.json",
-      "element": "fire"
+      "portrait": "dragons/elemental/shadow/variant_01/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_01/profile.png",
+      "race": "dragons/elemental/shadow/variant_01/race.png",
+      "sprites": "dragons/elemental/shadow/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Shadow Dragon · Variant 01",
+      "alias_of": "element_shadow_01",
+      "deprecated": true
     },
     "emberclaw": {
-      "portrait": "dragons/emberclaw/portrait.png",
-      "profile": "dragons/emberclaw/profile.png",
-      "race": "dragons/emberclaw/race.png",
-      "sprites": "dragons/emberclaw/sprites/sprite.json",
-      "element": "fire"
+      "portrait": "dragons/elemental/fire/variant_06/portrait.png",
+      "profile": "dragons/elemental/fire/variant_06/profile.png",
+      "race": "dragons/elemental/fire/variant_06/race.png",
+      "sprites": "dragons/elemental/fire/variant_06/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 6,
+      "display_label": "Fire Dragon · Variant 06",
+      "alias_of": "element_fire_06",
+      "deprecated": true
+    },
+    "emberlyn": {
+      "portrait": "dragons/elemental/fire/variant_07/portrait.png",
+      "profile": "dragons/elemental/fire/variant_07/profile.png",
+      "race": "dragons/elemental/fire/variant_07/race.png",
+      "sprites": "dragons/elemental/fire/variant_07/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 7,
+      "display_label": "Fire Dragon · Variant 07",
+      "alias_of": "element_fire_07",
+      "deprecated": true
+    },
+    "emberstorm": {
+      "portrait": "dragons/elemental/fire/variant_08/portrait.png",
+      "profile": "dragons/elemental/fire/variant_08/profile.png",
+      "race": "dragons/elemental/fire/variant_08/race.png",
+      "sprites": "dragons/elemental/fire/variant_08/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 8,
+      "display_label": "Fire Dragon · Variant 08",
+      "alias_of": "element_fire_08",
+      "deprecated": true
     },
     "frostfire": {
-      "portrait": "dragons/frostfire/portrait.png",
-      "profile": "dragons/frostfire/profile.png",
-      "race": "dragons/frostfire/race.png",
-      "sprites": "dragons/frostfire/sprites/sprite.json",
-      "element": "ice_fire"
+      "portrait": "dragons/hybrids/fire-ice/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-ice/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-ice/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-ice/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "ice"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Ice Dragon · Variant 01",
+      "alias_of": "hybrid_fire_ice_01",
+      "deprecated": true
     },
     "frostscale": {
-      "portrait": "dragons/frostscale/portrait.png",
-      "profile": "dragons/frostscale/profile.png",
-      "race": "dragons/frostscale/race.png",
-      "sprites": "dragons/frostscale/sprites/sprite.json",
-      "element": "ice"
+      "portrait": "dragons/elemental/ice/variant_01/portrait.png",
+      "profile": "dragons/elemental/ice/variant_01/profile.png",
+      "race": "dragons/elemental/ice/variant_01/race.png",
+      "sprites": "dragons/elemental/ice/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "ice"
+      ],
+      "variant": 1,
+      "display_label": "Ice Dragon · Variant 01",
+      "alias_of": "element_ice_01",
+      "deprecated": true
     },
     "frostwing": {
-      "portrait": "dragons/frostwing/portrait.png",
-      "profile": "dragons/frostwing/profile.png",
-      "race": "dragons/frostwing/race.png",
-      "sprites": "dragons/frostwing/sprites/sprite.json",
-      "element": "ice"
+      "portrait": "dragons/elemental/ice/variant_02/portrait.png",
+      "profile": "dragons/elemental/ice/variant_02/profile.png",
+      "race": "dragons/elemental/ice/variant_02/race.png",
+      "sprites": "dragons/elemental/ice/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "ice"
+      ],
+      "variant": 2,
+      "display_label": "Ice Dragon · Variant 02",
+      "alias_of": "element_ice_02",
+      "deprecated": true
     },
     "galeheart": {
-      "portrait": "dragons/galeheart/portrait.png",
-      "profile": "dragons/galeheart/profile.png",
-      "race": "dragons/galeheart/race.png",
-      "sprites": "dragons/galeheart/sprites/sprite.json",
-      "element": "wind"
+      "portrait": "dragons/elemental/wind/variant_01/portrait.png",
+      "profile": "dragons/elemental/wind/variant_01/profile.png",
+      "race": "dragons/elemental/wind/variant_01/race.png",
+      "sprites": "dragons/elemental/wind/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 1,
+      "display_label": "Wind Dragon · Variant 01",
+      "alias_of": "element_wind_01",
+      "deprecated": true
     },
     "glacius": {
-      "portrait": "dragons/glacius/portrait.png",
-      "profile": "dragons/glacius/profile.png",
-      "race": "dragons/glacius/race.png",
-      "sprites": "dragons/glacius/sprites/sprite.json",
-      "element": "ice"
+      "portrait": "dragons/elemental/ice/variant_03/portrait.png",
+      "profile": "dragons/elemental/ice/variant_03/profile.png",
+      "race": "dragons/elemental/ice/variant_03/race.png",
+      "sprites": "dragons/elemental/ice/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "ice"
+      ],
+      "variant": 3,
+      "display_label": "Ice Dragon · Variant 03",
+      "alias_of": "element_ice_03",
+      "deprecated": true
     },
     "glimmerbeak": {
-      "portrait": "dragons/glimmerbeak/portrait.png",
-      "profile": "dragons/glimmerbeak/profile.png",
-      "race": "dragons/glimmerbeak/race.png",
-      "sprites": "dragons/glimmerbeak/sprites/sprite.json",
-      "element": "light"
+      "portrait": "dragons/elemental/light/variant_02/portrait.png",
+      "profile": "dragons/elemental/light/variant_02/profile.png",
+      "race": "dragons/elemental/light/variant_02/race.png",
+      "sprites": "dragons/elemental/light/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 2,
+      "display_label": "Light Dragon · Variant 02",
+      "alias_of": "element_light_02",
+      "deprecated": true
     },
     "glimmercrest": {
-      "portrait": "dragons/glimmercrest/portrait.png",
-      "profile": "dragons/glimmercrest/profile.png",
-      "race": "dragons/glimmercrest/race.png",
-      "sprites": "dragons/glimmercrest/sprites/sprite.json",
-      "element": "light"
+      "portrait": "dragons/elemental/light/variant_03/portrait.png",
+      "profile": "dragons/elemental/light/variant_03/profile.png",
+      "race": "dragons/elemental/light/variant_03/race.png",
+      "sprites": "dragons/elemental/light/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 3,
+      "display_label": "Light Dragon · Variant 03",
+      "alias_of": "element_light_03",
+      "deprecated": true
     },
     "gloomfire": {
-      "portrait": "dragons/gloomfire/portrait.png",
-      "profile": "dragons/gloomfire/profile.png",
-      "race": "dragons/gloomfire/race.png",
-      "sprites": "dragons/gloomfire/sprites/sprite.json",
-      "element": "shadow_fire"
+      "portrait": "dragons/hybrids/fire-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Shadow Dragon · Variant 01",
+      "alias_of": "hybrid_fire_shadow_01",
+      "deprecated": true
     },
     "ignis": {
-      "portrait": "dragons/ignis/portrait.png",
-      "profile": "dragons/ignis/profile.png",
-      "race": "dragons/ignis/race.png",
-      "sprites": "dragons/ignis/sprites/sprite.json",
-      "element": "fire"
+      "portrait": "dragons/elemental/fire/variant_09/portrait.png",
+      "profile": "dragons/elemental/fire/variant_09/profile.png",
+      "race": "dragons/elemental/fire/variant_09/race.png",
+      "sprites": "dragons/elemental/fire/variant_09/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 9,
+      "display_label": "Fire Dragon · Variant 09",
+      "alias_of": "element_fire_09",
+      "deprecated": true
     },
     "ignisar": {
-      "portrait": "dragons/ignisar/portrait.png",
-      "profile": "dragons/ignisar/profile.png",
-      "race": "dragons/ignisar/race.png",
-      "sprites": "dragons/ignisar/sprites/sprite.json",
-      "element": "fire"
+      "portrait": "dragons/elemental/fire/variant_10/portrait.png",
+      "profile": "dragons/elemental/fire/variant_10/profile.png",
+      "race": "dragons/elemental/fire/variant_10/race.png",
+      "sprites": "dragons/elemental/fire/variant_10/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 10,
+      "display_label": "Fire Dragon · Variant 10",
+      "alias_of": "element_fire_10",
+      "deprecated": true
     },
     "ironfang": {
-      "portrait": "dragons/ironfang/portrait.png",
-      "profile": "dragons/ironfang/profile.png",
-      "race": "dragons/ironfang/race.png",
-      "sprites": "dragons/ironfang/sprites/sprite.json",
-      "element": "earth"
+      "portrait": "dragons/elemental/earth/variant_02/portrait.png",
+      "profile": "dragons/elemental/earth/variant_02/profile.png",
+      "race": "dragons/elemental/earth/variant_02/race.png",
+      "sprites": "dragons/elemental/earth/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 2,
+      "display_label": "Earth Dragon · Variant 02",
+      "alias_of": "element_earth_02",
+      "deprecated": true
     },
     "luminara": {
-      "portrait": "dragons/luminara/portrait.png",
-      "profile": "dragons/luminara/profile.png",
-      "race": "dragons/luminara/race.png",
-      "sprites": "dragons/luminara/sprites/sprite.json",
-      "element": "light"
+      "portrait": "dragons/elemental/light/variant_04/portrait.png",
+      "profile": "dragons/elemental/light/variant_04/profile.png",
+      "race": "dragons/elemental/light/variant_04/race.png",
+      "sprites": "dragons/elemental/light/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 4,
+      "display_label": "Light Dragon · Variant 04",
+      "alias_of": "element_light_04",
+      "deprecated": true
     },
     "mistshadow": {
-      "portrait": "dragons/mistshadow/portrait.png",
-      "profile": "dragons/mistshadow/profile.png",
-      "race": "dragons/mistshadow/race.png",
-      "sprites": "dragons/mistshadow/sprites/sprite.json",
-      "element": "shadow_wind"
+      "portrait": "dragons/hybrids/wind-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Shadow Dragon · Variant 01",
+      "alias_of": "hybrid_wind_shadow_01",
+      "deprecated": true
     },
     "nightfire": {
-      "portrait": "dragons/nightfire/portrait.png",
-      "profile": "dragons/nightfire/profile.png",
-      "race": "dragons/nightfire/race.png",
-      "sprites": "dragons/nightfire/sprites/sprite.json",
-      "element": "shadow_fire"
+      "portrait": "dragons/hybrids/fire-shadow/variant_02/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_02/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_02/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_02/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 2,
+      "display_label": "Fire/Shadow Dragon · Variant 02",
+      "alias_of": "hybrid_fire_shadow_02",
+      "deprecated": true
     },
     "nightflare": {
-      "portrait": "dragons/nightflare/portrait.png",
-      "profile": "dragons/nightflare/profile.png",
-      "race": "dragons/nightflare/race.png",
-      "sprites": "dragons/nightflare/sprites/sprite.json",
-      "element": "shadow"
+      "portrait": "dragons/elemental/shadow/variant_02/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_02/profile.png",
+      "race": "dragons/elemental/shadow/variant_02/race.png",
+      "sprites": "dragons/elemental/shadow/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 2,
+      "display_label": "Shadow Dragon · Variant 02",
+      "alias_of": "element_shadow_02",
+      "deprecated": true
     },
     "nightshade": {
-      "portrait": "dragons/nightshade/portrait.png",
-      "profile": "dragons/nightshade/profile.png",
-      "race": "dragons/nightshade/race.png",
-      "sprites": "dragons/nightshade/sprites/sprite.json",
-      "element": "shadow"
+      "portrait": "dragons/elemental/shadow/variant_03/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_03/profile.png",
+      "race": "dragons/elemental/shadow/variant_03/race.png",
+      "sprites": "dragons/elemental/shadow/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 3,
+      "display_label": "Shadow Dragon · Variant 03",
+      "alias_of": "element_shadow_03",
+      "deprecated": true
     },
     "nightwhisper": {
-      "portrait": "dragons/nightwhisper/portrait.png",
-      "profile": "dragons/nightwhisper/profile.png",
-      "race": "dragons/nightwhisper/race.png",
-      "sprites": "dragons/nightwhisper/sprites/sprite.json",
-      "element": "shadow"
+      "portrait": "dragons/elemental/shadow/variant_04/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_04/profile.png",
+      "race": "dragons/elemental/shadow/variant_04/race.png",
+      "sprites": "dragons/elemental/shadow/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 4,
+      "display_label": "Shadow Dragon · Variant 04",
+      "alias_of": "element_shadow_04",
+      "deprecated": true
     },
     "pyrescale": {
-      "portrait": "dragons/pyrescale/portrait.png",
-      "profile": "dragons/pyrescale/profile.png",
-      "race": "dragons/pyrescale/race.png",
-      "sprites": "dragons/pyrescale/sprites/sprite.json",
-      "element": "fire"
+      "portrait": "dragons/elemental/fire/variant_11/portrait.png",
+      "profile": "dragons/elemental/fire/variant_11/profile.png",
+      "race": "dragons/elemental/fire/variant_11/race.png",
+      "sprites": "dragons/elemental/fire/variant_11/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 11,
+      "display_label": "Fire Dragon · Variant 11",
+      "alias_of": "element_fire_11",
+      "deprecated": true
     },
     "pyrrhus": {
-      "portrait": "dragons/pyrrhus/portrait.png",
-      "profile": "dragons/pyrrhus/profile.png",
-      "race": "dragons/pyrrhus/race.png",
-      "sprites": "dragons/pyrrhus/sprites/sprite.json",
-      "element": "fire"
+      "portrait": "dragons/elemental/fire/variant_12/portrait.png",
+      "profile": "dragons/elemental/fire/variant_12/profile.png",
+      "race": "dragons/elemental/fire/variant_12/race.png",
+      "sprites": "dragons/elemental/fire/variant_12/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "fire"
+      ],
+      "variant": 12,
+      "display_label": "Fire Dragon · Variant 12",
+      "alias_of": "element_fire_12",
+      "deprecated": true
     },
     "quickscale": {
-      "portrait": "dragons/quickscale/portrait.png",
-      "profile": "dragons/quickscale/profile.png",
-      "race": "dragons/quickscale/race.png",
-      "sprites": "dragons/quickscale/sprites/sprite.json",
-      "element": "wind"
-    },
-    "shadowfury": {
-      "portrait": "dragons/shadowfury/portrait.png",
-      "profile": "dragons/shadowfury/profile.png",
-      "race": "dragons/shadowfury/race.png",
-      "sprites": "dragons/shadowfury/sprites/sprite.json",
-      "element": "shadow"
+      "portrait": "dragons/elemental/wind/variant_02/portrait.png",
+      "profile": "dragons/elemental/wind/variant_02/profile.png",
+      "race": "dragons/elemental/wind/variant_02/race.png",
+      "sprites": "dragons/elemental/wind/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 2,
+      "display_label": "Wind Dragon · Variant 02",
+      "alias_of": "element_wind_02",
+      "deprecated": true
     },
     "shadowflame": {
-      "portrait": "dragons/shadowflame/portrait.png",
-      "profile": "dragons/shadowflame/profile.png",
-      "race": "dragons/shadowflame/race.png",
-      "sprites": "dragons/shadowflame/sprites/sprite.json",
-      "element": "shadow_fire"
+      "portrait": "dragons/hybrids/fire-shadow/variant_03/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_03/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_03/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_03/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 3,
+      "display_label": "Fire/Shadow Dragon · Variant 03",
+      "alias_of": "hybrid_fire_shadow_03",
+      "deprecated": true
     },
     "shadowflare": {
-      "portrait": "dragons/shadowflare/portrait.png",
-      "profile": "dragons/shadowflare/profile.png",
-      "race": "dragons/shadowflare/race.png",
-      "sprites": "dragons/shadowflare/sprites/sprite.json",
-      "element": "shadow_storm"
+      "portrait": "dragons/hybrids/fire-shadow/variant_04/portrait.png",
+      "profile": "dragons/hybrids/fire-shadow/variant_04/profile.png",
+      "race": "dragons/hybrids/fire-shadow/variant_04/race.png",
+      "sprites": "dragons/hybrids/fire-shadow/variant_04/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "shadow"
+      ],
+      "variant": 4,
+      "display_label": "Fire/Shadow Dragon · Variant 04",
+      "alias_of": "hybrid_fire_shadow_04",
+      "deprecated": true
+    },
+    "shadowfury": {
+      "portrait": "dragons/elemental/shadow/variant_05/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_05/profile.png",
+      "race": "dragons/elemental/shadow/variant_05/race.png",
+      "sprites": "dragons/elemental/shadow/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "shadow"
+      ],
+      "variant": 5,
+      "display_label": "Shadow Dragon · Variant 05",
+      "alias_of": "element_shadow_05",
+      "deprecated": true
     },
     "skyshadow": {
-      "portrait": "dragons/skyshadow/portrait.png",
-      "profile": "dragons/skyshadow/profile.png",
-      "race": "dragons/skyshadow/race.png",
-      "sprites": "dragons/skyshadow/sprites/sprite.json",
-      "element": "shadow_wind_light"
+      "portrait": "dragons/hybrids/wind-shadow/variant_02/portrait.png",
+      "profile": "dragons/hybrids/wind-shadow/variant_02/profile.png",
+      "race": "dragons/hybrids/wind-shadow/variant_02/race.png",
+      "sprites": "dragons/hybrids/wind-shadow/variant_02/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "shadow"
+      ],
+      "variant": 2,
+      "display_label": "Wind/Shadow Dragon · Variant 02",
+      "alias_of": "hybrid_wind_shadow_02",
+      "deprecated": true
     },
     "stoneheart": {
-      "portrait": "dragons/stoneheart/portrait.png",
-      "profile": "dragons/stoneheart/profile.png",
-      "race": "dragons/stoneheart/race.png",
-      "sprites": "dragons/stoneheart/sprites/sprite.json",
-      "element": "earth"
-    },
-    "stormtail": {
-      "portrait": "dragons/stormtail/portrait.png",
-      "profile": "dragons/stormtail/profile.png",
-      "race": "dragons/stormtail/race.png",
-      "sprites": "dragons/stormtail/sprites/sprite.json",
-      "element": "storm"
+      "portrait": "dragons/elemental/earth/variant_03/portrait.png",
+      "profile": "dragons/elemental/earth/variant_03/profile.png",
+      "race": "dragons/elemental/earth/variant_03/race.png",
+      "sprites": "dragons/elemental/earth/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 3,
+      "display_label": "Earth Dragon · Variant 03",
+      "alias_of": "element_earth_03",
+      "deprecated": true
     },
     "stormrider": {
-      "portrait": "dragons/stormrider/portrait.png",
-      "profile": "dragons/stormrider/profile.png",
-      "race": "dragons/stormrider/race.png",
-      "sprites": "dragons/stormrider/sprites/sprite.json",
-      "element": "storm"
+      "portrait": "dragons/elemental/storm/variant_01/portrait.png",
+      "profile": "dragons/elemental/storm/variant_01/profile.png",
+      "race": "dragons/elemental/storm/variant_01/race.png",
+      "sprites": "dragons/elemental/storm/variant_01/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Storm Dragon · Variant 01",
+      "alias_of": "element_storm_01",
+      "deprecated": true
     },
     "stormshadow": {
-      "portrait": "dragons/stormshadow/portrait.png",
-      "profile": "dragons/stormshadow/profile.png",
-      "race": "dragons/stormshadow/race.png",
-      "sprites": "dragons/stormshadow/sprites/sprite.json",
-      "element": "storm_shadow"
+      "portrait": "dragons/hybrids/storm-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/storm-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/storm-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/storm-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "storm",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Storm/Shadow Dragon · Variant 01",
+      "alias_of": "hybrid_storm_shadow_01",
+      "deprecated": true
+    },
+    "stormtail": {
+      "portrait": "dragons/elemental/storm/variant_02/portrait.png",
+      "profile": "dragons/elemental/storm/variant_02/profile.png",
+      "race": "dragons/elemental/storm/variant_02/race.png",
+      "sprites": "dragons/elemental/storm/variant_02/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 2,
+      "display_label": "Storm Dragon · Variant 02",
+      "alias_of": "element_storm_02",
+      "deprecated": true
     },
     "stormwhisper": {
-      "portrait": "dragons/stormwhisper/portrait.png",
-      "profile": "dragons/stormwhisper/profile.png",
-      "race": "dragons/stormwhisper/race.png",
-      "sprites": "dragons/stormwhisper/sprites/sprite.json",
-      "element": "storm_wind"
+      "portrait": "dragons/hybrids/wind-storm/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-storm/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-storm/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-storm/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Storm Dragon · Variant 01",
+      "alias_of": "hybrid_wind_storm_01",
+      "deprecated": true
     },
     "sunburst": {
-      "portrait": "dragons/sunburst/portrait.png",
-      "profile": "dragons/sunburst/profile.png",
-      "race": "dragons/sunburst/race.png",
-      "sprites": "dragons/sunburst/sprites/sprite.json",
-      "element": "light"
+      "portrait": "dragons/elemental/light/variant_05/portrait.png",
+      "profile": "dragons/elemental/light/variant_05/profile.png",
+      "race": "dragons/elemental/light/variant_05/race.png",
+      "sprites": "dragons/elemental/light/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "light"
+      ],
+      "variant": 5,
+      "display_label": "Light Dragon · Variant 05",
+      "alias_of": "element_light_05",
+      "deprecated": true
     },
     "terraroc": {
-      "portrait": "dragons/terraroc/portrait.png",
-      "profile": "dragons/terraroc/profile.png",
-      "race": "dragons/terraroc/race.png",
-      "sprites": "dragons/terraroc/sprites/sprite.json",
-      "element": "earth"
+      "portrait": "dragons/elemental/earth/variant_04/portrait.png",
+      "profile": "dragons/elemental/earth/variant_04/profile.png",
+      "race": "dragons/elemental/earth/variant_04/race.png",
+      "sprites": "dragons/elemental/earth/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 4,
+      "display_label": "Earth Dragon · Variant 04",
+      "alias_of": "element_earth_04",
+      "deprecated": true
     },
     "thundara": {
-      "portrait": "dragons/thundara/portrait.png",
-      "profile": "dragons/thundara/profile.png",
-      "race": "dragons/thundara/race.png",
-      "sprites": "dragons/thundara/sprites/sprite.json",
-      "element": "storm"
-    },
-    "thundra": {
-      "portrait": "dragons/thundra/portrait.png",
-      "profile": "dragons/thundra/profile.png",
-      "race": "dragons/thundra/race.png",
-      "sprites": "dragons/thundra/sprites/sprite.json",
-      "element": "storm"
+      "portrait": "dragons/elemental/storm/variant_03/portrait.png",
+      "profile": "dragons/elemental/storm/variant_03/profile.png",
+      "race": "dragons/elemental/storm/variant_03/race.png",
+      "sprites": "dragons/elemental/storm/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 3,
+      "display_label": "Storm Dragon · Variant 03",
+      "alias_of": "element_storm_03",
+      "deprecated": true
     },
     "thunderclaw": {
-      "portrait": "dragons/thunderclaw/portrait.png",
-      "profile": "dragons/thunderclaw/profile.png",
-      "race": "dragons/thunderclaw/race.png",
-      "sprites": "dragons/thunderclaw/sprites/sprite.json",
-      "element": "storm"
+      "portrait": "dragons/elemental/storm/variant_04/portrait.png",
+      "profile": "dragons/elemental/storm/variant_04/profile.png",
+      "race": "dragons/elemental/storm/variant_04/race.png",
+      "sprites": "dragons/elemental/storm/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 4,
+      "display_label": "Storm Dragon · Variant 04",
+      "alias_of": "element_storm_04",
+      "deprecated": true
     },
     "thunderflare": {
-      "portrait": "dragons/thunderflare/portrait.png",
-      "profile": "dragons/thunderflare/profile.png",
-      "race": "dragons/thunderflare/race.png",
-      "sprites": "dragons/thunderflare/sprites/sprite.json",
-      "element": "storm_fire"
+      "portrait": "dragons/hybrids/fire-storm/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-storm/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-storm/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-storm/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Storm Dragon · Variant 01",
+      "alias_of": "hybrid_fire_storm_01",
+      "deprecated": true
     },
     "thunderwing": {
-      "portrait": "dragons/thunderwing/portrait.png",
-      "profile": "dragons/thunderwing/profile.png",
-      "race": "dragons/thunderwing/race.png",
-      "sprites": "dragons/thunderwing/sprites/sprite.json",
-      "element": "storm_wind"
+      "portrait": "dragons/hybrids/wind-storm/variant_02/portrait.png",
+      "profile": "dragons/hybrids/wind-storm/variant_02/profile.png",
+      "race": "dragons/hybrids/wind-storm/variant_02/race.png",
+      "sprites": "dragons/hybrids/wind-storm/variant_02/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "storm"
+      ],
+      "variant": 2,
+      "display_label": "Wind/Storm Dragon · Variant 02",
+      "alias_of": "hybrid_wind_storm_02",
+      "deprecated": true
+    },
+    "thundra": {
+      "portrait": "dragons/elemental/storm/variant_05/portrait.png",
+      "profile": "dragons/elemental/storm/variant_05/profile.png",
+      "race": "dragons/elemental/storm/variant_05/race.png",
+      "sprites": "dragons/elemental/storm/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 5,
+      "display_label": "Storm Dragon · Variant 05",
+      "alias_of": "element_storm_05",
+      "deprecated": true
     },
     "verdantfang": {
-      "portrait": "dragons/verdantfang/portrait.png",
-      "profile": "dragons/verdantfang/profile.png",
-      "race": "dragons/verdantfang/race.png",
-      "sprites": "dragons/verdantfang/sprites/sprite.json",
-      "element": "earth"
+      "portrait": "dragons/elemental/earth/variant_05/portrait.png",
+      "profile": "dragons/elemental/earth/variant_05/profile.png",
+      "race": "dragons/elemental/earth/variant_05/race.png",
+      "sprites": "dragons/elemental/earth/variant_05/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "earth"
+      ],
+      "variant": 5,
+      "display_label": "Earth Dragon · Variant 05",
+      "alias_of": "element_earth_05",
+      "deprecated": true
     },
     "vortigern": {
-      "portrait": "dragons/vortigern/portrait.png",
-      "profile": "dragons/vortigern/profile.png",
-      "race": "dragons/vortigern/race.png",
-      "sprites": "dragons/vortigern/sprites/sprite.json",
-      "element": "storm"
+      "portrait": "dragons/elemental/storm/variant_06/portrait.png",
+      "profile": "dragons/elemental/storm/variant_06/profile.png",
+      "race": "dragons/elemental/storm/variant_06/race.png",
+      "sprites": "dragons/elemental/storm/variant_06/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "storm"
+      ],
+      "variant": 6,
+      "display_label": "Storm Dragon · Variant 06",
+      "alias_of": "element_storm_06",
+      "deprecated": true
     },
     "windrider": {
-      "portrait": "dragons/windrider/portrait.png",
-      "profile": "dragons/windrider/profile.png",
-      "race": "dragons/windrider/race.png",
-      "sprites": "dragons/windrider/sprites/sprite.json",
-      "element": "wind"
+      "portrait": "dragons/elemental/wind/variant_03/portrait.png",
+      "profile": "dragons/elemental/wind/variant_03/profile.png",
+      "race": "dragons/elemental/wind/variant_03/race.png",
+      "sprites": "dragons/elemental/wind/variant_03/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 3,
+      "display_label": "Wind Dragon · Variant 03",
+      "alias_of": "element_wind_03",
+      "deprecated": true
     },
     "zephyros": {
-      "portrait": "dragons/zephyros/portrait.png",
-      "profile": "dragons/zephyros/profile.png",
-      "race": "dragons/zephyros/race.png",
-      "sprites": "dragons/zephyros/sprites/sprite.json",
-      "element": "wind"
+      "portrait": "dragons/elemental/wind/variant_04/portrait.png",
+      "profile": "dragons/elemental/wind/variant_04/profile.png",
+      "race": "dragons/elemental/wind/variant_04/race.png",
+      "sprites": "dragons/elemental/wind/variant_04/sprites/sprite.json",
+      "kind": "elemental",
+      "elements": [
+        "wind"
+      ],
+      "variant": 4,
+      "display_label": "Wind Dragon · Variant 04",
+      "alias_of": "element_wind_04",
+      "deprecated": true
     }
+  },
+  "items": {
+    "aegis_gem": {
+      "emoji": "dd_magicdef",
+      "icon": "items/aegis_gem.png"
+    },
+    "arcane_ember": {
+      "emoji": "dd_magic",
+      "icon": "items/arcane_ember.png"
+    },
+    "dragon_egg": {
+      "emoji": "dd_egg",
+      "icon": "items/dragon_egg.png"
+    },
+    "fortune_scale": {
+      "emoji": "dd_luck",
+      "icon": "items/fortune_scale.png"
+    },
+    "guardian_scale": {
+      "emoji": "dd_defense",
+      "icon": "items/guardian_scale.png"
+    },
+    "mana_crystal": {
+      "emoji": "dd_mana",
+      "icon": "items/mana_crystal.png"
+    },
+    "memory_stone": {
+      "emoji": "dd_memory",
+      "icon": "items/memory_stone.png"
+    },
+    "race_tonic": {
+      "emoji": "dd_tonic",
+      "icon": "items/race_tonic.png"
+    },
+    "strength_rune": {
+      "emoji": "dd_strength",
+      "icon": "items/strength_rune.png"
+    },
+    "vitality_shard": {
+      "emoji": "dd_vitality",
+      "icon": "items/vitality_shard.png"
+    },
+    "wind_feather": {
+      "emoji": "dd_speed",
+      "icon": "items/wind_feather.png"
+    }
+  },
+  "schema_version": 1,
+  "ui": {
+    "finish_banner": "ui/racing/race_finish_banner.png",
+    "hatch_sheet": "ui/hatching/egg_hatch_sheet.png",
+    "podium_background": "ui/racing/podium_background.png",
+    "race_background": "ui/racing/race_track_background.png",
+    "race_lane_panel": "ui/racing/race_lane_panel.png",
+    "start_gate": "ui/racing/race_start_gate.png"
+  },
+  "taxonomy_version": 2,
+  "dragon_asset_policy": "canonical_elemental_and_hybrid_variants",
+  "legacy_dragon_aliases": {
+    "aetherion": "element_aether_01",
+    "ashfury": "element_fire_01",
+    "blazeclaw": "element_fire_02",
+    "blazefury": "element_fire_03",
+    "blazeheart": "element_fire_04",
+    "blazewing": "element_fire_05",
+    "celestria": "element_light_01",
+    "draekor": "element_earth_01",
+    "drakonis": "element_shadow_01",
+    "emberclaw": "element_fire_06",
+    "emberlyn": "element_fire_07",
+    "emberstorm": "element_fire_08",
+    "frostfire": "hybrid_fire_ice_01",
+    "frostscale": "element_ice_01",
+    "frostwing": "element_ice_02",
+    "galeheart": "element_wind_01",
+    "glacius": "element_ice_03",
+    "glimmerbeak": "element_light_02",
+    "glimmercrest": "element_light_03",
+    "gloomfire": "hybrid_fire_shadow_01",
+    "ignis": "element_fire_09",
+    "ignisar": "element_fire_10",
+    "ironfang": "element_earth_02",
+    "luminara": "element_light_04",
+    "mistshadow": "hybrid_wind_shadow_01",
+    "nightfire": "hybrid_fire_shadow_02",
+    "nightflare": "element_shadow_02",
+    "nightshade": "element_shadow_03",
+    "nightwhisper": "element_shadow_04",
+    "pyrescale": "element_fire_11",
+    "pyrrhus": "element_fire_12",
+    "quickscale": "element_wind_02",
+    "shadowflame": "hybrid_fire_shadow_03",
+    "shadowflare": "hybrid_fire_shadow_04",
+    "shadowfury": "element_shadow_05",
+    "skyshadow": "hybrid_wind_shadow_02",
+    "stoneheart": "element_earth_03",
+    "stormrider": "element_storm_01",
+    "stormshadow": "hybrid_storm_shadow_01",
+    "stormtail": "element_storm_02",
+    "stormwhisper": "hybrid_wind_storm_01",
+    "sunburst": "element_light_05",
+    "terraroc": "element_earth_04",
+    "thundara": "element_storm_03",
+    "thunderclaw": "element_storm_04",
+    "thunderflare": "hybrid_fire_storm_01",
+    "thunderwing": "hybrid_wind_storm_02",
+    "thundra": "element_storm_05",
+    "verdantfang": "element_earth_05",
+    "vortigern": "element_storm_06",
+    "windrider": "element_wind_03",
+    "zephyros": "element_wind_04"
   }
 }

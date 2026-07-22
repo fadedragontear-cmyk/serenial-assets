@@ -1,22 +1,25 @@
 # Digital Dragon runtime assets
 
-Asset version: `2026.07.20.1`
+Asset version: `2026.07.22.1`
 
-This directory follows Celdra's requested runtime structure exactly. All runtime filenames are lowercase ASCII with underscores.
+Dragon art now follows the Digital Dragon Universe taxonomy instead of the retired named roster.
 
-## Included
+## Runtime structure
 
-- 11 functional item icons at 256×256.
-- 53 seeded dragon directories with portrait, profile, race art, seven 32×32 sprite sheets, and sprite metadata.
-- Persistent navigation/status UI.
-- Modular equipment slots, tier frames, and ten element overlays.
-- Racing background, lane, gate, finish, status, event, podium, reward, and ticket assets.
-- Five-frame egg hatch sequence, horizontal hatch sheet, result badges, reveal rings, particles, fragments, and swirls.
-- 42 Discord application emoji PNG files at 128×128, each named exactly as requested.
-- Source reference sheets and recreation prompts.
+- `dragons/elemental/<element>/variant_XX/` for ordinary elemental variants.
+- `dragons/hybrids/<element-pair>/variant_XX/` for hybrid variants.
+- `dragons/unique/celdra/` for Celdra alone.
+- Every runtime pack contains portrait, profile, race, seven 32×32 sprite sheets, and sprite metadata.
+- Personal dragon names belong to owned dragons in the database; they never determine asset paths.
 
-## Important implementation note
+The manifest temporarily retains explicit aliases for retired asset keys so an older deployed Celdra can survive the coordinated database/code migration. No legacy-named dragon directories remain.
 
-The 32×32 sheets are bootstrap runtime sprites generated from each species' approved race illustration. They meet the exact sheet/cell/direction/metadata contract and are suitable for integration testing. A later hand-pixelled pass can replace them without changing paths or metadata.
+## Image contract
 
-The dragon race illustrations are the current approved species concepts. Portraits and profiles are generated from the same species art to maintain identity consistency.
+- `portrait.png`: 1024×1024 RGBA PNG.
+- `profile.png` and `race.png`: 512×512 RGBA PNG.
+- Sprite cells: 32×32 RGBA PNG in down, left, right, up rows.
+- `idle` and `hurt`: 4 columns × 4 rows.
+- `walk`, `attack`, `cast`, `victory`, and `defeat`: 6 columns × 4 rows.
+
+Celdra's art is intentionally never used as an elemental or hybrid fallback.
