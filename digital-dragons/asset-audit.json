@@ -1,8 +1,11 @@
 {
-  "asset_version": "2026.07.22.1",
+  "asset_version": "2026.07.22.3",
   "taxonomy_version": 2,
-  "files_checked": 619,
-  "canonical_dragon_packs": 55,
+  "files_checked": 1198,
+  "canonical_dragon_packs": 94,
+  "canonical_hybrid_pairs": 45,
+  "pair_specific_generated_v1_pairs": 39,
+  "shared_bootstrap_pairs": 0,
   "legacy_named_directories": 0,
   "issues": [],
   "status": "pass"

@@ -1,5 +1,5 @@
 {
-  "asset_version": "2026.07.22.1",
+  "asset_version": "2026.07.22.3",
   "dragons": {
     "element_aether_01": {
       "portrait": "dragons/elemental/aether/variant_01/portrait.png",
@@ -1410,6 +1410,591 @@
       "display_label": "Wind Dragon · Variant 04",
       "alias_of": "element_wind_04",
       "deprecated": true
+    },
+    "hybrid_fire_wind_01": {
+      "portrait": "dragons/hybrids/fire-wind/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-wind/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-wind/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-wind/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "wind"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Wind Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_fire_water_01": {
+      "portrait": "dragons/hybrids/fire-water/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-water/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-water/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-water/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "water"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Water Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_fire_earth_01": {
+      "portrait": "dragons/hybrids/fire-earth/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-earth/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-earth/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-earth/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "earth"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Earth Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_fire_light_01": {
+      "portrait": "dragons/hybrids/fire-light/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-light/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-light/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-light/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Light Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_fire_aether_01": {
+      "portrait": "dragons/hybrids/fire-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_fire_neutral_01": {
+      "portrait": "dragons/hybrids/fire-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/fire-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/fire-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/fire-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "fire",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Fire/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_wind_water_01": {
+      "portrait": "dragons/hybrids/wind-water/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-water/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-water/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-water/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "water"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Water Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_wind_earth_01": {
+      "portrait": "dragons/hybrids/wind-earth/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-earth/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-earth/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-earth/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "earth"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Earth Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_wind_ice_01": {
+      "portrait": "dragons/hybrids/wind-ice/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-ice/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-ice/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-ice/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "ice"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Ice Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_wind_light_01": {
+      "portrait": "dragons/hybrids/wind-light/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-light/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-light/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-light/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Light Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_wind_aether_01": {
+      "portrait": "dragons/hybrids/wind-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_wind_neutral_01": {
+      "portrait": "dragons/hybrids/wind-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/wind-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/wind-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/wind-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "wind",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Wind/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_water_earth_01": {
+      "portrait": "dragons/hybrids/water-earth/variant_01/portrait.png",
+      "profile": "dragons/hybrids/water-earth/variant_01/profile.png",
+      "race": "dragons/hybrids/water-earth/variant_01/race.png",
+      "sprites": "dragons/hybrids/water-earth/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "water",
+        "earth"
+      ],
+      "variant": 1,
+      "display_label": "Water/Earth Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_water_ice_01": {
+      "portrait": "dragons/hybrids/water-ice/variant_01/portrait.png",
+      "profile": "dragons/hybrids/water-ice/variant_01/profile.png",
+      "race": "dragons/hybrids/water-ice/variant_01/race.png",
+      "sprites": "dragons/hybrids/water-ice/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "water",
+        "ice"
+      ],
+      "variant": 1,
+      "display_label": "Water/Ice Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_water_storm_01": {
+      "portrait": "dragons/hybrids/water-storm/variant_01/portrait.png",
+      "profile": "dragons/hybrids/water-storm/variant_01/profile.png",
+      "race": "dragons/hybrids/water-storm/variant_01/race.png",
+      "sprites": "dragons/hybrids/water-storm/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "water",
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Water/Storm Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_water_light_01": {
+      "portrait": "dragons/hybrids/water-light/variant_01/portrait.png",
+      "profile": "dragons/hybrids/water-light/variant_01/profile.png",
+      "race": "dragons/hybrids/water-light/variant_01/race.png",
+      "sprites": "dragons/hybrids/water-light/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "water",
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Water/Light Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_water_shadow_01": {
+      "portrait": "dragons/hybrids/water-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/water-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/water-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/water-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "water",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Water/Shadow Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_water_aether_01": {
+      "portrait": "dragons/hybrids/water-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/water-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/water-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/water-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "water",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Water/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_water_neutral_01": {
+      "portrait": "dragons/hybrids/water-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/water-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/water-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/water-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "water",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Water/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_earth_ice_01": {
+      "portrait": "dragons/hybrids/earth-ice/variant_01/portrait.png",
+      "profile": "dragons/hybrids/earth-ice/variant_01/profile.png",
+      "race": "dragons/hybrids/earth-ice/variant_01/race.png",
+      "sprites": "dragons/hybrids/earth-ice/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "earth",
+        "ice"
+      ],
+      "variant": 1,
+      "display_label": "Earth/Ice Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_earth_storm_01": {
+      "portrait": "dragons/hybrids/earth-storm/variant_01/portrait.png",
+      "profile": "dragons/hybrids/earth-storm/variant_01/profile.png",
+      "race": "dragons/hybrids/earth-storm/variant_01/race.png",
+      "sprites": "dragons/hybrids/earth-storm/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "earth",
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Earth/Storm Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_earth_light_01": {
+      "portrait": "dragons/hybrids/earth-light/variant_01/portrait.png",
+      "profile": "dragons/hybrids/earth-light/variant_01/profile.png",
+      "race": "dragons/hybrids/earth-light/variant_01/race.png",
+      "sprites": "dragons/hybrids/earth-light/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "earth",
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Earth/Light Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_earth_shadow_01": {
+      "portrait": "dragons/hybrids/earth-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/earth-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/earth-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/earth-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "earth",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Earth/Shadow Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_earth_aether_01": {
+      "portrait": "dragons/hybrids/earth-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/earth-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/earth-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/earth-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "earth",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Earth/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_earth_neutral_01": {
+      "portrait": "dragons/hybrids/earth-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/earth-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/earth-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/earth-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "earth",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Earth/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_ice_storm_01": {
+      "portrait": "dragons/hybrids/ice-storm/variant_01/portrait.png",
+      "profile": "dragons/hybrids/ice-storm/variant_01/profile.png",
+      "race": "dragons/hybrids/ice-storm/variant_01/race.png",
+      "sprites": "dragons/hybrids/ice-storm/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "ice",
+        "storm"
+      ],
+      "variant": 1,
+      "display_label": "Ice/Storm Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_ice_light_01": {
+      "portrait": "dragons/hybrids/ice-light/variant_01/portrait.png",
+      "profile": "dragons/hybrids/ice-light/variant_01/profile.png",
+      "race": "dragons/hybrids/ice-light/variant_01/race.png",
+      "sprites": "dragons/hybrids/ice-light/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "ice",
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Ice/Light Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_ice_shadow_01": {
+      "portrait": "dragons/hybrids/ice-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/ice-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/ice-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/ice-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "ice",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Ice/Shadow Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_ice_aether_01": {
+      "portrait": "dragons/hybrids/ice-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/ice-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/ice-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/ice-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "ice",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Ice/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_ice_neutral_01": {
+      "portrait": "dragons/hybrids/ice-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/ice-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/ice-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/ice-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "ice",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Ice/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_storm_light_01": {
+      "portrait": "dragons/hybrids/storm-light/variant_01/portrait.png",
+      "profile": "dragons/hybrids/storm-light/variant_01/profile.png",
+      "race": "dragons/hybrids/storm-light/variant_01/race.png",
+      "sprites": "dragons/hybrids/storm-light/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "storm",
+        "light"
+      ],
+      "variant": 1,
+      "display_label": "Storm/Light Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_storm_aether_01": {
+      "portrait": "dragons/hybrids/storm-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/storm-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/storm-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/storm-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "storm",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Storm/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_storm_neutral_01": {
+      "portrait": "dragons/hybrids/storm-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/storm-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/storm-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/storm-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "storm",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Storm/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_light_shadow_01": {
+      "portrait": "dragons/hybrids/light-shadow/variant_01/portrait.png",
+      "profile": "dragons/hybrids/light-shadow/variant_01/profile.png",
+      "race": "dragons/hybrids/light-shadow/variant_01/race.png",
+      "sprites": "dragons/hybrids/light-shadow/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "light",
+        "shadow"
+      ],
+      "variant": 1,
+      "display_label": "Light/Shadow Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_light_aether_01": {
+      "portrait": "dragons/hybrids/light-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/light-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/light-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/light-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "light",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Light/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_light_neutral_01": {
+      "portrait": "dragons/hybrids/light-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/light-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/light-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/light-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "light",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Light/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_shadow_aether_01": {
+      "portrait": "dragons/hybrids/shadow-aether/variant_01/portrait.png",
+      "profile": "dragons/hybrids/shadow-aether/variant_01/profile.png",
+      "race": "dragons/hybrids/shadow-aether/variant_01/race.png",
+      "sprites": "dragons/hybrids/shadow-aether/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "shadow",
+        "aether"
+      ],
+      "variant": 1,
+      "display_label": "Shadow/Aether Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_shadow_neutral_01": {
+      "portrait": "dragons/hybrids/shadow-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/shadow-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/shadow-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/shadow-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "shadow",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Shadow/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
+    },
+    "hybrid_aether_neutral_01": {
+      "portrait": "dragons/hybrids/aether-neutral/variant_01/portrait.png",
+      "profile": "dragons/hybrids/aether-neutral/variant_01/profile.png",
+      "race": "dragons/hybrids/aether-neutral/variant_01/race.png",
+      "sprites": "dragons/hybrids/aether-neutral/variant_01/sprites/sprite.json",
+      "kind": "hybrid",
+      "elements": [
+        "aether",
+        "neutral"
+      ],
+      "variant": 1,
+      "display_label": "Aether/Neutral Dragon · Variant 01",
+      "art_status": "pair_specific_generated_v1",
+      "art_generator": "tools/generate_hybrid_assets.py"
     }
   },
   "items": {
@@ -1522,5 +2107,12 @@
     "vortigern": "element_storm_06",
     "windrider": "element_wind_03",
     "zephyros": "element_wind_04"
+  },
+  "hybrid_pair_coverage": {
+    "canonical_pairs": 45,
+    "covered_pairs": 45,
+    "pair_specific_generated_v1_pairs": 39,
+    "established_pairs": 6,
+    "shared_bootstrap_pairs": 0
   }
 }
