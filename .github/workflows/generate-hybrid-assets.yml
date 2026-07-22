@@ -2,11 +2,13 @@ name: Generate high-quality hybrid assets
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
-      - agent/render-hybrid-assets-v1
+      - main
     paths:
       - .hybrid-v2/**
+      - tools/generate_hybrid_assets_v2.py
+      - digital-dragons/**
       - .github/workflows/generate-hybrid-assets.yml
 
 permissions:
@@ -73,6 +75,32 @@ jobs:
           runpy.run_path('/tmp/generate_hybrid_assets_v2_packed.py', run_name='__main__')
           PY
 
+      - name: Enforce renderer result
+        if: steps.render.outcome != 'success'
+        run: exit 1
+
+      - name: Commit and publish generated assets
+        id: publish
+        continue-on-error: true
+        if: steps.render.outcome == 'success'
+        shell: bash
+        run: |
+          set -o pipefail
+          {
+            git status --short
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add tools/generate_hybrid_assets_v2.py digital-dragons
+            if git diff --cached --quiet; then
+              echo "No generated changes"
+              exit 0
+            fi
+            git commit -m "Render high-quality hybrid assets v2"
+            git fetch origin agent/render-hybrid-assets-v1
+            git rebase origin/agent/render-hybrid-assets-v1
+            git push origin HEAD:agent/render-hybrid-assets-v1
+          } 2>&1 | tee /tmp/hybrid-v2-publish.log
+
       - name: Upload hybrid V2 diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -80,25 +108,11 @@ jobs:
           name: hybrid-v2-diagnostics
           path: |
             /tmp/hybrid-v2-render.log
+            /tmp/hybrid-v2-publish.log
             digital-dragons/asset-audit.json
             digital-dragons/hybrid-v2-samples.png
           if-no-files-found: warn
 
-      - name: Enforce renderer result
-        if: steps.render.outcome != 'success'
+      - name: Enforce publication result
+        if: steps.publish.outcome != 'success'
         run: exit 1
-
-      - name: Commit and publish generated assets
-        if: steps.render.outcome == 'success'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tools/generate_hybrid_assets_v2.py digital-dragons
-          if git diff --cached --quiet; then
-            echo "No generated changes"
-            exit 0
-          fi
-          git commit -m "Render high-quality hybrid assets v2"
-          git fetch origin agent/render-hybrid-assets-v1
-          git rebase origin/agent/render-hybrid-assets-v1
-          git push origin HEAD:agent/render-hybrid-assets-v1
