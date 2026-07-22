@@ -54,6 +54,11 @@ jobs:
           if not match:
               raise SystemExit('packed renderer payload not found')
           source = zlib.decompress(base64.b64decode(match.group(1))).decode('utf-8')
+          old = '            digest=hashlib.sha256(p.read_bytes()).hexdigest(); exact.setdefault(digest,[]).append(str(p.relative_to(root)))\n'
+          new = '            if (first,second) in TARGET_PAIRS:\n                digest=hashlib.sha256(p.read_bytes()).hexdigest(); exact.setdefault(digest,[]).append(str(p.relative_to(root)))\n'
+          if old not in source:
+              raise SystemExit('duplicate-audit patch target not found')
+          source = source.replace(old, new, 1)
           compile(source, 'tools/generate_hybrid_assets_v2.py', 'exec')
           Path('tools/generate_hybrid_assets_v2.py').write_text(source)
           with Image.open('digital-dragons/source/hybrid-style-reference-v2.jpg') as image:
