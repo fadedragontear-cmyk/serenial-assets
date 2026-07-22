@@ -8,6 +8,13 @@ on:
     paths:
       - tools/generate_hybrid_assets.py
       - .github/workflows/generate-hybrid-assets.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - tools/generate_hybrid_assets.py
+      - .github/workflows/generate-hybrid-assets.yml
+      - digital-dragons/**
 
 permissions:
   contents: write
@@ -34,7 +41,46 @@ jobs:
       - name: Render and audit hybrid packs
         run: python tools/generate_hybrid_assets.py
 
+      - name: Build hybrid sample sheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont
+
+          samples = [
+              ("Fire / Water", "fire-water"),
+              ("Ice / Shadow", "ice-shadow"),
+              ("Earth / Light", "earth-light"),
+              ("Aether / Neutral", "aether-neutral"),
+          ]
+          root = Path("digital-dragons/dragons/hybrids")
+          tile = 512
+          label_h = 52
+          margin = 24
+          sheet = Image.new("RGB", (tile * 2 + margin * 3, (tile + label_h) * 2 + margin * 3), (18, 20, 27))
+          draw = ImageDraw.Draw(sheet)
+          font = ImageFont.load_default(size=24)
+          for i, (label, pair) in enumerate(samples):
+              image = Image.open(root / pair / "variant_01" / "profile.png").convert("RGBA")
+              bg = Image.new("RGBA", (tile, tile), (34, 37, 48, 255))
+              bg.alpha_composite(image)
+              x = margin + (i % 2) * (tile + margin)
+              y = margin + (i // 2) * (tile + label_h + margin)
+              sheet.paste(bg.convert("RGB"), (x, y))
+              draw.text((x + 12, y + tile + 12), label, fill=(245, 245, 248), font=font)
+          Path("preview").mkdir(exist_ok=True)
+          sheet.save("preview/hybrid-samples.png", optimize=True)
+          PY
+
+      - name: Upload hybrid sample sheet
+        uses: actions/upload-artifact@v4
+        with:
+          name: hybrid-samples
+          path: preview/hybrid-samples.png
+          if-no-files-found: error
+
       - name: Commit generated assets
+        if: github.event_name != 'pull_request'
         run: |
           if git diff --quiet -- digital-dragons; then
             echo "No generated changes"
