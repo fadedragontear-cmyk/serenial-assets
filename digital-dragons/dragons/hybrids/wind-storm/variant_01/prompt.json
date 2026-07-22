@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "prompt_version": 2,
+  "asset_version": "2026.07.22.4",
+  "pair": [
+    "wind",
+    "storm"
+  ],
+  "runtime_key": "hybrid_wind_storm_01",
+  "seed": 5193934756584300745,
+  "identity_lock": "An original wind / storm hybrid dragon combining swept-back horns with electric eye glow. Preserve the same head silhouette, horn count, eye shape, scale pattern, wing structure, tail tip, and chest markings across every asset.",
+  "palette": {
+    "primary": "#2D7B95",
+    "secondary": "#38529E",
+    "accent": "#72CEF1",
+    "highlight": "#F0F2A6",
+    "eye": "#84D2FC"
+  },
+  "master_prompt": "An original wind / storm hybrid dragon combining swept-back horns with electric eye glow. Preserve the same head silhouette, horn count, eye shape, scale pattern, wing structure, tail tip, and chest markings across every asset. Extremely high quality original fantasy creature design, premium game key art, intricate layered scales, anatomically coherent dragon, strong readable silhouette, painterly realism with crisp cel-shaded edge control, cinematic volumetric lighting, physically plausible materials, intentional two-element integration rather than a split-color recolor. Elemental effects: visible air ribbons, drifting feathers, pale teal currents fused with forked lightning, charged cloud vapor, electric blue highlights. Palette anchored by #2D7B95, #38529E, and #72CEF1.",
+  "negative_prompt": "text, watermark, logo, signature, frame, border, UI, multiple dragons, duplicate heads, extra limbs, missing limbs, human anatomy, rider, saddle, cropped horns, cropped wings, muddy silhouette, low detail, generic recolor, plastic toy, photobash seams, blurry eye, asymmetric accidental anatomy, inconsistent markings, franchise character, copyrighted creature",
+  "assets": {
+    "portrait": "An original wind / storm hybrid dragon combining swept-back horns with electric eye glow. Preserve the same head silhouette, horn count, eye shape, scale pattern, wing structure, tail tip, and chest markings across every asset. Extremely high quality original fantasy creature design, premium game key art, intricate layered scales, anatomically coherent dragon, strong readable silhouette, painterly realism with crisp cel-shaded edge control, cinematic volumetric lighting, physically plausible materials, intentional two-element integration rather than a split-color recolor. Elemental effects: visible air ribbons, drifting feathers, pale teal currents fused with forked lightning, charged cloud vapor, electric blue highlights. Palette anchored by #2D7B95, #38529E, and #72CEF1. Head-and-shoulders three-quarter portrait, dragon facing right, 1024x1024 square composition, dramatic dark atmospheric background, head occupies roughly 70 percent of frame, both eyes not required but the visible eye must be sharp, no text.",
+    "profile": "An original wind / storm hybrid dragon combining swept-back horns with electric eye glow. Preserve the same head silhouette, horn count, eye shape, scale pattern, wing structure, tail tip, and chest markings across every asset. Extremely high quality original fantasy creature design, premium game key art, intricate layered scales, anatomically coherent dragon, strong readable silhouette, painterly realism with crisp cel-shaded edge control, cinematic volumetric lighting, physically plausible materials, intentional two-element integration rather than a split-color recolor. Elemental effects: visible air ribbons, drifting feathers, pale teal currents fused with forked lightning, charged cloud vapor, electric blue highlights. Palette anchored by #2D7B95, #38529E, and #72CEF1. Full-body side profile facing right, 512x512 square composition, complete horns wings feet and tail visible, neutral grounded stance, clean separation from a dark vignette background, no text.",
+    "race": "An original wind / storm hybrid dragon combining swept-back horns with electric eye glow. Preserve the same head silhouette, horn count, eye shape, scale pattern, wing structure, tail tip, and chest markings across every asset. Extremely high quality original fantasy creature design, premium game key art, intricate layered scales, anatomically coherent dragon, strong readable silhouette, painterly realism with crisp cel-shaded edge control, cinematic volumetric lighting, physically plausible materials, intentional two-element integration rather than a split-color recolor. Elemental effects: visible air ribbons, drifting feathers, pale teal currents fused with forked lightning, charged cloud vapor, electric blue highlights. Palette anchored by #2D7B95, #38529E, and #72CEF1. Full-body racing action pose facing right, 512x512 square composition, low athletic posture, readable limbs, motion trails and elemental wake, fantasy arena track, subject remains crisp, no text.",
+    "sprites": "An original wind / storm hybrid dragon combining swept-back horns with electric eye glow. Preserve the same head silhouette, horn count, eye shape, scale pattern, wing structure, tail tip, and chest markings across every asset. Extremely high quality original fantasy creature design, premium game key art, intricate layered scales, anatomically coherent dragon, strong readable silhouette, painterly realism with crisp cel-shaded edge control, cinematic volumetric lighting, physically plausible materials, intentional two-element integration rather than a split-color recolor. Elemental effects: visible air ribbons, drifting feathers, pale teal currents fused with forked lightning, charged cloud vapor, electric blue highlights. Palette anchored by #2D7B95, #38529E, and #72CEF1. Pixel-art game sprite adaptation on transparent background, 32x32 cells, simplified silhouette while retaining unique horn wing tail and palette identity, four directional rows down left right up, no antialiasing, no text."
+  },
+  "consistency_notes": [
+    "Use portrait as the character-design source of truth.",
+    "Do not alter horn count, eye color, chest marking, wing finger count, or tail-tip geometry between assets.",
+    "Elemental effects must support the silhouette and never conceal the feet, eye, or tail tip.",
+    "Generate transparent-background sprite cells separately from illustrated portrait/profile/race backgrounds."
+  ],
+  "status": "established_pack_prompt_sidecar"
+}

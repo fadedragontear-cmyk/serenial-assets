@@ -1,6 +1,6 @@
 # Digital Dragon runtime assets
 
-Asset version: `2026.07.22.3`
+Asset version: `2026.07.22.4`
 
 Dragon art now follows the Digital Dragon Universe taxonomy instead of the retired named roster.
 
@@ -26,4 +26,8 @@ Celdra's art is intentionally never used as an elemental or hybrid fallback.
 
 ## Hybrid art coverage
 
-All 45 canonical two-element pairs have runtime packs. The 39 packs introduced during the coverage expansion now contain deterministic pair-specific portrait, profile, race, and sprite artwork; they no longer share a bootstrap image set.
+All 45 canonical two-element pairs have runtime packs. The 39 packs introduced during the coverage expansion now use production procedural V2 art with pair-specific prompt sidecars; exact-duplicate and image-contract checks pass.
+
+## Prompt sidecars
+
+Every canonical hybrid `variant_01` directory includes `prompt.json`. The aggregate prompt library is `hybrid-prompt-library.json`; it records identity locks, palette, negative prompts, and portrait/profile/race/sprite prompts for future manual or model-assisted revisions.
