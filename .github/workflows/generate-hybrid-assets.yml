@@ -8,16 +8,13 @@ on:
     paths:
       - .hybrid-v2/**
       - .github/workflows/generate-hybrid-assets.yml
-  pull_request:
-    branches:
-      - main
-    paths:
-      - tools/generate_hybrid_assets_v2.py
-      - digital-dragons/**
-      - .github/workflows/generate-hybrid-assets.yml
 
 permissions:
   contents: write
+
+concurrency:
+  group: hybrid-v2-publish
+  cancel-in-progress: false
 
 jobs:
   render:
@@ -91,7 +88,7 @@ jobs:
         if: steps.render.outcome != 'success'
         run: exit 1
 
-      - name: Commit generated assets and source
+      - name: Commit and publish generated assets
         if: steps.render.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
@@ -102,4 +99,6 @@ jobs:
             exit 0
           fi
           git commit -m "Render high-quality hybrid assets v2"
+          git fetch origin agent/render-hybrid-assets-v1
+          git rebase origin/agent/render-hybrid-assets-v1
           git push origin HEAD:agent/render-hybrid-assets-v1
