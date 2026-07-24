@@ -1,9 +1,16 @@
 {
-  "asset_version": "2026.07.22.1",
+  "asset_version": "2026.07.22.4",
   "taxonomy_version": 2,
-  "files_checked": 619,
-  "canonical_dragon_packs": 55,
-  "legacy_named_directories": 0,
+  "files_checked": 540,
+  "canonical_hybrid_pairs": 45,
+  "established_pairs": 6,
+  "production_procedural_v2_pairs": 39,
+  "placeholder_grade_pairs_detected": 39,
+  "placeholder_grade_pairs_replaced": 39,
+  "shared_bootstrap_pairs": 0,
+  "missing_canonical_pairs": 0,
+  "exact_duplicate_core_asset_groups": 0,
+  "perceptual_duplicate_target_portrait_groups": 0,
   "issues": [],
   "status": "pass"
 }
