@@ -11,8 +11,6 @@
   "missing_canonical_pairs": 0,
   "exact_duplicate_core_asset_groups": 0,
   "perceptual_duplicate_target_portrait_groups": 0,
-  "issues": [],
-  "status": "pass",
   "world_tile_atlases": 1,
   "world_tile_terrains": 20,
   "world_tile_variants_per_terrain": 4,
@@ -23,5 +21,7 @@
     "established_hybrid_variant_packs": 11,
     "protected_reference_packs": 1
   },
-  "art_approval_note": "Runtime contract pass does not imply final visual approval."
+  "art_approval_note": "Runtime contract pass does not imply final visual approval.",
+  "issues": [],
+  "status": "pass"
 }
