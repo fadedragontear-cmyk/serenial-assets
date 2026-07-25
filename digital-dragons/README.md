@@ -1,6 +1,6 @@
 # Digital Dragon runtime assets
 
-Asset version: `2026.07.25.1`
+Asset version: `2026.07.25.2`
 
 Dragon art now follows the Digital Dragon Universe taxonomy instead of the retired named roster.
 
@@ -40,3 +40,7 @@ Every canonical hybrid `variant_01` directory includes `prompt.json`. The aggreg
 ## Art approval language
 
 `art_status` records provenance and runtime fitness. `review_status` records whether a human art pass is still expected. “Production procedural” means contract-valid and shippable as an interim asset, not final visual approval.
+
+## World entities
+
+`world_entities.serenial_entities_v1` is the first versioned overlay atlas for the shared world and guild HUD. Its 16 transparent 32×32 cells cover the guild crest, all ten elemental resources, treasure, boss relics, blueprints, enemies, and bosses. Entity overlays remain separate from terrain so future art can be replaced without changing simulation coordinates.

@@ -1,5 +1,5 @@
 {
-  "asset_version": "2026.07.25.1",
+  "asset_version": "2026.07.25.2",
   "dragons": {
     "element_aether_01": {
       "portrait": "dragons/elemental/aether/variant_01/portrait.png",
@@ -2295,6 +2295,37 @@
         "aetherfield",
         "neutralfield",
         "ruins"
+      ],
+      "art_status": "production_v1",
+      "review_status": "first_import_review"
+    }
+  },
+  "world_entities": {
+    "serenial_entities_v1": {
+      "atlas": "world/entities/serenial_entities_v1.png",
+      "metadata": "world/entities/serenial_entities_v1.json",
+      "cell_width": 32,
+      "cell_height": 32,
+      "columns": 8,
+      "rows": 2,
+      "layout": "row_major",
+      "icons": [
+        "guild_crest",
+        "ember_bloom",
+        "gale_plume",
+        "tidal_pearl",
+        "stoneheart_ore",
+        "frost_lotus",
+        "stormglass",
+        "sunshard",
+        "umbral_morel",
+        "aether_crystal",
+        "wayfarer_herb",
+        "treasure_cache",
+        "boss_relic",
+        "blueprint",
+        "enemy",
+        "boss"
       ],
       "art_status": "production_v1",
       "review_status": "first_import_review"
