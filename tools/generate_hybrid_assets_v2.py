@@ -22,7 +22,7 @@ from typing import Iterable, Sequence
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
 ASSET_VERSION = "2026.07.22.4"
-MANIFEST_ASSET_VERSION = "2026.07.25.1"
+MANIFEST_ASSET_VERSION = "2026.07.25.2"
 PROMPT_VERSION = 2
 ELEMENTS = ["fire", "wind", "water", "earth", "ice", "storm", "light", "shadow", "aether", "neutral"]
 ESTABLISHED_PAIRS = {
@@ -875,6 +875,22 @@ def validate(root: Path) -> dict:
     # Established historical assets can legitimately share tiny sprite frames; core assets must not.
     if duplicate_groups: issues.extend(f"exact duplicate core asset group: {paths}" for paths in duplicate_groups)
     perceptual_groups=[paths for paths in perceptual.values() if len(paths)>1]
+    entity_atlas=root/"world"/"entities"/"serenial_entities_v1.png"
+    entity_meta=root/"world"/"entities"/"serenial_entities_v1.json"
+    if not entity_atlas.exists():
+        issues.append("missing world/entities/serenial_entities_v1.png")
+    else:
+        checked+=1
+        with Image.open(entity_atlas) as im:
+            if im.size!=(256,64): issues.append(f"bad dimensions {entity_atlas.relative_to(root)}: {im.size}")
+            if im.mode!="RGBA": issues.append(f"bad mode {entity_atlas.relative_to(root)}: {im.mode}")
+    if not entity_meta.exists():
+        issues.append("missing world/entities/serenial_entities_v1.json")
+    else:
+        checked+=1
+        entity_contract=json.loads(entity_meta.read_text(encoding="utf-8"))
+        if entity_contract.get("icons") != ["guild_crest","ember_bloom","gale_plume","tidal_pearl","stoneheart_ore","frost_lotus","stormglass","sunshard","umbral_morel","aether_crystal","wayfarer_herb","treasure_cache","boss_relic","blueprint","enemy","boss"]:
+            issues.append("world entity icon order does not match runtime contract")
     audit={
         "asset_version":MANIFEST_ASSET_VERSION,
         "taxonomy_version":2,
@@ -892,6 +908,8 @@ def validate(root: Path) -> dict:
         "world_tile_terrains":20,
         "world_tile_variants_per_terrain":4,
         "world_tile_cells":80,
+        "world_entity_atlases":1,
+        "world_entity_icons":16,
         "dragon_review_queue":{"elemental_packs":43,"procedural_hybrid_packs":39,"established_hybrid_variant_packs":11,"protected_reference_packs":1},
         "art_approval_note":"Runtime contract pass does not imply final visual approval.",
         "issues":issues,

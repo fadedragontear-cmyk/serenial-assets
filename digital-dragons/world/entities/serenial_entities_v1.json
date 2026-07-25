@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "runtime_key": "serenial_entities_v1",
+  "atlas": "serenial_entities_v1.png",
+  "cell_width": 32,
+  "cell_height": 32,
+  "columns": 8,
+  "rows": 2,
+  "layout": "row_major",
+  "icons": [
+    "guild_crest",
+    "ember_bloom",
+    "gale_plume",
+    "tidal_pearl",
+    "stoneheart_ore",
+    "frost_lotus",
+    "stormglass",
+    "sunshard",
+    "umbral_morel",
+    "aether_crystal",
+    "wayfarer_herb",
+    "treasure_cache",
+    "boss_relic",
+    "blueprint",
+    "enemy",
+    "boss"
+  ],
+  "art_status": "production_v1",
+  "review_status": "first_import_review"
+}

@@ -1,7 +1,7 @@
 {
-  "asset_version": "2026.07.25.1",
+  "asset_version": "2026.07.25.2",
   "taxonomy_version": 2,
-  "files_checked": 540,
+  "files_checked": 542,
   "canonical_hybrid_pairs": 45,
   "established_pairs": 6,
   "production_procedural_v2_pairs": 39,
@@ -23,5 +23,7 @@
   },
   "art_approval_note": "Runtime contract pass does not imply final visual approval.",
   "issues": [],
-  "status": "pass"
+  "status": "pass",
+  "world_entity_atlases": 1,
+  "world_entity_icons": 16
 }

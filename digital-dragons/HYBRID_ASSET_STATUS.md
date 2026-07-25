@@ -1,6 +1,6 @@
 # Hybrid asset status
 
-Asset version: `2026.07.25.1`
+Asset version: `2026.07.25.2`
 
 All 45 order-insensitive two-element combinations have runtime asset packs. The 39 placeholder-grade generated-v1 packs have been replaced by runtime-valid procedural V2 art and are queued for manual identity refinement. Six historical pairs retain authored art and are queued for consistency review. Every pair has a reusable prompt sidecar.
 
