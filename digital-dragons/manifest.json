@@ -1,5 +1,5 @@
 {
-  "asset_version": "2026.07.22.4",
+  "asset_version": "2026.07.25.1",
   "dragons": {
     "element_aether_01": {
       "portrait": "dragons/elemental/aether/variant_01/portrait.png",
@@ -11,7 +11,9 @@
         "aether"
       ],
       "variant": 1,
-      "display_label": "Aether Dragon · Variant 01"
+      "display_label": "Aether Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_01": {
       "portrait": "dragons/elemental/fire/variant_01/portrait.png",
@@ -23,7 +25,9 @@
         "fire"
       ],
       "variant": 1,
-      "display_label": "Fire Dragon · Variant 01"
+      "display_label": "Fire Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_02": {
       "portrait": "dragons/elemental/fire/variant_02/portrait.png",
@@ -35,7 +39,9 @@
         "fire"
       ],
       "variant": 2,
-      "display_label": "Fire Dragon · Variant 02"
+      "display_label": "Fire Dragon · Variant 02",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_03": {
       "portrait": "dragons/elemental/fire/variant_03/portrait.png",
@@ -47,7 +53,9 @@
         "fire"
       ],
       "variant": 3,
-      "display_label": "Fire Dragon · Variant 03"
+      "display_label": "Fire Dragon · Variant 03",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_04": {
       "portrait": "dragons/elemental/fire/variant_04/portrait.png",
@@ -59,7 +67,9 @@
         "fire"
       ],
       "variant": 4,
-      "display_label": "Fire Dragon · Variant 04"
+      "display_label": "Fire Dragon · Variant 04",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_05": {
       "portrait": "dragons/elemental/fire/variant_05/portrait.png",
@@ -71,7 +81,9 @@
         "fire"
       ],
       "variant": 5,
-      "display_label": "Fire Dragon · Variant 05"
+      "display_label": "Fire Dragon · Variant 05",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "celdra": {
       "portrait": "dragons/unique/celdra/portrait.png",
@@ -83,7 +95,9 @@
         "aether"
       ],
       "variant": 0,
-      "display_label": "Celdra"
+      "display_label": "Celdra",
+      "art_status": "established_authored",
+      "review_status": "protected_reference"
     },
     "element_light_01": {
       "portrait": "dragons/elemental/light/variant_01/portrait.png",
@@ -95,7 +109,9 @@
         "light"
       ],
       "variant": 1,
-      "display_label": "Light Dragon · Variant 01"
+      "display_label": "Light Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_earth_01": {
       "portrait": "dragons/elemental/earth/variant_01/portrait.png",
@@ -107,7 +123,9 @@
         "earth"
       ],
       "variant": 1,
-      "display_label": "Earth Dragon · Variant 01"
+      "display_label": "Earth Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_shadow_01": {
       "portrait": "dragons/elemental/shadow/variant_01/portrait.png",
@@ -119,7 +137,9 @@
         "shadow"
       ],
       "variant": 1,
-      "display_label": "Shadow Dragon · Variant 01"
+      "display_label": "Shadow Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_06": {
       "portrait": "dragons/elemental/fire/variant_06/portrait.png",
@@ -131,7 +151,9 @@
         "fire"
       ],
       "variant": 6,
-      "display_label": "Fire Dragon · Variant 06"
+      "display_label": "Fire Dragon · Variant 06",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_07": {
       "portrait": "dragons/elemental/fire/variant_07/portrait.png",
@@ -143,7 +165,9 @@
         "fire"
       ],
       "variant": 7,
-      "display_label": "Fire Dragon · Variant 07"
+      "display_label": "Fire Dragon · Variant 07",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_08": {
       "portrait": "dragons/elemental/fire/variant_08/portrait.png",
@@ -155,7 +179,9 @@
         "fire"
       ],
       "variant": 8,
-      "display_label": "Fire Dragon · Variant 08"
+      "display_label": "Fire Dragon · Variant 08",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_fire_ice_01": {
       "portrait": "dragons/hybrids/fire-ice/variant_01/portrait.png",
@@ -168,7 +194,9 @@
         "ice"
       ],
       "variant": 1,
-      "display_label": "Fire/Ice Dragon · Variant 01"
+      "display_label": "Fire/Ice Dragon · Variant 01",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_ice_01": {
       "portrait": "dragons/elemental/ice/variant_01/portrait.png",
@@ -180,7 +208,9 @@
         "ice"
       ],
       "variant": 1,
-      "display_label": "Ice Dragon · Variant 01"
+      "display_label": "Ice Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_ice_02": {
       "portrait": "dragons/elemental/ice/variant_02/portrait.png",
@@ -192,7 +222,9 @@
         "ice"
       ],
       "variant": 2,
-      "display_label": "Ice Dragon · Variant 02"
+      "display_label": "Ice Dragon · Variant 02",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_wind_01": {
       "portrait": "dragons/elemental/wind/variant_01/portrait.png",
@@ -204,7 +236,9 @@
         "wind"
       ],
       "variant": 1,
-      "display_label": "Wind Dragon · Variant 01"
+      "display_label": "Wind Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_ice_03": {
       "portrait": "dragons/elemental/ice/variant_03/portrait.png",
@@ -216,7 +250,9 @@
         "ice"
       ],
       "variant": 3,
-      "display_label": "Ice Dragon · Variant 03"
+      "display_label": "Ice Dragon · Variant 03",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_light_02": {
       "portrait": "dragons/elemental/light/variant_02/portrait.png",
@@ -228,7 +264,9 @@
         "light"
       ],
       "variant": 2,
-      "display_label": "Light Dragon · Variant 02"
+      "display_label": "Light Dragon · Variant 02",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_light_03": {
       "portrait": "dragons/elemental/light/variant_03/portrait.png",
@@ -240,7 +278,9 @@
         "light"
       ],
       "variant": 3,
-      "display_label": "Light Dragon · Variant 03"
+      "display_label": "Light Dragon · Variant 03",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_fire_shadow_01": {
       "portrait": "dragons/hybrids/fire-shadow/variant_01/portrait.png",
@@ -253,7 +293,9 @@
         "shadow"
       ],
       "variant": 1,
-      "display_label": "Fire/Shadow Dragon · Variant 01"
+      "display_label": "Fire/Shadow Dragon · Variant 01",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_09": {
       "portrait": "dragons/elemental/fire/variant_09/portrait.png",
@@ -265,7 +307,9 @@
         "fire"
       ],
       "variant": 9,
-      "display_label": "Fire Dragon · Variant 09"
+      "display_label": "Fire Dragon · Variant 09",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_10": {
       "portrait": "dragons/elemental/fire/variant_10/portrait.png",
@@ -277,7 +321,9 @@
         "fire"
       ],
       "variant": 10,
-      "display_label": "Fire Dragon · Variant 10"
+      "display_label": "Fire Dragon · Variant 10",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_earth_02": {
       "portrait": "dragons/elemental/earth/variant_02/portrait.png",
@@ -289,7 +335,9 @@
         "earth"
       ],
       "variant": 2,
-      "display_label": "Earth Dragon · Variant 02"
+      "display_label": "Earth Dragon · Variant 02",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_light_04": {
       "portrait": "dragons/elemental/light/variant_04/portrait.png",
@@ -301,7 +349,9 @@
         "light"
       ],
       "variant": 4,
-      "display_label": "Light Dragon · Variant 04"
+      "display_label": "Light Dragon · Variant 04",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_wind_shadow_01": {
       "portrait": "dragons/hybrids/wind-shadow/variant_01/portrait.png",
@@ -314,7 +364,9 @@
         "shadow"
       ],
       "variant": 1,
-      "display_label": "Wind/Shadow Dragon · Variant 01"
+      "display_label": "Wind/Shadow Dragon · Variant 01",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_fire_shadow_02": {
       "portrait": "dragons/hybrids/fire-shadow/variant_02/portrait.png",
@@ -327,7 +379,9 @@
         "shadow"
       ],
       "variant": 2,
-      "display_label": "Fire/Shadow Dragon · Variant 02"
+      "display_label": "Fire/Shadow Dragon · Variant 02",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_shadow_02": {
       "portrait": "dragons/elemental/shadow/variant_02/portrait.png",
@@ -339,7 +393,9 @@
         "shadow"
       ],
       "variant": 2,
-      "display_label": "Shadow Dragon · Variant 02"
+      "display_label": "Shadow Dragon · Variant 02",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_shadow_03": {
       "portrait": "dragons/elemental/shadow/variant_03/portrait.png",
@@ -351,7 +407,9 @@
         "shadow"
       ],
       "variant": 3,
-      "display_label": "Shadow Dragon · Variant 03"
+      "display_label": "Shadow Dragon · Variant 03",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_shadow_04": {
       "portrait": "dragons/elemental/shadow/variant_04/portrait.png",
@@ -363,7 +421,9 @@
         "shadow"
       ],
       "variant": 4,
-      "display_label": "Shadow Dragon · Variant 04"
+      "display_label": "Shadow Dragon · Variant 04",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_11": {
       "portrait": "dragons/elemental/fire/variant_11/portrait.png",
@@ -375,7 +435,9 @@
         "fire"
       ],
       "variant": 11,
-      "display_label": "Fire Dragon · Variant 11"
+      "display_label": "Fire Dragon · Variant 11",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_fire_12": {
       "portrait": "dragons/elemental/fire/variant_12/portrait.png",
@@ -387,7 +449,9 @@
         "fire"
       ],
       "variant": 12,
-      "display_label": "Fire Dragon · Variant 12"
+      "display_label": "Fire Dragon · Variant 12",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_wind_02": {
       "portrait": "dragons/elemental/wind/variant_02/portrait.png",
@@ -399,7 +463,9 @@
         "wind"
       ],
       "variant": 2,
-      "display_label": "Wind Dragon · Variant 02"
+      "display_label": "Wind Dragon · Variant 02",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_fire_shadow_03": {
       "portrait": "dragons/hybrids/fire-shadow/variant_03/portrait.png",
@@ -412,7 +478,9 @@
         "shadow"
       ],
       "variant": 3,
-      "display_label": "Fire/Shadow Dragon · Variant 03"
+      "display_label": "Fire/Shadow Dragon · Variant 03",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_fire_shadow_04": {
       "portrait": "dragons/hybrids/fire-shadow/variant_04/portrait.png",
@@ -425,7 +493,9 @@
         "shadow"
       ],
       "variant": 4,
-      "display_label": "Fire/Shadow Dragon · Variant 04"
+      "display_label": "Fire/Shadow Dragon · Variant 04",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_shadow_05": {
       "portrait": "dragons/elemental/shadow/variant_05/portrait.png",
@@ -437,7 +507,9 @@
         "shadow"
       ],
       "variant": 5,
-      "display_label": "Shadow Dragon · Variant 05"
+      "display_label": "Shadow Dragon · Variant 05",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_wind_shadow_02": {
       "portrait": "dragons/hybrids/wind-shadow/variant_02/portrait.png",
@@ -450,7 +522,9 @@
         "shadow"
       ],
       "variant": 2,
-      "display_label": "Wind/Shadow Dragon · Variant 02"
+      "display_label": "Wind/Shadow Dragon · Variant 02",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_earth_03": {
       "portrait": "dragons/elemental/earth/variant_03/portrait.png",
@@ -462,7 +536,9 @@
         "earth"
       ],
       "variant": 3,
-      "display_label": "Earth Dragon · Variant 03"
+      "display_label": "Earth Dragon · Variant 03",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_storm_01": {
       "portrait": "dragons/elemental/storm/variant_01/portrait.png",
@@ -474,7 +550,9 @@
         "storm"
       ],
       "variant": 1,
-      "display_label": "Storm Dragon · Variant 01"
+      "display_label": "Storm Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_storm_shadow_01": {
       "portrait": "dragons/hybrids/storm-shadow/variant_01/portrait.png",
@@ -487,7 +565,9 @@
         "shadow"
       ],
       "variant": 1,
-      "display_label": "Storm/Shadow Dragon · Variant 01"
+      "display_label": "Storm/Shadow Dragon · Variant 01",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_storm_02": {
       "portrait": "dragons/elemental/storm/variant_02/portrait.png",
@@ -499,7 +579,9 @@
         "storm"
       ],
       "variant": 2,
-      "display_label": "Storm Dragon · Variant 02"
+      "display_label": "Storm Dragon · Variant 02",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_wind_storm_01": {
       "portrait": "dragons/hybrids/wind-storm/variant_01/portrait.png",
@@ -512,7 +594,9 @@
         "storm"
       ],
       "variant": 1,
-      "display_label": "Wind/Storm Dragon · Variant 01"
+      "display_label": "Wind/Storm Dragon · Variant 01",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_light_05": {
       "portrait": "dragons/elemental/light/variant_05/portrait.png",
@@ -524,7 +608,9 @@
         "light"
       ],
       "variant": 5,
-      "display_label": "Light Dragon · Variant 05"
+      "display_label": "Light Dragon · Variant 05",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_earth_04": {
       "portrait": "dragons/elemental/earth/variant_04/portrait.png",
@@ -536,7 +622,9 @@
         "earth"
       ],
       "variant": 4,
-      "display_label": "Earth Dragon · Variant 04"
+      "display_label": "Earth Dragon · Variant 04",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_storm_03": {
       "portrait": "dragons/elemental/storm/variant_03/portrait.png",
@@ -548,7 +636,9 @@
         "storm"
       ],
       "variant": 3,
-      "display_label": "Storm Dragon · Variant 03"
+      "display_label": "Storm Dragon · Variant 03",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_storm_04": {
       "portrait": "dragons/elemental/storm/variant_04/portrait.png",
@@ -560,7 +650,9 @@
         "storm"
       ],
       "variant": 4,
-      "display_label": "Storm Dragon · Variant 04"
+      "display_label": "Storm Dragon · Variant 04",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_fire_storm_01": {
       "portrait": "dragons/hybrids/fire-storm/variant_01/portrait.png",
@@ -573,7 +665,9 @@
         "storm"
       ],
       "variant": 1,
-      "display_label": "Fire/Storm Dragon · Variant 01"
+      "display_label": "Fire/Storm Dragon · Variant 01",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "hybrid_wind_storm_02": {
       "portrait": "dragons/hybrids/wind-storm/variant_02/portrait.png",
@@ -586,7 +680,9 @@
         "storm"
       ],
       "variant": 2,
-      "display_label": "Wind/Storm Dragon · Variant 02"
+      "display_label": "Wind/Storm Dragon · Variant 02",
+      "art_status": "established_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_storm_05": {
       "portrait": "dragons/elemental/storm/variant_05/portrait.png",
@@ -598,7 +694,9 @@
         "storm"
       ],
       "variant": 5,
-      "display_label": "Storm Dragon · Variant 05"
+      "display_label": "Storm Dragon · Variant 05",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_earth_05": {
       "portrait": "dragons/elemental/earth/variant_05/portrait.png",
@@ -610,7 +708,9 @@
         "earth"
       ],
       "variant": 5,
-      "display_label": "Earth Dragon · Variant 05"
+      "display_label": "Earth Dragon · Variant 05",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_storm_06": {
       "portrait": "dragons/elemental/storm/variant_06/portrait.png",
@@ -622,7 +722,9 @@
         "storm"
       ],
       "variant": 6,
-      "display_label": "Storm Dragon · Variant 06"
+      "display_label": "Storm Dragon · Variant 06",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_wind_03": {
       "portrait": "dragons/elemental/wind/variant_03/portrait.png",
@@ -634,7 +736,9 @@
         "wind"
       ],
       "variant": 3,
-      "display_label": "Wind Dragon · Variant 03"
+      "display_label": "Wind Dragon · Variant 03",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_wind_04": {
       "portrait": "dragons/elemental/wind/variant_04/portrait.png",
@@ -646,7 +750,9 @@
         "wind"
       ],
       "variant": 4,
-      "display_label": "Wind Dragon · Variant 04"
+      "display_label": "Wind Dragon · Variant 04",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_water_01": {
       "portrait": "dragons/elemental/water/variant_01/portrait.png",
@@ -658,7 +764,9 @@
         "water"
       ],
       "variant": 1,
-      "display_label": "Water Dragon · Variant 01"
+      "display_label": "Water Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "element_neutral_01": {
       "portrait": "dragons/elemental/neutral/variant_01/portrait.png",
@@ -670,7 +778,9 @@
         "neutral"
       ],
       "variant": 1,
-      "display_label": "Neutral Dragon · Variant 01"
+      "display_label": "Neutral Dragon · Variant 01",
+      "art_status": "legacy_authored",
+      "review_status": "needs_consistency_review"
     },
     "aetherion": {
       "portrait": "dragons/elemental/aether/variant_01/portrait.png",
@@ -1423,8 +1533,9 @@
       ],
       "variant": 1,
       "display_label": "Fire/Wind Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_fire_water_01": {
       "portrait": "dragons/hybrids/fire-water/variant_01/portrait.png",
@@ -1438,8 +1549,9 @@
       ],
       "variant": 1,
       "display_label": "Fire/Water Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_fire_earth_01": {
       "portrait": "dragons/hybrids/fire-earth/variant_01/portrait.png",
@@ -1453,8 +1565,9 @@
       ],
       "variant": 1,
       "display_label": "Fire/Earth Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_fire_light_01": {
       "portrait": "dragons/hybrids/fire-light/variant_01/portrait.png",
@@ -1468,8 +1581,9 @@
       ],
       "variant": 1,
       "display_label": "Fire/Light Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_fire_aether_01": {
       "portrait": "dragons/hybrids/fire-aether/variant_01/portrait.png",
@@ -1483,8 +1597,9 @@
       ],
       "variant": 1,
       "display_label": "Fire/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_fire_neutral_01": {
       "portrait": "dragons/hybrids/fire-neutral/variant_01/portrait.png",
@@ -1498,8 +1613,9 @@
       ],
       "variant": 1,
       "display_label": "Fire/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_wind_water_01": {
       "portrait": "dragons/hybrids/wind-water/variant_01/portrait.png",
@@ -1513,8 +1629,9 @@
       ],
       "variant": 1,
       "display_label": "Wind/Water Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_wind_earth_01": {
       "portrait": "dragons/hybrids/wind-earth/variant_01/portrait.png",
@@ -1528,8 +1645,9 @@
       ],
       "variant": 1,
       "display_label": "Wind/Earth Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_wind_ice_01": {
       "portrait": "dragons/hybrids/wind-ice/variant_01/portrait.png",
@@ -1543,8 +1661,9 @@
       ],
       "variant": 1,
       "display_label": "Wind/Ice Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_wind_light_01": {
       "portrait": "dragons/hybrids/wind-light/variant_01/portrait.png",
@@ -1558,8 +1677,9 @@
       ],
       "variant": 1,
       "display_label": "Wind/Light Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_wind_aether_01": {
       "portrait": "dragons/hybrids/wind-aether/variant_01/portrait.png",
@@ -1573,8 +1693,9 @@
       ],
       "variant": 1,
       "display_label": "Wind/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_wind_neutral_01": {
       "portrait": "dragons/hybrids/wind-neutral/variant_01/portrait.png",
@@ -1588,8 +1709,9 @@
       ],
       "variant": 1,
       "display_label": "Wind/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_water_earth_01": {
       "portrait": "dragons/hybrids/water-earth/variant_01/portrait.png",
@@ -1603,8 +1725,9 @@
       ],
       "variant": 1,
       "display_label": "Water/Earth Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_water_ice_01": {
       "portrait": "dragons/hybrids/water-ice/variant_01/portrait.png",
@@ -1618,8 +1741,9 @@
       ],
       "variant": 1,
       "display_label": "Water/Ice Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_water_storm_01": {
       "portrait": "dragons/hybrids/water-storm/variant_01/portrait.png",
@@ -1633,8 +1757,9 @@
       ],
       "variant": 1,
       "display_label": "Water/Storm Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_water_light_01": {
       "portrait": "dragons/hybrids/water-light/variant_01/portrait.png",
@@ -1648,8 +1773,9 @@
       ],
       "variant": 1,
       "display_label": "Water/Light Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_water_shadow_01": {
       "portrait": "dragons/hybrids/water-shadow/variant_01/portrait.png",
@@ -1663,8 +1789,9 @@
       ],
       "variant": 1,
       "display_label": "Water/Shadow Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_water_aether_01": {
       "portrait": "dragons/hybrids/water-aether/variant_01/portrait.png",
@@ -1678,8 +1805,9 @@
       ],
       "variant": 1,
       "display_label": "Water/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_water_neutral_01": {
       "portrait": "dragons/hybrids/water-neutral/variant_01/portrait.png",
@@ -1693,8 +1821,9 @@
       ],
       "variant": 1,
       "display_label": "Water/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_earth_ice_01": {
       "portrait": "dragons/hybrids/earth-ice/variant_01/portrait.png",
@@ -1708,8 +1837,9 @@
       ],
       "variant": 1,
       "display_label": "Earth/Ice Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_earth_storm_01": {
       "portrait": "dragons/hybrids/earth-storm/variant_01/portrait.png",
@@ -1723,8 +1853,9 @@
       ],
       "variant": 1,
       "display_label": "Earth/Storm Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_earth_light_01": {
       "portrait": "dragons/hybrids/earth-light/variant_01/portrait.png",
@@ -1738,8 +1869,9 @@
       ],
       "variant": 1,
       "display_label": "Earth/Light Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_earth_shadow_01": {
       "portrait": "dragons/hybrids/earth-shadow/variant_01/portrait.png",
@@ -1753,8 +1885,9 @@
       ],
       "variant": 1,
       "display_label": "Earth/Shadow Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_earth_aether_01": {
       "portrait": "dragons/hybrids/earth-aether/variant_01/portrait.png",
@@ -1768,8 +1901,9 @@
       ],
       "variant": 1,
       "display_label": "Earth/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_earth_neutral_01": {
       "portrait": "dragons/hybrids/earth-neutral/variant_01/portrait.png",
@@ -1783,8 +1917,9 @@
       ],
       "variant": 1,
       "display_label": "Earth/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_ice_storm_01": {
       "portrait": "dragons/hybrids/ice-storm/variant_01/portrait.png",
@@ -1798,8 +1933,9 @@
       ],
       "variant": 1,
       "display_label": "Ice/Storm Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_ice_light_01": {
       "portrait": "dragons/hybrids/ice-light/variant_01/portrait.png",
@@ -1813,8 +1949,9 @@
       ],
       "variant": 1,
       "display_label": "Ice/Light Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_ice_shadow_01": {
       "portrait": "dragons/hybrids/ice-shadow/variant_01/portrait.png",
@@ -1828,8 +1965,9 @@
       ],
       "variant": 1,
       "display_label": "Ice/Shadow Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_ice_aether_01": {
       "portrait": "dragons/hybrids/ice-aether/variant_01/portrait.png",
@@ -1843,8 +1981,9 @@
       ],
       "variant": 1,
       "display_label": "Ice/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_ice_neutral_01": {
       "portrait": "dragons/hybrids/ice-neutral/variant_01/portrait.png",
@@ -1858,8 +1997,9 @@
       ],
       "variant": 1,
       "display_label": "Ice/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_storm_light_01": {
       "portrait": "dragons/hybrids/storm-light/variant_01/portrait.png",
@@ -1873,8 +2013,9 @@
       ],
       "variant": 1,
       "display_label": "Storm/Light Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_storm_aether_01": {
       "portrait": "dragons/hybrids/storm-aether/variant_01/portrait.png",
@@ -1888,8 +2029,9 @@
       ],
       "variant": 1,
       "display_label": "Storm/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_storm_neutral_01": {
       "portrait": "dragons/hybrids/storm-neutral/variant_01/portrait.png",
@@ -1903,8 +2045,9 @@
       ],
       "variant": 1,
       "display_label": "Storm/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_light_shadow_01": {
       "portrait": "dragons/hybrids/light-shadow/variant_01/portrait.png",
@@ -1918,8 +2061,9 @@
       ],
       "variant": 1,
       "display_label": "Light/Shadow Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_light_aether_01": {
       "portrait": "dragons/hybrids/light-aether/variant_01/portrait.png",
@@ -1933,8 +2077,9 @@
       ],
       "variant": 1,
       "display_label": "Light/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_light_neutral_01": {
       "portrait": "dragons/hybrids/light-neutral/variant_01/portrait.png",
@@ -1948,8 +2093,9 @@
       ],
       "variant": 1,
       "display_label": "Light/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_shadow_aether_01": {
       "portrait": "dragons/hybrids/shadow-aether/variant_01/portrait.png",
@@ -1963,8 +2109,9 @@
       ],
       "variant": 1,
       "display_label": "Shadow/Aether Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_shadow_neutral_01": {
       "portrait": "dragons/hybrids/shadow-neutral/variant_01/portrait.png",
@@ -1978,8 +2125,9 @@
       ],
       "variant": 1,
       "display_label": "Shadow/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     },
     "hybrid_aether_neutral_01": {
       "portrait": "dragons/hybrids/aether-neutral/variant_01/portrait.png",
@@ -1993,8 +2141,9 @@
       ],
       "variant": 1,
       "display_label": "Aether/Neutral Dragon · Variant 01",
-      "art_status": "pair_specific_generated_v1",
-      "art_generator": "tools/generate_hybrid_assets.py"
+      "art_status": "production_procedural_v2",
+      "art_generator": "tools/generate_hybrid_assets_v2.py",
+      "review_status": "needs_manual_refinement"
     }
   },
   "items": {
@@ -2114,5 +2263,41 @@
     "pair_specific_generated_v1_pairs": 39,
     "established_pairs": 6,
     "shared_bootstrap_pairs": 0
+  },
+  "world_tiles": {
+    "serenial_terrain_v1": {
+      "atlas": "world/tiles/serenial_terrain_v1.png",
+      "metadata": "world/tiles/serenial_terrain_v1.json",
+      "tile_width": 32,
+      "tile_height": 32,
+      "columns": 10,
+      "rows": 8,
+      "variants_per_terrain": 4,
+      "layout": "terrain_major_then_variant",
+      "terrains": [
+        "ocean",
+        "coast",
+        "river",
+        "lair",
+        "road",
+        "grass",
+        "forest",
+        "earth",
+        "water",
+        "mountain",
+        "windstream",
+        "lava",
+        "cliff",
+        "icefield",
+        "stormfield",
+        "lightfield",
+        "shadowfen",
+        "aetherfield",
+        "neutralfield",
+        "ruins"
+      ],
+      "art_status": "production_v1",
+      "review_status": "first_import_review"
+    }
   }
 }
