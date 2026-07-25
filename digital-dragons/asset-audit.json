@@ -15,6 +15,8 @@
   "world_tile_terrains": 20,
   "world_tile_variants_per_terrain": 4,
   "world_tile_cells": 80,
+  "world_entity_atlases": 1,
+  "world_entity_icons": 16,
   "dragon_review_queue": {
     "elemental_packs": 43,
     "procedural_hybrid_packs": 39,
@@ -23,7 +25,5 @@
   },
   "art_approval_note": "Runtime contract pass does not imply final visual approval.",
   "issues": [],
-  "status": "pass",
-  "world_entity_atlases": 1,
-  "world_entity_icons": 16
+  "status": "pass"
 }
