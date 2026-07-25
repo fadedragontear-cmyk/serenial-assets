@@ -22,6 +22,7 @@ from typing import Iterable, Sequence
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
 ASSET_VERSION = "2026.07.22.4"
+MANIFEST_ASSET_VERSION = "2026.07.25.1"
 PROMPT_VERSION = 2
 ELEMENTS = ["fire", "wind", "water", "earth", "ice", "storm", "light", "shadow", "aether", "neutral"]
 ESTABLISHED_PAIRS = {
@@ -756,7 +757,7 @@ def render_pair(root: Path, first: str, second: str) -> None:
 def ensure_manifest(root: Path) -> None:
     path=root/"manifest.json"
     manifest=json.loads(path.read_text(encoding="utf-8"))
-    manifest["asset_version"]=ASSET_VERSION
+    manifest["asset_version"]=MANIFEST_ASSET_VERSION
     dragons=manifest.setdefault("dragons",{})
     for first,second in combinations(ELEMENTS,2):
         key=f"hybrid_{first}_{second}_01"
@@ -771,6 +772,13 @@ def ensure_manifest(root: Path) -> None:
             "elements":[first,second],
             "variant":1,
             "display_label":f"{first.title()}/{second.title()} Dragon · Variant 01",
+            "art_status":"established_authored" if (first,second) in ESTABLISHED_PAIRS else "production_procedural_v2",
+            "review_status":"needs_consistency_review" if (first,second) in ESTABLISHED_PAIRS else "needs_manual_refinement",
+            **(
+                {}
+                if (first,second) in ESTABLISHED_PAIRS
+                else {"art_generator":"tools/generate_hybrid_assets_v2.py"}
+            ),
         })
     save_json(path,manifest)
 
@@ -779,8 +787,8 @@ def update_docs(root: Path) -> None:
     readme=root/"README.md"
     text=readme.read_text(encoding="utf-8")
     import re
-    text=re.sub(r"Asset version: `[^`]+`",f"Asset version: `{ASSET_VERSION}`",text,1)
-    text=re.sub(r"The 39 packs introduced during the coverage expansion[^\n]*", "The 39 packs introduced during the coverage expansion now use production procedural V2 art with pair-specific prompt sidecars; exact-duplicate and image-contract checks pass.", text)
+    text=re.sub(r"Asset version: `[^`]+`",f"Asset version: `{MANIFEST_ASSET_VERSION}`",text,1)
+    text=re.sub(r"The 39 packs introduced during the coverage expansion[^\n]*", "The 39 coverage-expansion packs are runtime-valid procedural V2 assets and are queued for manual identity refinement; six historical packs are queued for consistency review. Exact-duplicate and image-contract checks pass.", text)
     if "## Prompt sidecars" not in text:
         text += "\n## Prompt sidecars\n\nEvery canonical hybrid `variant_01` directory includes `prompt.json`. The aggregate prompt library is `hybrid-prompt-library.json`; it records identity locks, palette, negative prompts, and portrait/profile/race/sprite prompts for future manual or model-assisted revisions.\n"
     readme.write_text(text,encoding="utf-8")
@@ -792,12 +800,12 @@ def update_docs(root: Path) -> None:
 
     rows=[]
     for first,second in combinations(ELEMENTS,2):
-        status="Established pack" if (first,second) in ESTABLISHED_PAIRS else "Production procedural v2"
+        status="Established pack · consistency review queued" if (first,second) in ESTABLISHED_PAIRS else "Procedural v2 · manual refinement queued"
         rows.append(f"| {first.title()} / {second.title()} | `hybrid_{first}_{second}_01` | {status} |")
     status_doc=(
         "# Hybrid asset status\n\n"
-        f"Asset version: `{ASSET_VERSION}`\n\n"
-        "All 45 order-insensitive two-element combinations have runtime asset packs. The 39 placeholder-grade generated-v1 packs have been replaced by production procedural V2 art. Six historical pairs retain established authored art. Every pair has a reusable prompt sidecar.\n\n"
+        f"Asset version: `{MANIFEST_ASSET_VERSION}`\n\n"
+        "All 45 order-insensitive two-element combinations have runtime asset packs. The 39 placeholder-grade generated-v1 packs have been replaced by runtime-valid procedural V2 art and are queued for manual identity refinement. Six historical pairs retain authored art and are queued for consistency review. Every pair has a reusable prompt sidecar.\n\n"
         "## Placeholder audit\n\n"
         "- Placeholder-grade generated-v1 pairs detected: 39\n"
         "- Placeholder-grade pairs replaced: 39\n"
@@ -868,7 +876,7 @@ def validate(root: Path) -> dict:
     if duplicate_groups: issues.extend(f"exact duplicate core asset group: {paths}" for paths in duplicate_groups)
     perceptual_groups=[paths for paths in perceptual.values() if len(paths)>1]
     audit={
-        "asset_version":ASSET_VERSION,
+        "asset_version":MANIFEST_ASSET_VERSION,
         "taxonomy_version":2,
         "files_checked":checked,
         "canonical_hybrid_pairs":45,
@@ -880,6 +888,12 @@ def validate(root: Path) -> dict:
         "missing_canonical_pairs":0,
         "exact_duplicate_core_asset_groups":len(duplicate_groups),
         "perceptual_duplicate_target_portrait_groups":len(perceptual_groups),
+        "world_tile_atlases":1,
+        "world_tile_terrains":20,
+        "world_tile_variants_per_terrain":4,
+        "world_tile_cells":80,
+        "dragon_review_queue":{"elemental_packs":43,"procedural_hybrid_packs":39,"established_hybrid_variant_packs":11,"protected_reference_packs":1},
+        "art_approval_note":"Runtime contract pass does not imply final visual approval.",
         "issues":issues,
         "status":"pass" if not issues else "fail",
     }

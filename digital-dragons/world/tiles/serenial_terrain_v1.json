@@ -1,0 +1,681 @@
+{
+  "schema_version": 1,
+  "asset_version": "2026.07.25.1",
+  "runtime_key": "serenial_terrain_v1",
+  "atlas": "serenial_terrain_v1.png",
+  "pixel_art": true,
+  "tile_width": 32,
+  "tile_height": 32,
+  "columns": 10,
+  "rows": 8,
+  "variants_per_terrain": 4,
+  "layout": "terrain_major_then_variant",
+  "terrains": {
+    "ocean": {
+      "index": 0,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 0,
+          "row": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "variant": 1,
+          "column": 1,
+          "row": 0,
+          "x": 32,
+          "y": 0
+        },
+        {
+          "variant": 2,
+          "column": 2,
+          "row": 0,
+          "x": 64,
+          "y": 0
+        },
+        {
+          "variant": 3,
+          "column": 3,
+          "row": 0,
+          "x": 96,
+          "y": 0
+        }
+      ]
+    },
+    "coast": {
+      "index": 1,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 4,
+          "row": 0,
+          "x": 128,
+          "y": 0
+        },
+        {
+          "variant": 1,
+          "column": 5,
+          "row": 0,
+          "x": 160,
+          "y": 0
+        },
+        {
+          "variant": 2,
+          "column": 6,
+          "row": 0,
+          "x": 192,
+          "y": 0
+        },
+        {
+          "variant": 3,
+          "column": 7,
+          "row": 0,
+          "x": 224,
+          "y": 0
+        }
+      ]
+    },
+    "river": {
+      "index": 2,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 8,
+          "row": 0,
+          "x": 256,
+          "y": 0
+        },
+        {
+          "variant": 1,
+          "column": 9,
+          "row": 0,
+          "x": 288,
+          "y": 0
+        },
+        {
+          "variant": 2,
+          "column": 0,
+          "row": 1,
+          "x": 0,
+          "y": 32
+        },
+        {
+          "variant": 3,
+          "column": 1,
+          "row": 1,
+          "x": 32,
+          "y": 32
+        }
+      ]
+    },
+    "lair": {
+      "index": 3,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 2,
+          "row": 1,
+          "x": 64,
+          "y": 32
+        },
+        {
+          "variant": 1,
+          "column": 3,
+          "row": 1,
+          "x": 96,
+          "y": 32
+        },
+        {
+          "variant": 2,
+          "column": 4,
+          "row": 1,
+          "x": 128,
+          "y": 32
+        },
+        {
+          "variant": 3,
+          "column": 5,
+          "row": 1,
+          "x": 160,
+          "y": 32
+        }
+      ]
+    },
+    "road": {
+      "index": 4,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 6,
+          "row": 1,
+          "x": 192,
+          "y": 32
+        },
+        {
+          "variant": 1,
+          "column": 7,
+          "row": 1,
+          "x": 224,
+          "y": 32
+        },
+        {
+          "variant": 2,
+          "column": 8,
+          "row": 1,
+          "x": 256,
+          "y": 32
+        },
+        {
+          "variant": 3,
+          "column": 9,
+          "row": 1,
+          "x": 288,
+          "y": 32
+        }
+      ]
+    },
+    "grass": {
+      "index": 5,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 0,
+          "row": 2,
+          "x": 0,
+          "y": 64
+        },
+        {
+          "variant": 1,
+          "column": 1,
+          "row": 2,
+          "x": 32,
+          "y": 64
+        },
+        {
+          "variant": 2,
+          "column": 2,
+          "row": 2,
+          "x": 64,
+          "y": 64
+        },
+        {
+          "variant": 3,
+          "column": 3,
+          "row": 2,
+          "x": 96,
+          "y": 64
+        }
+      ]
+    },
+    "forest": {
+      "index": 6,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 4,
+          "row": 2,
+          "x": 128,
+          "y": 64
+        },
+        {
+          "variant": 1,
+          "column": 5,
+          "row": 2,
+          "x": 160,
+          "y": 64
+        },
+        {
+          "variant": 2,
+          "column": 6,
+          "row": 2,
+          "x": 192,
+          "y": 64
+        },
+        {
+          "variant": 3,
+          "column": 7,
+          "row": 2,
+          "x": 224,
+          "y": 64
+        }
+      ]
+    },
+    "earth": {
+      "index": 7,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 8,
+          "row": 2,
+          "x": 256,
+          "y": 64
+        },
+        {
+          "variant": 1,
+          "column": 9,
+          "row": 2,
+          "x": 288,
+          "y": 64
+        },
+        {
+          "variant": 2,
+          "column": 0,
+          "row": 3,
+          "x": 0,
+          "y": 96
+        },
+        {
+          "variant": 3,
+          "column": 1,
+          "row": 3,
+          "x": 32,
+          "y": 96
+        }
+      ]
+    },
+    "water": {
+      "index": 8,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 2,
+          "row": 3,
+          "x": 64,
+          "y": 96
+        },
+        {
+          "variant": 1,
+          "column": 3,
+          "row": 3,
+          "x": 96,
+          "y": 96
+        },
+        {
+          "variant": 2,
+          "column": 4,
+          "row": 3,
+          "x": 128,
+          "y": 96
+        },
+        {
+          "variant": 3,
+          "column": 5,
+          "row": 3,
+          "x": 160,
+          "y": 96
+        }
+      ]
+    },
+    "mountain": {
+      "index": 9,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 6,
+          "row": 3,
+          "x": 192,
+          "y": 96
+        },
+        {
+          "variant": 1,
+          "column": 7,
+          "row": 3,
+          "x": 224,
+          "y": 96
+        },
+        {
+          "variant": 2,
+          "column": 8,
+          "row": 3,
+          "x": 256,
+          "y": 96
+        },
+        {
+          "variant": 3,
+          "column": 9,
+          "row": 3,
+          "x": 288,
+          "y": 96
+        }
+      ]
+    },
+    "windstream": {
+      "index": 10,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 0,
+          "row": 4,
+          "x": 0,
+          "y": 128
+        },
+        {
+          "variant": 1,
+          "column": 1,
+          "row": 4,
+          "x": 32,
+          "y": 128
+        },
+        {
+          "variant": 2,
+          "column": 2,
+          "row": 4,
+          "x": 64,
+          "y": 128
+        },
+        {
+          "variant": 3,
+          "column": 3,
+          "row": 4,
+          "x": 96,
+          "y": 128
+        }
+      ]
+    },
+    "lava": {
+      "index": 11,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 4,
+          "row": 4,
+          "x": 128,
+          "y": 128
+        },
+        {
+          "variant": 1,
+          "column": 5,
+          "row": 4,
+          "x": 160,
+          "y": 128
+        },
+        {
+          "variant": 2,
+          "column": 6,
+          "row": 4,
+          "x": 192,
+          "y": 128
+        },
+        {
+          "variant": 3,
+          "column": 7,
+          "row": 4,
+          "x": 224,
+          "y": 128
+        }
+      ]
+    },
+    "cliff": {
+      "index": 12,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 8,
+          "row": 4,
+          "x": 256,
+          "y": 128
+        },
+        {
+          "variant": 1,
+          "column": 9,
+          "row": 4,
+          "x": 288,
+          "y": 128
+        },
+        {
+          "variant": 2,
+          "column": 0,
+          "row": 5,
+          "x": 0,
+          "y": 160
+        },
+        {
+          "variant": 3,
+          "column": 1,
+          "row": 5,
+          "x": 32,
+          "y": 160
+        }
+      ]
+    },
+    "icefield": {
+      "index": 13,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 2,
+          "row": 5,
+          "x": 64,
+          "y": 160
+        },
+        {
+          "variant": 1,
+          "column": 3,
+          "row": 5,
+          "x": 96,
+          "y": 160
+        },
+        {
+          "variant": 2,
+          "column": 4,
+          "row": 5,
+          "x": 128,
+          "y": 160
+        },
+        {
+          "variant": 3,
+          "column": 5,
+          "row": 5,
+          "x": 160,
+          "y": 160
+        }
+      ]
+    },
+    "stormfield": {
+      "index": 14,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 6,
+          "row": 5,
+          "x": 192,
+          "y": 160
+        },
+        {
+          "variant": 1,
+          "column": 7,
+          "row": 5,
+          "x": 224,
+          "y": 160
+        },
+        {
+          "variant": 2,
+          "column": 8,
+          "row": 5,
+          "x": 256,
+          "y": 160
+        },
+        {
+          "variant": 3,
+          "column": 9,
+          "row": 5,
+          "x": 288,
+          "y": 160
+        }
+      ]
+    },
+    "lightfield": {
+      "index": 15,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 0,
+          "row": 6,
+          "x": 0,
+          "y": 192
+        },
+        {
+          "variant": 1,
+          "column": 1,
+          "row": 6,
+          "x": 32,
+          "y": 192
+        },
+        {
+          "variant": 2,
+          "column": 2,
+          "row": 6,
+          "x": 64,
+          "y": 192
+        },
+        {
+          "variant": 3,
+          "column": 3,
+          "row": 6,
+          "x": 96,
+          "y": 192
+        }
+      ]
+    },
+    "shadowfen": {
+      "index": 16,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 4,
+          "row": 6,
+          "x": 128,
+          "y": 192
+        },
+        {
+          "variant": 1,
+          "column": 5,
+          "row": 6,
+          "x": 160,
+          "y": 192
+        },
+        {
+          "variant": 2,
+          "column": 6,
+          "row": 6,
+          "x": 192,
+          "y": 192
+        },
+        {
+          "variant": 3,
+          "column": 7,
+          "row": 6,
+          "x": 224,
+          "y": 192
+        }
+      ]
+    },
+    "aetherfield": {
+      "index": 17,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 8,
+          "row": 6,
+          "x": 256,
+          "y": 192
+        },
+        {
+          "variant": 1,
+          "column": 9,
+          "row": 6,
+          "x": 288,
+          "y": 192
+        },
+        {
+          "variant": 2,
+          "column": 0,
+          "row": 7,
+          "x": 0,
+          "y": 224
+        },
+        {
+          "variant": 3,
+          "column": 1,
+          "row": 7,
+          "x": 32,
+          "y": 224
+        }
+      ]
+    },
+    "neutralfield": {
+      "index": 18,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 2,
+          "row": 7,
+          "x": 64,
+          "y": 224
+        },
+        {
+          "variant": 1,
+          "column": 3,
+          "row": 7,
+          "x": 96,
+          "y": 224
+        },
+        {
+          "variant": 2,
+          "column": 4,
+          "row": 7,
+          "x": 128,
+          "y": 224
+        },
+        {
+          "variant": 3,
+          "column": 5,
+          "row": 7,
+          "x": 160,
+          "y": 224
+        }
+      ]
+    },
+    "ruins": {
+      "index": 19,
+      "cells": [
+        {
+          "variant": 0,
+          "column": 6,
+          "row": 7,
+          "x": 192,
+          "y": 224
+        },
+        {
+          "variant": 1,
+          "column": 7,
+          "row": 7,
+          "x": 224,
+          "y": 224
+        },
+        {
+          "variant": 2,
+          "column": 8,
+          "row": 7,
+          "x": 256,
+          "y": 224
+        },
+        {
+          "variant": 3,
+          "column": 9,
+          "row": 7,
+          "x": 288,
+          "y": 224
+        }
+      ]
+    }
+  },
+  "rendering": {
+    "sampling": "nearest-neighbor",
+    "variant_rule": "stable hash of world seed, x, y, and terrain",
+    "alpha": "opaque base tiles",
+    "overlays": "roads, lairs, resources, actors, fog, and labels remain separate"
+  }
+}

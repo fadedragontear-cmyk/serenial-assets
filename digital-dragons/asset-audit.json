@@ -1,5 +1,5 @@
 {
-  "asset_version": "2026.07.22.4",
+  "asset_version": "2026.07.25.1",
   "taxonomy_version": 2,
   "files_checked": 540,
   "canonical_hybrid_pairs": 45,
@@ -11,6 +11,17 @@
   "missing_canonical_pairs": 0,
   "exact_duplicate_core_asset_groups": 0,
   "perceptual_duplicate_target_portrait_groups": 0,
+  "world_tile_atlases": 1,
+  "world_tile_terrains": 20,
+  "world_tile_variants_per_terrain": 4,
+  "world_tile_cells": 80,
+  "dragon_review_queue": {
+    "elemental_packs": 43,
+    "procedural_hybrid_packs": 39,
+    "established_hybrid_variant_packs": 11,
+    "protected_reference_packs": 1
+  },
+  "art_approval_note": "Runtime contract pass does not imply final visual approval.",
   "issues": [],
   "status": "pass"
 }

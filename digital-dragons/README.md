@@ -1,6 +1,6 @@
 # Digital Dragon runtime assets
 
-Asset version: `2026.07.22.4`
+Asset version: `2026.07.25.1`
 
 Dragon art now follows the Digital Dragon Universe taxonomy instead of the retired named roster.
 
@@ -26,8 +26,17 @@ Celdra's art is intentionally never used as an elemental or hybrid fallback.
 
 ## Hybrid art coverage
 
-All 45 canonical two-element pairs have runtime packs. The 39 packs introduced during the coverage expansion now use production procedural V2 art with pair-specific prompt sidecars; exact-duplicate and image-contract checks pass.
+All 45 canonical two-element pairs have runtime packs. The 39 coverage-expansion packs are runtime-valid procedural V2 assets and are queued for manual identity refinement; six historical packs are queued for consistency review. Exact-duplicate and image-contract checks pass.
 
 ## Prompt sidecars
 
 Every canonical hybrid `variant_01` directory includes `prompt.json`. The aggregate prompt library is `hybrid-prompt-library.json`; it records identity locks, palette, negative prompts, and portrait/profile/race/sprite prompts for future manual or model-assisted revisions.
+
+
+## World terrain
+
+`world_tiles.serenial_terrain_v1` is the first versioned world atlas: 20 terrain families, four stable variants each, and 32×32 nearest-neighbor cells. The atlas supplies the Activity base terrain; roads, lairs, resources, actors, fog, and labels stay separate so mechanics remain readable.
+
+## Art approval language
+
+`art_status` records provenance and runtime fitness. `review_status` records whether a human art pass is still expected. “Production procedural” means contract-valid and shippable as an interim asset, not final visual approval.
