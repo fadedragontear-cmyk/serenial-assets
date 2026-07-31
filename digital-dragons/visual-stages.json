@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "contract_version": "serenial-dragon-visual-stages-v1",
+  "description": "Evolution-aware visual keys. A requested key activates only after it exists in manifest.json; otherwise Celdra-Cloud retains the canonical species asset.",
+  "stage_order": [
+    "whelp",
+    "drake",
+    "mature",
+    "adult",
+    "elder"
+  ],
+  "stage_levels": {
+    "whelp": [1, 9],
+    "drake": [10, 29],
+    "mature": [30, 49],
+    "adult": [50, 69],
+    "elder": [70, null]
+  },
+  "body_plans": {
+    "fire": "grounded",
+    "water": "serpentine",
+    "wind": "airborne",
+    "earth": "grounded",
+    "ice": "grounded",
+    "storm": "grounded",
+    "light": "floating",
+    "shadow": "floating",
+    "aether": "floating",
+    "neutral": "generalist"
+  },
+  "element_defaults": {
+    "fire": {
+      "whelp": "hatchling_fire_01"
+    },
+    "water": {
+      "whelp": "hatchling_water_01"
+    },
+    "wind": {
+      "whelp": "hatchling_wind_01"
+    },
+    "earth": {
+      "whelp": "hatchling_earth_01"
+    },
+    "ice": {
+      "whelp": "hatchling_ice_01"
+    },
+    "storm": {
+      "whelp": "hatchling_storm_01"
+    },
+    "light": {
+      "whelp": "hatchling_light_01"
+    },
+    "shadow": {
+      "whelp": "hatchling_shadow_01"
+    },
+    "aether": {
+      "whelp": "hatchling_aether_01"
+    },
+    "neutral": {
+      "whelp": "hatchling_neutral_01"
+    }
+  },
+  "asset_overrides": {},
+  "fallback_policy": {
+    "missing_stage_asset": "canonical_species_asset",
+    "missing_animation": "idle_then_element_token",
+    "unique_dragons": "canonical_unless_explicit_override",
+    "hybrids": "canonical_unless_explicit_override"
+  }
+}
