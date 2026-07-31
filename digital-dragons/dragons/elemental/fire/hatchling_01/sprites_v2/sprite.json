@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "contract_version": "serenial-sprite-source-v2",
+  "frame_width": 48,
+  "frame_height": 48,
+  "direction_rows": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "anchor": {
+    "x": 24,
+    "y": 45
+  },
+  "world_scale": 1.15,
+  "render_filter": "linear",
+  "art_status": "interim_generated_repacked_v2",
+  "review_status": "runtime_canary_only",
+  "known_limitations": [
+    "source contact sheets were irregular and were repacked into exact runtime cells",
+    "some down-facing movement and action frames remain three-quarter rather than perfectly frontal",
+    "defeat right-facing frames are mirrored from the left-facing row",
+    "generated source art includes baked contact shadows",
+    "walk motion is improved but still has limited true foot articulation",
+    "attack and cast flame effects vary in size and may need hand cleanup"
+  ],
+  "animations": {
+    "idle": {
+      "file": "idle.png",
+      "frames": 4,
+      "fps": 4,
+      "loop": true
+    },
+    "walk": {
+      "file": "walk.png",
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    "attack": {
+      "file": "attack.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false
+    },
+    "cast": {
+      "file": "cast.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false
+    },
+    "hurt": {
+      "file": "hurt.png",
+      "frames": 4,
+      "fps": 8,
+      "loop": false
+    },
+    "victory": {
+      "file": "victory.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": true
+    },
+    "defeat": {
+      "file": "defeat.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": false,
+      "hold_last_frame": true
+    }
+  },
+  "source_note": "Second-generation Fire Hatchling canary rebuilt from seven supplied 1536x1024 RGBA contact sheets. Compact 48x48 runtime cells are used for this staged in-world review; the approved production replacement should be exported from the retained 128x128 masters after hand cleanup."
+}

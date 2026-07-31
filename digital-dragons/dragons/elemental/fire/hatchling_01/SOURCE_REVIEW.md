@@ -1,52 +1,60 @@
-# Fire Hatchling Canary Asset Review
+# Fire Hatchling Canary Asset Review — Replacement Pass
 
-## Source classification
+## Outcome
 
-The ten supplied generation outputs were not named. They were classified as follows:
+The second supplied Fire Hatchling animation set is materially stronger than the first canary and replaces it as the active staged Fire Whelp sprite source.
 
-1. portrait hero art
-2. profile side art
-3. race/action art
-4. directional turnaround reference
-5. rest/settle reference; not used as an active runtime animation
-6. idle-like directional sequence, reused as the interim Idle and Walk source
-7. fire-breath Attack sequence
-8. charged-flame Cast sequence
-9. Victory sequence
-10. Defeat sequence
+The raw 1536×1024 uploads were still presentation/contact sheets rather than exact runtime atlases. They were repacked into a new versioned runtime directory instead of being committed unchanged.
 
-No dedicated Hurt sequence was supplied.
+## Source mapping
 
-## Runtime adjustments
+The seven supplied images were classified as:
 
-The active canary pack was rebuilt into the exact sprite-v2 contract:
+1. Victory
+2. Defeat
+3. Hurt
+4. Walk
+5. Attack
+6. Cast
+7. Idle
 
-- 128×128 source cells;
-- direction rows: down, left, right, up;
-- Idle and Hurt: four frames;
-- Walk, Attack, Cast, Victory, and Defeat: six frames;
+## Active runtime contract
+
+- compact source cell size: 48×48 for this staged canary;
+- direction rows: Down, Left, Right, Up;
+- Idle and Hurt: 4 frames × 4 rows;
+- Walk, Attack, Cast, Victory, and Defeat: 6 frames × 4 rows;
 - transparent RGBA output;
-- linear filtering metadata.
+- linear filtering;
+- ground anchor: `(24, 45)`.
 
-The generated sheets did not provide reliable right-facing animation rows. Right-facing rows are therefore mirrored from the left-facing rows. This is acceptable for this symmetrical hatchling canary, but future dragons with asymmetric markings, equipment, injuries, or directional VFX require authored right-facing frames.
+The active staged path is now `hatchling_01/sprites_v2/`. The original `sprites/` canary remains in the repository only as rollback/reference material and is no longer selected by `visual-stages.json`.
 
-Walk was generated with almost no leg articulation. Small positional offsets were added only to make movement readable during runtime testing. It remains below final animation quality.
+A 128×128-cell master repack was also used for visual QA. The compact sheets are the runtime canary export; final production art should return to the 128×128 masters after manual shadow, direction, and animation cleanup.
 
-Hurt was absent. The canary Hurt sequence is synthesized from Idle poses using recoil, compression, and recovery transforms.
+## Repacking decisions
 
-The source contact sheets also included baked contact shadows and frame-to-frame bleed. The canary sheets were cropped, centered, downsampled, and cleaned to remove the worst neighboring-frame fragments. Baked shadows remain and must be removed in final authored replacements.
+- Idle, Hurt, and Victory were generated as direction columns with motion progression across rows. Individual figures were component-cropped, normalized, and rearranged into directional runtime rows.
+- Walk was remapped to Down, Left, Right, Up using the closest authored rows.
+- Attack and Cast retain their four supplied rows and were normalized into exact cells.
+- Cast supplied five frames per direction; frame six returns to the opening pose.
+- Defeat supplied five frames per direction; frame six holds the final grounded pose.
+- The supplied Defeat right-facing row was unreliable, so it is mirrored from the left-facing row.
+
+## Remaining limitations
+
+- Some Down movement/action poses remain three-quarter rather than perfectly frontal.
+- Walk has more readable motion than the previous canary but still lacks strong foot articulation.
+- Generated contact shadows remain baked into the artwork.
+- Flame volume and brightness vary between Attack and Cast frames.
+- Defeat Right is mirrored.
+- The asset remains a runtime canary, not final approved production art.
 
 ## Approval status
 
-- Runtime contract: pass
-- Direction coverage: pass with mirrored Right
-- Frame dimensions/counts: pass
+- Character identity: improved and coherent
+- Exact dimensions and frame counts: pass
+- Direction-row contract: pass with documented approximations
 - Transparency: pass
-- Character identity: acceptable for canary
-- Walk articulation: fail for final production
-- Hurt authorship: placeholder only
-- Baked shadow removal: required before final production
-- Defeat Up direction: partially side-on during collapse
-- Final art approval: not granted
-
-This pack is intentionally marked `runtime_canary_only`. It exists to test the high-resolution renderer, evolution-stage selection, scaling, caching, and ordinary world readability before another generation pass.
+- Runtime replacement readiness: pass
+- Final art approval: pending in-world inspection
