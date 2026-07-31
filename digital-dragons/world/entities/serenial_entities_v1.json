@@ -25,6 +25,13 @@
     "enemy",
     "boss"
   ],
-  "art_status": "production_v1",
-  "review_status": "first_import_review"
+  "art_status": "production_authored_repack",
+  "review_status": "runtime_visual_review",
+  "source_layout": "8x2 presentation sheet repacked to exact runtime order",
+  "adjustments": [
+    "cropped and centered each supplied icon into a 32x32 transparent cell",
+    "removed the duplicate herb from the active runtime order",
+    "restored treasure_cache to slot 12",
+    "created an interim boss_relic in slot 13 from the supplied aether and boss visual language"
+  ]
 }
