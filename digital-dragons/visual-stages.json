@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "contract_version": "serenial-dragon-visual-stages-v1",
-  "description": "Evolution-aware visual keys. A requested key activates only after it exists in manifest.json; otherwise Celdra-Cloud retains the canonical species asset.",
+  "description": "Evolution-aware visual keys. Manifest assets and explicitly staged canary assets may activate; otherwise Celdra-Cloud retains the canonical species asset.",
   "stage_order": [
     "whelp",
     "drake",
@@ -10,11 +10,26 @@
     "elder"
   ],
   "stage_levels": {
-    "whelp": [1, 9],
-    "drake": [10, 29],
-    "mature": [30, 49],
-    "adult": [50, 69],
-    "elder": [70, null]
+    "whelp": [
+      1,
+      9
+    ],
+    "drake": [
+      10,
+      29
+    ],
+    "mature": [
+      30,
+      49
+    ],
+    "adult": [
+      50,
+      69
+    ],
+    "elder": [
+      70,
+      null
+    ]
   },
   "body_plans": {
     "fire": "grounded",
@@ -58,6 +73,22 @@
     },
     "neutral": {
       "whelp": "hatchling_neutral_01"
+    }
+  },
+  "staged_assets": {
+    "hatchling_fire_01": {
+      "portrait": "dragons/elemental/fire/hatchling_01/portrait.png",
+      "profile": "dragons/elemental/fire/hatchling_01/profile.png",
+      "race": "dragons/elemental/fire/hatchling_01/race.png",
+      "sprites": "dragons/elemental/fire/hatchling_01/sprites/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "fire"
+      ],
+      "stage": "whelp",
+      "display_label": "Fire Hatchling · Canary 01",
+      "art_status": "interim_generated_repacked",
+      "review_status": "runtime_canary_only"
     }
   },
   "asset_overrides": {},

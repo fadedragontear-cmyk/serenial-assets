@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "contract_version": "serenial-sprite-source-v2",
+  "frame_width": 48,
+  "frame_height": 48,
+  "direction_rows": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "anchor": {
+    "x": 24,
+    "y": 39
+  },
+  "world_scale": 1.15,
+  "render_filter": "linear",
+  "art_status": "interim_generated_repacked",
+  "review_status": "runtime_canary_only",
+  "known_limitations": [
+    "right-facing rows are mirrored from left-facing source art",
+    "walk frames contain limited foot articulation and use small positional bobbing",
+    "hurt is synthesized from idle poses because no dedicated hurt sheet was generated",
+    "generated source art includes baked contact shadows",
+    "up-facing defeat turns partially side-on during collapse"
+  ],
+  "animations": {
+    "idle": {
+      "file": "idle.png",
+      "frames": 4,
+      "fps": 4,
+      "loop": true
+    },
+    "walk": {
+      "file": "walk.png",
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    "attack": {
+      "file": "attack.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false
+    },
+    "cast": {
+      "file": "cast.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false
+    },
+    "hurt": {
+      "file": "hurt.png",
+      "frames": 4,
+      "fps": 8,
+      "loop": false
+    },
+    "victory": {
+      "file": "victory.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": true
+    },
+    "defeat": {
+      "file": "defeat.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": false,
+      "hold_last_frame": true
+    }
+  },
+  "source_note": "48x48-cell transport canary used only to validate stage selection and source-cell remapping. Final authored pack must use 128x128 cells and remove baked shadows."
+}
