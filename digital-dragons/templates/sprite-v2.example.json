@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "contract_version": "serenial-sprite-source-v2",
+  "frame_width": 128,
+  "frame_height": 128,
+  "anchor": {
+    "x": 64,
+    "y": 104
+  },
+  "body_plan": "grounded",
+  "direction_rows": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "render_filter": "linear",
+  "safe_margin": {
+    "ordinary": 8,
+    "extreme": 4
+  },
+  "animations": {
+    "idle": {
+      "file": "idle.png",
+      "frames": 4,
+      "fps": 4,
+      "loop": true
+    },
+    "walk": {
+      "file": "walk.png",
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    "attack": {
+      "file": "attack.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "next": "idle",
+      "events": {
+        "3": "impact"
+      }
+    },
+    "cast": {
+      "file": "cast.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "next": "idle",
+      "events": {
+        "3": "release"
+      }
+    },
+    "hurt": {
+      "file": "hurt.png",
+      "frames": 4,
+      "fps": 8,
+      "loop": false,
+      "next": "idle"
+    },
+    "victory": {
+      "file": "victory.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": true
+    },
+    "defeat": {
+      "file": "defeat.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": false,
+      "hold_last_frame": true
+    }
+  },
+  "reserved_fallbacks": {
+    "gather": "cast",
+    "carry_idle": "idle",
+    "carry_walk": "walk",
+    "deposit": "cast",
+    "rest": "idle",
+    "guard": "cast",
+    "takeoff": "walk",
+    "flight": "walk",
+    "land": "idle"
+  }
+}
