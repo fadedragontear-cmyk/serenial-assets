@@ -7,6 +7,12 @@ on:
     paths:
       - '.asset-publish/**'
       - '.github/workflows/publish-elemental-baseline-v2.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.asset-publish/**'
+      - '.github/workflows/publish-elemental-baseline-v2.yml'
 
 permissions:
   contents: write
