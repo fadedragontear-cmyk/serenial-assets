@@ -27,17 +27,29 @@ jobs:
           ref: agent/elemental-hatchling-baseline-v1
           fetch-depth: 0
 
-      - name: Select validated compact payload
+      - name: Assemble validated compact payload
         run: |
           python - <<'PY'
           from pathlib import Path
-          path = Path('.asset-publish/publish_elemental_baseline.py')
-          body = path.read_text()
+          root = Path('.asset-publish')
+          pieces = [root / f'hatchling_compact20_pack.correct.part{i:02d}' for i in range(10)]
+          pieces += [root / f'hatchling_compact20_pack.correct.part10frag{i:02d}' for i in range(8)]
+          pieces += [root / 'hatchling_compact20_pack.correct.part11']
+          missing = [str(path) for path in pieces if not path.exists()]
+          if missing:
+              raise SystemExit(f'missing compact payload pieces: {missing}')
+          assembled = ''.join(path.read_text().strip() for path in pieces)
+          if len(assembled) != 92808:
+              raise SystemExit(f'unexpected assembled payload length: {len(assembled)}')
+          (root / 'hatchling_compact20_pack.assembled.b64').write_text(assembled)
+
+          publisher = root / 'publish_elemental_baseline.py'
+          body = publisher.read_text()
           old = 'hatchling_compact20_pack.b64.part*'
-          new = 'hatchling_compact20_pack.correct.part*'
+          new = 'hatchling_compact20_pack.assembled.b64'
           if old not in body:
               raise SystemExit('expected compact payload pattern not found')
-          path.write_text(body.replace(old, new))
+          publisher.write_text(body.replace(old, new))
           PY
 
       - name: Build and validate runtime assets
