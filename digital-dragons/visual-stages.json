@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "contract_version": "serenial-dragon-visual-stages-v1",
-  "description": "Evolution-aware visual keys. Manifest assets and explicitly staged canary assets may activate; otherwise Celdra-Cloud retains the canonical species asset.",
+  "description": "Evolution-aware visual keys. Baseline hatchling packs are staged for all ten ordinary elements; canonical art remains the fallback.",
   "stage_order": [
     "whelp",
     "drake",
@@ -77,18 +77,144 @@
   },
   "staged_assets": {
     "hatchling_fire_01": {
-      "portrait": "dragons/elemental/fire/hatchling_01/portrait.png",
-      "profile": "dragons/elemental/fire/hatchling_01/profile.png",
-      "race": "dragons/elemental/fire/hatchling_01/race.png",
-      "sprites": "dragons/elemental/fire/hatchling_01/sprites/sprite.json",
+      "portrait": "dragons/elemental/fire/variant_01/portrait.png",
+      "profile": "dragons/elemental/fire/variant_01/profile.png",
+      "race": "dragons/elemental/fire/variant_01/race.png",
+      "sprites": "dragons/elemental/fire/hatchling_01/sprites_v2/sprite.json",
       "kind": "elemental_stage",
       "elements": [
         "fire"
       ],
       "stage": "whelp",
-      "display_label": "Fire Hatchling · Canary 01",
-      "art_status": "interim_generated_repacked",
-      "review_status": "runtime_canary_only"
+      "display_label": "Fire Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_water_01": {
+      "portrait": "dragons/elemental/water/variant_01/portrait.png",
+      "profile": "dragons/elemental/water/variant_01/profile.png",
+      "race": "dragons/elemental/water/variant_01/race.png",
+      "sprites": "dragons/elemental/water/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "water"
+      ],
+      "stage": "whelp",
+      "display_label": "Water Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_wind_01": {
+      "portrait": "dragons/elemental/wind/variant_01/portrait.png",
+      "profile": "dragons/elemental/wind/variant_01/profile.png",
+      "race": "dragons/elemental/wind/variant_01/race.png",
+      "sprites": "dragons/elemental/wind/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "wind"
+      ],
+      "stage": "whelp",
+      "display_label": "Wind Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_earth_01": {
+      "portrait": "dragons/elemental/earth/variant_01/portrait.png",
+      "profile": "dragons/elemental/earth/variant_01/profile.png",
+      "race": "dragons/elemental/earth/variant_01/race.png",
+      "sprites": "dragons/elemental/earth/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "earth"
+      ],
+      "stage": "whelp",
+      "display_label": "Earth Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_ice_01": {
+      "portrait": "dragons/elemental/ice/variant_01/portrait.png",
+      "profile": "dragons/elemental/ice/variant_01/profile.png",
+      "race": "dragons/elemental/ice/variant_01/race.png",
+      "sprites": "dragons/elemental/ice/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "ice"
+      ],
+      "stage": "whelp",
+      "display_label": "Ice Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_storm_01": {
+      "portrait": "dragons/elemental/storm/variant_01/portrait.png",
+      "profile": "dragons/elemental/storm/variant_01/profile.png",
+      "race": "dragons/elemental/storm/variant_01/race.png",
+      "sprites": "dragons/elemental/storm/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "storm"
+      ],
+      "stage": "whelp",
+      "display_label": "Storm Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_light_01": {
+      "portrait": "dragons/elemental/light/variant_01/portrait.png",
+      "profile": "dragons/elemental/light/variant_01/profile.png",
+      "race": "dragons/elemental/light/variant_01/race.png",
+      "sprites": "dragons/elemental/light/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "light"
+      ],
+      "stage": "whelp",
+      "display_label": "Light Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_shadow_01": {
+      "portrait": "dragons/elemental/shadow/variant_01/portrait.png",
+      "profile": "dragons/elemental/shadow/variant_01/profile.png",
+      "race": "dragons/elemental/shadow/variant_01/race.png",
+      "sprites": "dragons/elemental/shadow/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "shadow"
+      ],
+      "stage": "whelp",
+      "display_label": "Shadow Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_aether_01": {
+      "portrait": "dragons/elemental/aether/variant_01/portrait.png",
+      "profile": "dragons/elemental/aether/variant_01/profile.png",
+      "race": "dragons/elemental/aether/variant_01/race.png",
+      "sprites": "dragons/elemental/aether/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "aether"
+      ],
+      "stage": "whelp",
+      "display_label": "Aether Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
+    },
+    "hatchling_neutral_01": {
+      "portrait": "dragons/elemental/neutral/variant_01/portrait.png",
+      "profile": "dragons/elemental/neutral/variant_01/profile.png",
+      "race": "dragons/elemental/neutral/variant_01/race.png",
+      "sprites": "dragons/elemental/neutral/hatchling_01/sprites_v2/sprite.json",
+      "kind": "elemental_stage",
+      "elements": [
+        "neutral"
+      ],
+      "stage": "whelp",
+      "display_label": "Neutral Hatchling \u00b7 Baseline 01",
+      "art_status": "baseline_placeholder_v1",
+      "review_status": "runtime_baseline_manual_review_required"
     }
   },
   "asset_overrides": {},
