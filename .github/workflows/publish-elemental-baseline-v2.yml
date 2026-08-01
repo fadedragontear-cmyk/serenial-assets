@@ -27,15 +27,17 @@ jobs:
           ref: agent/elemental-hatchling-baseline-v1
           fetch-depth: 0
 
-      - name: Inspect compact payload chunks
+      - name: Inspect staged payload chunks
         run: |
           python - <<'PY'
           from pathlib import Path
-          for path in sorted(Path('.asset-publish').glob('hatchling_compact20_pack.b64.part*')):
-              body = path.read_text()
-              compact = ''.join(body.split())
-              print(path.name, 'raw=', len(body), 'compact=', len(compact), 'mod4=', len(compact) % 4, 'padding=', compact.count('='))
-              print(' first=', repr(compact[:32]), 'last=', repr(compact[-64:]))
+          for pattern in ('hatchling_compact20_pack.b64.part*', 'hatchling_palette_pack.b64.part*'):
+              print('PATTERN', pattern)
+              for path in sorted(Path('.asset-publish').glob(pattern)):
+                  body = path.read_text()
+                  compact = ''.join(body.split())
+                  print(path.name, 'raw=', len(body), 'compact=', len(compact), 'mod4=', len(compact) % 4, 'padding=', compact.count('='))
+                  print(' first=', repr(compact[:32]), 'last=', repr(compact[-64:]))
           PY
 
       - name: Decode independently encoded payload chunks
