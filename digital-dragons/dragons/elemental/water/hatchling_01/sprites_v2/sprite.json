@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "contract_version": "serenial-sprite-source-v2",
+  "frame_width": 64,
+  "frame_height": 64,
+  "direction_rows": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "anchor": {
+    "x": 32,
+    "y": 60
+  },
+  "world_scale": 1.15,
+  "render_filter": "linear",
+  "pixel_art": false,
+  "art_status": "baseline_placeholder_v1",
+  "review_status": "runtime_baseline_manual_review_required",
+  "known_limitations": [
+    "generated placeholder art; anatomy and directional consistency need manual cleanup",
+    "contact shadows are baked into several frames",
+    "some motion cycles read as pose changes rather than fully articulated animation",
+    "effect scale and lighting vary between action frames",
+    "runtime atlases are compact derivatives of higher-resolution source work retained for later refinement"
+  ],
+  "animations": {
+    "idle": {
+      "file": "idle.png",
+      "frames": 4,
+      "fps": 4,
+      "loop": true
+    },
+    "hurt": {
+      "file": "hurt.png",
+      "frames": 4,
+      "fps": 8,
+      "loop": false
+    },
+    "walk": {
+      "file": "walk.png",
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    "attack": {
+      "file": "attack.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "event_frame": 3
+    },
+    "cast": {
+      "file": "cast.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "event_frame": 3
+    },
+    "victory": {
+      "file": "victory.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": true
+    },
+    "defeat": {
+      "file": "defeat.png",
+      "frames": 6,
+      "fps": 6,
+      "loop": false,
+      "hold_last_frame": true
+    }
+  },
+  "source_note": "Water Hatchling baseline normalized for runtime use. Higher-resolution 1536x1024 and 1024x1024 generation masters should be retained as future source material."
+}

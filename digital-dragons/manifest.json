@@ -1,5 +1,5 @@
 {
-  "asset_version": "2026.07.25.2",
+  "asset_version": "2026.08.01.1",
   "dragons": {
     "element_aether_01": {
       "portrait": "dragons/elemental/aether/variant_01/portrait.png",
@@ -2296,8 +2296,8 @@
         "neutralfield",
         "ruins"
       ],
-      "art_status": "production_v1",
-      "review_status": "first_import_review"
+      "art_status": "baseline_v2_repacked",
+      "review_status": "runtime_baseline_manual_review_required"
     }
   },
   "world_entities": {
@@ -2327,8 +2327,8 @@
         "enemy",
         "boss"
       ],
-      "art_status": "production_v1",
-      "review_status": "first_import_review"
+      "art_status": "baseline_v2_transparent",
+      "review_status": "runtime_baseline_manual_review_required"
     }
   }
 }

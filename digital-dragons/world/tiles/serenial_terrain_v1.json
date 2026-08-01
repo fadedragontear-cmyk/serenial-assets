@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "asset_version": "2026.07.25.1",
+  "asset_version": "2026.08.01.1",
   "runtime_key": "serenial_terrain_v1",
   "atlas": "serenial_terrain_v1.png",
-  "pixel_art": true,
+  "pixel_art": false,
   "tile_width": 32,
   "tile_height": 32,
   "columns": 10,
@@ -672,10 +672,6 @@
       ]
     }
   },
-  "rendering": {
-    "sampling": "nearest-neighbor",
-    "variant_rule": "stable hash of world seed, x, y, and terrain",
-    "alpha": "opaque base tiles",
-    "overlays": "roads, lairs, resources, actors, fog, and labels remain separate"
-  }
+  "art_status": "baseline_authored_repack_v2",
+  "review_status": "runtime_visual_review"
 }
