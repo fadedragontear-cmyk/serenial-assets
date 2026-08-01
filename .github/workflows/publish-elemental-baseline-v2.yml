@@ -27,6 +27,19 @@ jobs:
           ref: agent/elemental-hatchling-baseline-v1
           fetch-depth: 0
 
+      - name: Decode independently encoded payload chunks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('.asset-publish/publish_elemental_baseline.py')
+          body = path.read_text()
+          old = 'packed = base64.b64decode("".join(part.read_text().strip() for part in parts), validate=True)'
+          new = 'packed = b"".join(base64.b64decode(part.read_text().strip(), validate=True) for part in parts)'
+          if old not in body:
+              raise SystemExit('expected chunk decoder line not found')
+          path.write_text(body.replace(old, new))
+          PY
+
       - name: Build and validate runtime assets
         run: python .asset-publish/publish_elemental_baseline.py
 
