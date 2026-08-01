@@ -1,0 +1,39 @@
+name: Publish elemental hatchling baseline
+
+on:
+  push:
+    branches:
+      - agent/elemental-hatchling-baseline-v1
+    paths:
+      - '.asset-publish/**'
+      - '.github/workflows/publish-elemental-baseline-v2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/elemental-hatchling-baseline-v1
+          fetch-depth: 0
+
+      - name: Build and validate runtime assets
+        run: python .asset-publish/publish_elemental_baseline.py
+
+      - name: Remove publication payload
+        run: |
+          rm -rf .asset-publish
+          rm -f .github/workflows/publish-elemental-baseline-v2.yml
+
+      - name: Commit generated baseline
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Publish all elemental hatchling baseline assets"
+          git push origin HEAD:agent/elemental-hatchling-baseline-v1
