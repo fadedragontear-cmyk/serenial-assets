@@ -27,29 +27,16 @@ jobs:
           ref: agent/elemental-hatchling-baseline-v1
           fetch-depth: 0
 
-      - name: Inspect staged payload chunks
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          for pattern in ('hatchling_compact20_pack.b64.part*', 'hatchling_palette_pack.b64.part*'):
-              print('PATTERN', pattern)
-              for path in sorted(Path('.asset-publish').glob(pattern)):
-                  body = path.read_text()
-                  compact = ''.join(body.split())
-                  print(path.name, 'raw=', len(body), 'compact=', len(compact), 'mod4=', len(compact) % 4, 'padding=', compact.count('='))
-                  print(' first=', repr(compact[:32]), 'last=', repr(compact[-64:]))
-          PY
-
-      - name: Decode independently encoded payload chunks
+      - name: Select validated compact payload
         run: |
           python - <<'PY'
           from pathlib import Path
           path = Path('.asset-publish/publish_elemental_baseline.py')
           body = path.read_text()
-          old = 'packed = base64.b64decode("".join(part.read_text().strip() for part in parts), validate=True)'
-          new = 'packed = b"".join(base64.b64decode(part.read_text().strip(), validate=True) for part in parts)'
+          old = 'hatchling_compact20_pack.b64.part*'
+          new = 'hatchling_compact20_pack.correct.part*'
           if old not in body:
-              raise SystemExit('expected chunk decoder line not found')
+              raise SystemExit('expected compact payload pattern not found')
           path.write_text(body.replace(old, new))
           PY
 
