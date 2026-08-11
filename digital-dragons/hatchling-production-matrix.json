@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-11",
+  "reference_policy": "August 4 manually revised elemental idles define the current visual direction; new sheets land as candidates until runtime-reviewed.",
+  "direction_rows": ["down", "left", "right", "up"],
+  "animations": {
+    "idle": { "frames": 4, "status_goal": "reference or approved" },
+    "walk": { "frames": 6, "status_goal": "candidate -> approved" },
+    "attack": { "frames": 6, "status_goal": "candidate -> approved" },
+    "cast": { "frames": 6, "status_goal": "candidate -> approved" },
+    "hurt": { "frames": 4, "status_goal": "candidate -> approved" },
+    "victory": { "frames": 6, "status_goal": "candidate -> approved" },
+    "defeat": { "frames": 6, "status_goal": "candidate -> approved" }
+  },
+  "elemental_hatchlings": {
+    "fire": { "idle_status": "secondary_reference", "reference_path": "dragons/elemental/fire/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "water": { "idle_status": "reference_idle", "reference_path": "dragons/elemental/water/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "earth": { "idle_status": "reference_idle", "reference_path": "dragons/elemental/earth/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "storm": { "idle_status": "reference_idle", "reference_path": "dragons/elemental/storm/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "ice": { "idle_status": "reference_idle", "reference_path": "dragons/elemental/ice/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "wind": { "idle_status": "reference_idle", "reference_path": "dragons/elemental/wind/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "shadow": { "idle_status": "reference_idle", "reference_path": "dragons/elemental/shadow/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "light": { "idle_status": "reference_idle", "reference_path": "dragons/elemental/light/hatchling_01/sprites_v2/idle.png", "remaining_animation_style_pass": true },
+    "aether": { "idle_status": "legacy", "reference_path": "dragons/elemental/aether/hatchling_01/sprites_v2/idle.png", "needs_idle_redesign": true, "remaining_animation_style_pass": true },
+    "neutral": { "idle_status": "legacy", "reference_path": "dragons/elemental/neutral/hatchling_01/sprites_v2/idle.png", "needs_idle_redesign": true, "remaining_animation_style_pass": true }
+  },
+  "hybrid_policy": {
+    "status": "systematic_production_required",
+    "rule": "Dual-element hatchlings must inherit recognizable structural traits from both elements and may not be solved as palette swaps.",
+    "production_order": "prioritize combinations already represented by owned dragons, then fill the pair matrix systematically"
+  },
+  "transformation_policy": {
+    "status": "planned",
+    "rule": "Later forms derive from the approved hatchling identity and preserve signature face, crest, horn and tail motifs."
+  }
+}
