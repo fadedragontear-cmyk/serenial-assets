@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "contract_version": "serenial-character-atlas-v2",
+  "id": "female-base-a",
+  "frame": {
+    "width": 96,
+    "height": 96,
+    "anchor_x": 48,
+    "anchor_y": 84
+  },
+  "direction_rows": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": {
+    "idle": {
+      "sheet": "idle.png",
+      "columns": 4,
+      "rows": 4,
+      "frames_per_direction": 4,
+      "fps": 4,
+      "loop": true
+    }
+  }
+}

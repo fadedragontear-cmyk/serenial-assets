@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "contract_version": "serenial-character-atlas-v2",
+  "id": "female-base-a",
+  "asset_kind": "paper-doll-body",
+  "frame_width": 96,
+  "frame_height": 96,
+  "anchor": {
+    "x": 48,
+    "y": 84
+  },
+  "safe_bounds": {
+    "left": 4,
+    "top": 4,
+    "right": 91,
+    "bottom": 87
+  },
+  "direction_rows": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "render_filter": "nearest",
+  "animations": {
+    "idle": {
+      "frames": 4,
+      "fps": 4,
+      "loop": true,
+      "source": "reviewed-neutral-hold-v1"
+    }
+  },
+  "layer_slots": [
+    "back_accessory",
+    "back_hair",
+    "body",
+    "lower_outfit",
+    "upper_outfit",
+    "front_hair",
+    "headwear",
+    "front_accessory"
+  ]
+}
