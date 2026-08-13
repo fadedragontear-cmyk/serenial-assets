@@ -1,0 +1,47 @@
+name: Validate character sprite pipeline
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - digital-characters/**
+      - tools/character_sprite_pipeline.py
+      - tools/import_character_keypose_board.py
+      - tools/register_character_frames.py
+      - tools/render_character_previews.py
+      - tests/test_character_sprite_pipeline.py
+      - .github/workflows/character-sprite-pipeline.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: character-sprite-pipeline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image dependency
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+
+      - name: Test character packer and validation failures
+        run: python -m unittest discover -s tests -p "test_character_sprite_pipeline.py"
+
+      - name: Validate committed character packs
+        run: python tools/character_sprite_pipeline.py --root digital-characters --check
+
+      - name: Confirm Celdra source registration is idempotent
+        run: python tools/register_character_frames.py digital-characters/celdra-dragongirl/v1/character.json

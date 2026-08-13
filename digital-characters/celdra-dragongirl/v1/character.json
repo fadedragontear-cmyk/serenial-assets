@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "contract_version": "serenial-character-atlas-v2",
+  "id": "celdra-dragongirl-v1",
+  "asset_kind": "character",
+  "frame_width": 96,
+  "frame_height": 96,
+  "anchor": {
+    "x": 48,
+    "y": 84
+  },
+  "safe_bounds": {
+    "left": 4,
+    "top": 4,
+    "right": 91,
+    "bottom": 87
+  },
+  "direction_rows": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "render_filter": "nearest",
+  "direction_derivation": {
+    "left": "reviewed-mirror-of-right-v1"
+  },
+  "registration": {
+    "visible_bounds_center_x": {
+      "down": 48,
+      "left": 59,
+      "right": 36,
+      "up": 48
+    },
+    "tolerance": 0.5
+  },
+  "animations": {
+    "idle": {
+      "frames": 4,
+      "fps": 4,
+      "loop": true
+    },
+    "walk": {
+      "frames": 8,
+      "fps": 10,
+      "loop": true
+    },
+    "run": {
+      "frames": 8,
+      "fps": 14,
+      "loop": true
+    }
+  }
+}
