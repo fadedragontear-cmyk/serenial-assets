@@ -1,27 +1,45 @@
 {
-  "schema_version": 1,
-  "contract_version": "serenial-character-atlas-v2",
-  "id": "female-base-a",
-  "frame": {
-    "width": 96,
-    "height": 96,
-    "anchor_x": 48,
-    "anchor_y": 84
+  "anchor": {
+    "x": 48,
+    "y": 84
   },
+  "animations": {
+    "idle": {
+      "file": "idle.png",
+      "fps": 4.0,
+      "frames": 4,
+      "loop": true
+    },
+    "run": {
+      "file": "run.png",
+      "fps": 14.0,
+      "frames": 8,
+      "loop": true
+    },
+    "walk": {
+      "file": "walk.png",
+      "fps": 10.0,
+      "frames": 8,
+      "loop": true
+    }
+  },
+  "asset_kind": "character",
+  "contract_version": "serenial-character-atlas-v2",
   "direction_rows": [
     "down",
     "left",
     "right",
     "up"
   ],
-  "animations": {
-    "idle": {
-      "sheet": "idle.png",
-      "columns": 4,
-      "rows": 4,
-      "frames_per_direction": 4,
-      "fps": 4,
-      "loop": true
-    }
-  }
+  "frame_height": 96,
+  "frame_width": 96,
+  "id": "female-base-a",
+  "render_filter": "nearest",
+  "safe_bounds": {
+    "bottom": 87,
+    "left": 4,
+    "right": 91,
+    "top": 4
+  },
+  "schema_version": 1
 }
