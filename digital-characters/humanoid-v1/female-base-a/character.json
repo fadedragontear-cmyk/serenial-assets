@@ -7,13 +7,13 @@
   "frame_height": 96,
   "anchor": {
     "x": 48,
-    "y": 84
+    "y": 90
   },
   "safe_bounds": {
-    "left": 4,
-    "top": 4,
-    "right": 91,
-    "bottom": 87
+    "left": 0,
+    "top": 1,
+    "right": 95,
+    "bottom": 92
   },
   "direction_rows": [
     "down",
@@ -27,7 +27,7 @@
       "frames": 4,
       "fps": 4,
       "loop": true,
-      "source": "reviewed-neutral-hold-v1"
+      "source": "manual-bald-base-upload"
     },
     "walk": {
       "frames": 8,
