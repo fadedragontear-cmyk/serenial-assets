@@ -1,0 +1,6 @@
+Upload `idle.png` into this folder.
+
+Required sheet: 384×384 RGBA PNG.
+Grid: 4 columns × 4 rows of 96×96 cells.
+Rows: down, left, right, up.
+Ground anchor: 48,84.
