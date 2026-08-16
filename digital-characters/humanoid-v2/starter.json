@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "serenial-humanoid-v2-starter-r1",
+  "rig": "serenial-anime-humanoid-v2",
+  "frame_width": 192,
+  "frame_height": 192,
+  "sheet_width": 3072,
+  "segment_height": 768,
+  "anchor": { "x": 96, "y": 172 },
+  "direction_rows": ["down", "left", "right", "up"],
+  "columns": {
+    "idle": [0, 1, 2, 3],
+    "walk": [4, 5, 6, 7, 8, 9],
+    "run": [10, 11, 12, 13, 14, 15]
+  },
+  "runtime_pack": "runtime/starter.pack",
+  "runtime_pack_sha256": "2457cd8e7ad5955c6c443698a3408b93eafe717df05766eb0a24b39d6372f996",
+  "layers": {
+    "body": ["female-base-a", "male-base-a"],
+    "eyes": ["soft", "sharp"],
+    "hair": ["short-tousled", "neat-bob", "medium-ponytail"],
+    "top": ["short-tunic", "long-shirt", "open-vest"],
+    "bottom": ["adventurer-trousers", "knee-shorts", "slim-pants"],
+    "shoes": ["ankle-boots", "adventurer-shoes", "tall-boots"]
+  },
+  "starter_layer_order": ["body", "bottom", "top", "shoes", "hair", "eyes"],
+  "color_channels": ["skin", "eyes", "hair", "top", "bottom", "shoes"],
+  "qa": {
+    "status": "starter-normalized",
+    "source_grid_note": "Generated source sheets varied between 14, 15 and 16 columns. The import normalizes every module/body to the canonical 4/6/6 layout. Missing generated recovery poses are held from the nearest reviewed frame until individually repaired.",
+    "alpha_note": "Low-alpha edge contamination is removed during import. Remaining edge defects should be reported against module/body/direction/action/frame.",
+    "palette_note": "Runtime category atlases are quantized after visual QA; authored source modules remain replaceable without changing this contract."
+  }
+}
