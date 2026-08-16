@@ -1,0 +1,6 @@
+Upload `run.png` into this folder.
+
+Required sheet: 768×384 RGBA PNG.
+Grid: 8 columns × 4 rows of 96×96 cells.
+Rows: down, left, right, up.
+Ground anchor: 48,84.
