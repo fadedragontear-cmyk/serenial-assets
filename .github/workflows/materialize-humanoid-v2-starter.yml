@@ -1,0 +1,36 @@
+name: Materialize humanoid v2 starter
+
+on:
+  push:
+    branches:
+      - agent/import-humanoid-v2-modular-starter
+    paths:
+      - digital-characters/humanoid-v2/import/starter-pack/READY
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reconstruct and verify starter pack
+        run: python tools/materialize_humanoid_v2_starter.py
+      - name: Remove transfer chunks
+        run: |
+          rm -f digital-characters/humanoid-v2/import/starter-pack/*.b64part
+          rm -f digital-characters/humanoid-v2/import/starter-pack/READY
+      - name: Commit runtime pack
+        run: |
+          if git diff --quiet -- digital-characters/humanoid-v2/runtime/starter.pack digital-characters/humanoid-v2/import/starter-pack; then
+            echo "Starter pack is already materialized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add digital-characters/humanoid-v2/runtime/starter.pack digital-characters/humanoid-v2/import/starter-pack
+          git commit -m "Materialize humanoid v2 starter runtime pack"
+          git push origin HEAD:agent/import-humanoid-v2-modular-starter
