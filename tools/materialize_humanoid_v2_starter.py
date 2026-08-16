@@ -3,14 +3,18 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import json
 from pathlib import Path
+import struct
 import sys
+import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
 PARTS = ROOT / "digital-characters" / "humanoid-v2" / "import" / "starter-pack"
 OUTPUT = ROOT / "digital-characters" / "humanoid-v2" / "runtime" / "starter.pack"
-EXPECTED_SHA256 = "2457cd8e7ad5955c6c443698a3408b93eafe717df05766eb0a24b39d6372f996"
-EXPECTED_PARTS = 17
+EXPECTED_SHA256 = "4a9a4cf67317ca4a723b080145a298f53a76898e0a54cef5d156c39ce1c07260"
+EXPECTED_PARTS = 54
+EXPECTED_MODULES = 30
 
 
 def main() -> int:
@@ -24,12 +28,25 @@ def main() -> int:
     if digest != EXPECTED_SHA256:
         print(f"starter pack sha256 mismatch: {digest}", file=sys.stderr)
         return 3
-    if not payload.startswith(b"SRN2PACK"):
-        print("starter pack magic is invalid", file=sys.stderr)
+    try:
+        raw = zlib.decompress(payload)
+        header_length = struct.unpack("<I", raw[:4])[0]
+        header = json.loads(raw[4:4 + header_length])
+    except Exception as error:
+        print(f"starter pack could not be decoded: {error}", file=sys.stderr)
         return 4
+    if header.get("schema") != 2 or header.get("cell") != 192:
+        print(f"unexpected starter pack contract: {header}", file=sys.stderr)
+        return 5
+    if len(header.get("modules", [])) != EXPECTED_MODULES:
+        print(f"expected {EXPECTED_MODULES} modules, found {len(header.get('modules', []))}", file=sys.stderr)
+        return 6
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_bytes(payload)
-    print(f"materialized {OUTPUT.relative_to(ROOT)} ({len(payload)} bytes, sha256={digest})")
+    print(
+        f"materialized {OUTPUT.relative_to(ROOT)} "
+        f"({len(payload)} compressed bytes, {len(raw)} decoded bytes, sha256={digest})"
+    )
     return 0
 
 
