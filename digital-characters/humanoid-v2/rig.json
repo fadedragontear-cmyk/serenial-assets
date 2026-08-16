@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "serenial-anime-humanoid-v2",
+  "asset_kind": "character_rig",
+  "frame_width": 192,
+  "frame_height": 192,
+  "anchor": { "x": 96, "y": 172 },
+  "safe_bounds": { "left": 8, "top": 6, "right": 183, "bottom": 179 },
+  "direction_rows": ["down", "left", "right", "up"],
+  "render_filter": "nearest",
+  "animations": {
+    "idle": { "frames": 4, "fps": 4, "loop": true },
+    "walk": { "frames": 8, "fps": 10, "loop": true, "stride_tiles": 1.55, "contact_frames": [0, 4], "passing_frames": [2, 6] },
+    "run": { "frames": 8, "fps": 14, "loop": true, "stride_tiles": 1.6, "contact_frames": [0, 4], "airborne_frames": [2, 6] }
+  },
+  "layer_order": [
+    "back_accessory",
+    "back_hair",
+    "body",
+    "skin_detail",
+    "eyes",
+    "lower_outfit",
+    "upper_outfit",
+    "lineage_detail",
+    "front_hair",
+    "headwear",
+    "front_accessory"
+  ],
+  "color_channels": ["skin", "hair", "eyes"],
+  "runtime": {
+    "composite_once_per_appearance": true,
+    "distance_locked_locomotion": true,
+    "whole_sheet_hue_rotation": false,
+    "missing_layer_policy": "omit_layer_keep_authored_base",
+    "legacy_procedural_fallback": false
+  }
+}
