@@ -1,0 +1,68 @@
+name: Materialize 96x96 humanoid sprites
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - digital-characters/humanoid-v1/**/frames/**
+      - digital-characters/humanoid-v1/**/character.json
+      - tools/character_sprite_pipeline.py
+      - .github/workflows/materialize-humanoid-96.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-humanoid-96-main
+  cancel-in-progress: true
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image dependency
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+
+      - name: Build complete 96x96 humanoid packs
+        shell: bash
+        run: |
+          set -euo pipefail
+          found=0
+          for pack in digital-characters/humanoid-v1/*; do
+            if [ -f "$pack/character.json" ] && [ -d "$pack/frames" ]; then
+              found=1
+              echo "Materializing $pack"
+              python tools/character_sprite_pipeline.py --root "$pack" --write
+              python tools/character_sprite_pipeline.py --root "$pack" --check
+            fi
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "No complete humanoid frame packs found."
+          fi
+
+      - name: Commit regenerated runtime atlases
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add digital-characters/humanoid-v1/*/runtime
+          if git diff --cached --quiet; then
+            echo "Runtime atlases are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Build 96x96 humanoid runtime atlases"
+          git push origin HEAD:main
