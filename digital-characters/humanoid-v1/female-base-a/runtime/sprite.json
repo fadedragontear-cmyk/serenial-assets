@@ -1,7 +1,7 @@
 {
   "anchor": {
     "x": 48,
-    "y": 84
+    "y": 90
   },
   "animations": {
     "idle": {
@@ -36,10 +36,10 @@
   "id": "female-base-a",
   "render_filter": "nearest",
   "safe_bounds": {
-    "bottom": 87,
-    "left": 4,
-    "right": 91,
-    "top": 4
+    "bottom": 92,
+    "left": 0,
+    "right": 95,
+    "top": 1
   },
   "schema_version": 1
 }
