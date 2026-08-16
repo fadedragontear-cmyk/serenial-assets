@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PARTS = ROOT / "digital-characters" / "humanoid-v2" / "import" / "starter-pack"
 OUTPUT = ROOT / "digital-characters" / "humanoid-v2" / "runtime" / "starter.pack"
 EXPECTED_SHA256 = "6a597e01095eefbf9bd5ffdf07a2efc6617976c35be1e3500392ad423ff08e9d"
-EXPECTED_PARTS = 22
+EXPECTED_PARTS = 28
 
 
 def main() -> int:
