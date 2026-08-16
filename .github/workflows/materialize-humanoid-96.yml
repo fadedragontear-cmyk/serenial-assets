@@ -90,8 +90,13 @@ jobs:
               1,
           )
           source = source.replace(
+              'ANCHOR = {"x": 48, "y": 84}',
+              'ANCHOR = {"x": 48, "y": 90}',
+              1,
+          )
+          source = source.replace(
               'SAFE_BOUNDS = {"left": 4, "top": 4, "right": 91, "bottom": 87}',
-              'SAFE_BOUNDS = {"left": 0, "top": 0, "right": 95, "bottom": 95}',
+              'SAFE_BOUNDS = {"left": 0, "top": 1, "right": 95, "bottom": 92}',
               1,
           )
           path.write_text(source, encoding='utf-8')
