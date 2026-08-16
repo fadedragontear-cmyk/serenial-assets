@@ -8,10 +8,17 @@
   "safe_bounds": { "left": 8, "top": 6, "right": 183, "bottom": 179 },
   "direction_rows": ["down", "left", "right", "up"],
   "render_filter": "nearest",
+  "body_bases": ["female-base-a", "male-base-a"],
   "animations": {
     "idle": { "frames": 4, "fps": 4, "loop": true },
-    "walk": { "frames": 8, "fps": 10, "loop": true, "stride_tiles": 1.55, "contact_frames": [0, 4], "passing_frames": [2, 6] },
-    "run": { "frames": 8, "fps": 14, "loop": true, "stride_tiles": 1.6, "contact_frames": [0, 4], "airborne_frames": [2, 6] }
+    "walk": { "frames": 6, "fps": 10, "loop": true, "stride_tiles": 1.55, "contact_frames": [0, 3], "passing_frames": [1, 4] },
+    "run": { "frames": 6, "fps": 14, "loop": true, "stride_tiles": 1.6, "contact_frames": [0, 3], "airborne_frames": [1, 4] }
+  },
+  "presentation": {
+    "target_visible_height": 112,
+    "target_visible_height_min": 100,
+    "target_visible_height_max": 120,
+    "runtime_root_deformation": false
   },
   "layer_order": [
     "back_accessory",
